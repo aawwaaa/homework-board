@@ -1,0 +1,42 @@
+name: Build Windows Zip
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Windows zip
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run build:win
+
+      - name: Read package metadata
+        id: pkg
+        shell: pwsh
+        run: |
+          $pkg = Get-Content package.json | ConvertFrom-Json
+          "name=$($pkg.name)" >> $env:GITHUB_OUTPUT
+          "version=$($pkg.version)" >> $env:GITHUB_OUTPUT
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}-win64
+          path: dist/**/*.zip
+          if-no-files-found: error

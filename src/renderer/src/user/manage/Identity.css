@@ -1,0 +1,29 @@
+@import url("../../color.css");
+
+.identity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.identity-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.identity-row input[type="text"] {
+    flex: 1;
+}
+
+.roles {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
+    flex: 3;
+}
+
+select {
+    width: 150px;
+}

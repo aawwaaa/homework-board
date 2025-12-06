@@ -1,0 +1,46 @@
+.config-button {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.25rem;
+    padding-inline: 1.25rem;
+}
+
+.comp-config-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.25rem 1.5rem 1.5rem;
+    border: 1px solid var(--gray-tinted-4);
+    background-color: #fff;
+}
+
+.comp-config-group h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-menu);
+}
+
+.comp-config-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.comp-config-item label {
+    min-width: 4.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-menu);
+}
+
+.comp-config-item .swipe-adjust-input {
+    flex: 1 1 6rem;
+    min-width: 0;
+}
+
+.comp {
+    font-weight: bold;
+}

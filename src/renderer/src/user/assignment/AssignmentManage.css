@@ -1,0 +1,51 @@
+@import url("../../color.css");
+
+.progress {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 8px);
+    margin: 4px;
+    background-color: var(--color-quaternary);
+    position: relative;
+}
+
+.progress > * {
+    z-index: 1;
+    color: white;
+}
+
+.bar {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: calc(100% - 4px);
+    background-color: var(--color-primary);
+    z-index: 0;
+}
+
+.title {
+    padding: 4px;
+    color: var(--color-text-primary);
+    font-weight: bold;
+}
+
+.unsubmitted {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.unsubmitted > span {
+    padding: 4px;
+    margin: 2px;
+    background-color: var(--color-quaternary);
+}
+
+.feedback > div {
+    padding: 4px;
+    margin: 2px;
+    border-left: 2px solid var(--color-primary);
+}
+
+.time-data > *:nth-child(2) {
+    width: 70px;
+}

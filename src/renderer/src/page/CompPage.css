@@ -1,0 +1,4 @@
+body:first-of-type {
+    background-color: transparent;
+    overflow: hidden;
+}

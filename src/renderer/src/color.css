@@ -1,0 +1,27 @@
+/* Indigo-lavender palette derived from #9999FF */
+:root {
+  --color-primary: #9999ff;
+  --color-secondary: #7c7cf0;
+  --color-tertiary: #b3b3ff;
+  --color-quaternary: #d8d8ff;
+
+  --color-danger: #ff6666;
+
+  --color-info: #8fb5ff;
+  --color-error: #c17cff;
+  --color-warning: #b795ff;
+  --color-confirm: #7fbdf5;
+  --color-cancel: #8c7ed6;
+
+  --color-title: #3f3f80;
+  --color-subtitle: #5c5ca3;
+  --color-menu: #7575c5;
+  --color-list: #a0a0e6;
+
+  --gray-tinted-1: #f6f6ff;
+  --gray-tinted-2: #ececff;
+  --gray-tinted-3: #dfdff2;
+  --gray-tinted-4: #cdcdde;
+  --gray-tinted-5: #b9b9c9;
+  --gray-tinted-6: #a5a5b5;
+}

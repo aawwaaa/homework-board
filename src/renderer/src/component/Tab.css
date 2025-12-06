@@ -1,0 +1,45 @@
+@import url("../color.css");
+
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-title);
+}
+
+.tab-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--gray-tinted-3);
+}
+
+.tab-header button {
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  color: var(--color-menu);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: none;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.tab-header button:hover {
+  color: var(--color-secondary);
+  background-color: var(--gray-tinted-1);
+}
+
+.tab-header button:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.tab-header button.active {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: var(--gray-tinted-1);
+}

@@ -1,0 +1,14 @@
+.subject-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 40px;
+    max-width: 40px;
+}
+
+.subject-name {
+    color: white;
+}

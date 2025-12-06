@@ -1,0 +1,16 @@
+.student-list-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.student-list-group > h3 {
+    display: inline-block;
+    width: 5rem;
+}
+
+.student-list-group > .list {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
