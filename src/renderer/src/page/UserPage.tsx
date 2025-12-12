@@ -13,9 +13,9 @@ export type UserPageProps = {
 }
 
 const pages: Record<string, [(identity: Identity) => boolean, (props: UserPageProps) => React.JSX.Element]> = {
-    "作业": [() => true, (props) => <AssignmentPage props={props} />],
-    "数据": [(i) => i.role == "admin", (props) => <DataPage props={props} />],
-    "管理": [(i) => i.role == "admin", (props) => <ManagePage props={props} />],
+    "作业": [() => true, (props) => <AssignmentPage key={Math.random()} props={props} />],
+    "数据": [(i) => i.role == "admin", (props) => <DataPage key={Math.random()} props={props} />],
+    "管理": [(i) => i.role == "admin", (props) => <ManagePage key={Math.random()} props={props} />],
 };
 
 export const UserPage: React.FC<{ left: string }> = ({ left }) => {
@@ -96,6 +96,10 @@ export const UserPage: React.FC<{ left: string }> = ({ left }) => {
             }
             </ul>
         </div>
-        <div className="content">{contentElement}</div>
+        <div className="content">{[
+            ...stack.current.map(a => a[1]),
+            contentElement,
+        ].map((a, i) => <div key={i} style={{ display: i != stack.current.length? "none": "block" }}>{a}</div>)}
+        </div>
     </div>;
 }

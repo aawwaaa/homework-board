@@ -2,16 +2,24 @@ import { app } from "electron";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 
-let config: Config = {
+export type Config = {
+    autoStartup: boolean;
+    hideAll: boolean;
+}
+
+const defaultConfig: Config = {
     autoStartup: false,
+    hideAll: false,
 };
+
+let config: Config = {...defaultConfig};
 
 export function getConfig() {
     return config;
 }
 
-export function setConfig(config: Config) {
-    config = config;
+export function setConfig(nextConfig: Config) {
+    config = nextConfig;
     for (const handler of handlers) {
         handler(config);
     }
@@ -22,7 +30,8 @@ export function setConfig(config: Config) {
 export function loadConfig() {
     const p = path.join(app.getPath("userData"), "config.json");
     if (existsSync(p)) {
-        config = JSON.parse(readFileSync(p, "utf-8")) as Config;
+        const stored = JSON.parse(readFileSync(p, "utf-8")) as Partial<Config>;
+        config = {...defaultConfig, ...stored};
     }
 }
 

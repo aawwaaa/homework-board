@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { SubjectBadge } from "./SubjectBadge";
-
 import "./AssignmentList.css";
+import { AssignmentTitle } from "./AssignmentTitle";
 
 type AssignmentListProps = {
     onClick?: (assignment: AssignmentData) => void;
@@ -94,10 +93,7 @@ export const AssignmentList: React.FC<AssignmentListProps> = ({ onClick, classNa
                     }
                 } : undefined}
             >
-                <div className="assignment-list-item-title">
-                    <SubjectBadge subject={assignment.subject} />
-                    <h4>{assignment.title}</h4>
-                </div>
+                <AssignmentTitle assignment={assignment} classList="assignment-list-item-title" />
                 <div className="assignment-list-deadline">
                     截止 {formatter.format(assignment.deadline)}
                 </div>

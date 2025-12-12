@@ -328,7 +328,7 @@ function deleteAssignmentRecord(id: string) {
     run('DELETE FROM assignments WHERE id = ?', [id]);
 }
 
-function fetchSubmissions(assignment: Assignment) {
+function fetchSubmissionsForAssignment(assignment: Assignment) {
     const rows = allRows<SubmissionJoinedRow>(
         `SELECT submissions.*, students.name AS student_name, students.[group] AS student_group
         FROM submissions
@@ -338,6 +338,19 @@ function fetchSubmissions(assignment: Assignment) {
         [assignment.id],
     );
     return rows.map(row => mapSubmissionRow(row, assignment));
+}
+
+function fetchSubmissionsForStudent(student: Student) {
+    const rows = allRows<SubmissionJoinedRow>(
+        `SELECT submissions.*, students.name AS student_name, students.[group] AS student_group, assignments.id AS assignment
+        FROM submissions
+        JOIN assignments ON assignments.id = submissions.assignment
+        JOIN students ON students.id = submissions.student
+        WHERE submissions.student = ?
+        ORDER BY submissions.created`,
+        [student.id],
+    );
+    return rows.map(row => mapSubmissionRow(row, fetchAssignment(row.assignment)));
 }
 
 function insertSubmissionRecord(submission: Submission) {
@@ -381,6 +394,59 @@ function createDayRecordForAssignment(assignment: Assignment) {
     }
 }
 
+function recomputeDayRecordForAssignment(assignment: Assignment) {
+    deleteDayRecord(assignment.id);
+    createDayRecordForAssignment(assignment);
+}
+
+function cutoffSubject(subject: Subject) {
+    if (subject == null || subject === void 0) return subject;
+    if ("config" in subject) subject.config = {} as any;
+    return subject;
+}
+
+function cutoffAssignment(assignment: Assignment, noDetail = false) {
+    if (assignment == null || assignment === void 0) return assignment;
+    if ("submissions" in assignment) delete assignment.submissions;
+    if ("totalRequiredSubmissions" in assignment) delete assignment.totalRequiredSubmissions;
+    cutoffSubject(assignment.subject)
+    if (noDetail) {
+        const a = assignment as any;
+        delete a.subject;
+        delete a.title;
+        delete a.description;
+        delete a.priority;
+        delete a.spent;
+        delete a.estimated;
+        delete a.created;
+        delete a.deadline;
+        delete a.config;
+    }
+    return assignment;
+}
+
+function cutoffSubmission(submission: Submission) {
+    if (submission == null || submission === void 0) return submission;
+    if ("assignment" in submission) cutoffAssignment(submission.assignment, true);
+    return submission;
+}
+
+function cutoffUselessInfo(changes: any) {
+    if (typeof(changes) !== "object") return changes;
+    if ("priority" in changes) return cutoffAssignment(changes);
+    if ("student" in changes) return cutoffSubmission(changes);
+    return changes;
+}
+
+export function cutoffAllUselessInfoInOperationLogs() {
+    const operations = allRows<OperationLogRow>('SELECT * FROM operation_logs');
+    for (const operation of operations) {
+        const cutted = cutoffUselessInfo(JSON.parse(operation.changes));
+        operation.changes = JSON.stringify(cutted);
+        run('UPDATE operation_logs SET changes = ? WHERE id = ?', [operation.changes, operation.id]);
+    }
+}
+
 type Operation<T, R = T> = {
     type: string;
     apply(changes: T): Promise<R> | R;
@@ -415,16 +481,14 @@ const modifyAssignmentOp = addOperation<Assignment>({
         const old = fetchAssignment(changes.id);
         const normalized = normalizeAssignment(changes);
         updateAssignmentRecord(normalized);
-        deleteDayRecord(changes.id);
-        createDayRecordForAssignment(normalized);
+        recomputeDayRecordForAssignment(normalized);
         return old;
     },
     async revert(changes) {
         const current = fetchAssignment(changes.id);
         const normalized = normalizeAssignment(changes);
         updateAssignmentRecord(normalized);
-        deleteDayRecord(changes.id);
-        createDayRecordForAssignment(normalized);
+        recomputeDayRecordForAssignment(normalized);
         return current;
     }
 });
@@ -433,8 +497,8 @@ const removeAssignmentOp = addOperation<string, Assignment>({
     type: 'remove-assignment',
     async apply(changes) {
         const old = fetchAssignment(changes);
-        deleteAssignmentRecord(changes);
         deleteDayRecord(changes);
+        deleteAssignmentRecord(changes);
         return old;
     },
     async revert(changes) {
@@ -480,7 +544,7 @@ async function doOperation<T, R>(op: Operation<T, R>, changes: T, description: s
         description,
         Date.now(),
         op.type,
-        JSON.stringify(changes),
+        JSON.stringify(cutoffUselessInfo(changes)),
         1,
     ]);
     await redoOperation(id);
@@ -501,7 +565,7 @@ async function undoOperation(id: string) {
         return;
     }
     const changes: any = JSON.parse(log.changes);
-    const applied = await op.revert(changes);
+    const applied = cutoffUselessInfo(await op.revert(changes));
     run('UPDATE operation_logs SET reverted = ?, changes = ? WHERE id = ?', [1, JSON.stringify(applied), id]);
     emitChange();
 }
@@ -517,13 +581,13 @@ async function redoOperation(id: string) {
         return;
     }
     const changes: any = JSON.parse(log.changes);
-    const applied = await op.apply(changes);
+    const applied = cutoffUselessInfo(await op.apply(changes));
     run('UPDATE operation_logs SET reverted = ?, changes = ? WHERE id = ?', [0, JSON.stringify(applied), id]);
     emitChange();
 }
 
 async function fetchAssignmentData(assignment: Assignment): Promise<AssignmentData> {
-    const submissions = fetchSubmissions(assignment);
+    const submissions = fetchSubmissionsForAssignment(assignment);
     return {
         ...assignment,
         submissions,
@@ -637,6 +701,10 @@ const data: DataAPI = {
     },
     submission: {
         create: op2func(createSubmissionOp),
+        async list(student) {
+            await ready;
+            return fetchSubmissionsForStudent(student);
+        },
     },
     progress: {
         update: op2func(updateProgressOp),
@@ -725,6 +793,9 @@ const data: DataAPI = {
             }
             return result;
         },
+        async recompute(assignment) {
+            recomputeDayRecordForAssignment(assignment)
+        }
     },
     database: {
         async execute(sql, params) {

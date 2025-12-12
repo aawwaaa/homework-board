@@ -342,7 +342,7 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
                                 disabled={disabled}
                                 onSwipeAdjust={(steps) => adjustDateBySwipe("created", steps)}
                                 swipeDisabled={disabled || !assignment}
-                                swipePxPerStep={18}
+                                swipePxPerStep={2}
                             />
                         </label>
                         <span>到</span>
@@ -354,7 +354,7 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
                                 disabled={disabled}
                                 onSwipeAdjust={(steps) => adjustDateBySwipe("deadline", steps)}
                                 swipeDisabled={disabled || !assignment}
-                                swipePxPerStep={18}
+                                swipePxPerStep={2}
                             />
                         </label>
                     </div>

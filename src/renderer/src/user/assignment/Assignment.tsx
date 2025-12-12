@@ -6,7 +6,7 @@ import { CreateAssignment } from "./CreateAssignment";
 
 import "./Assignment.css"
 import { TimelineView } from "@renderer/view/timeline/TimelineView";
-import { StandardTimelineItem } from "@renderer/view/timeline/TimelineItem";
+import { standardTimelineItemBuilder } from "@renderer/view/timeline/TimelineItem";
 import { AssignmentManage } from "./AssignmentManage";
 
 export const AssignmentPage: React.FC<{ props: UserPageProps }> = ({ props }) => {
@@ -34,7 +34,7 @@ export const AssignmentPage: React.FC<{ props: UserPageProps }> = ({ props }) =>
                 initial={subject?.id}
             />
             <button
-                onClick={() => props.updatePage("addHomework", <CreateAssignment subject={subject!} props={props} />)}
+                onClick={() => props.updatePage("addHomework", <CreateAssignment key={Math.random()} subject={subject!} props={props} />)}
                 disabled={subject == null}
             >
                 添加
@@ -45,9 +45,9 @@ export const AssignmentPage: React.FC<{ props: UserPageProps }> = ({ props }) =>
                 key={subject?.id ?? "all"}
                 origin={new Date()}
                 filter={(assignment) => subject == null || assignment.subject.id === subject!.id}
-                builder={(a, p) => <StandardTimelineItem assignment={a} x={p.x} width={p.width}
-                    onClick={() => props.updatePage("homeworkDetail", <AssignmentManage assignment={a} props={props} />)}
-                />}
+                builder={(a, p) => standardTimelineItemBuilder(a, p,
+                    () => props.updatePage("homeworkDetail", <AssignmentManage key={Math.random()} assignment={a} props={props} />)
+                )}
             />
         </div>
     </>;

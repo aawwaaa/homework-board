@@ -1,0 +1,12 @@
+.submission-create > .spent > h5 {
+    display: inline-block;
+    width: 5rem;
+}
+
+.submission-create > div > textarea {
+    width: calc(100% - 8px);
+}
+
+.submission-create > div > h5 {
+    margin: 0;
+}

@@ -10,7 +10,7 @@ export const TimeStatus: FC<{ assignment: AssignmentData }> = ({ assignment }) =
         const average = data.reduce((acc, submission) => acc + submission.spent!, 0) / dataAmount;
         const median = data.sort((a, b) => a.spent! - b.spent!).at(Math.floor(dataAmount / 2))?.spent!;
         const max = data.reduce((acc, submission) => Math.max(acc, submission.spent!), 0);
-        const min = data.reduce((acc, submission) => Math.min(acc, submission.spent!), 0);
+        const min = data.reduce((acc, submission) => Math.min(acc, submission.spent!), Infinity);
         const sorted = data.sort((a, b) => a.spent! - b.spent!);
         return {
             sorted,

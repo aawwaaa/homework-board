@@ -19,7 +19,7 @@
     top: 0;
     left: 0;
     width: 1px;
-    height: 100%;
+    height: 10000vh;
     background-color: var(--color-primary);
     z-index: 0;
 }
@@ -47,7 +47,7 @@
     top: 0;
     left: 0;
     width: 1px;
-    height: 100%;
+    height: 10000vh;
     background-color: var(--gray-tinted-4);
     color: var(--gray-tinted-4);
     text-align: start;
@@ -56,5 +56,5 @@
 
 .track {
     position: relative;
-    height: 2.5rem;
+    height: calc(var(--base-height) * 1.2);
 }

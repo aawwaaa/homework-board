@@ -369,7 +369,7 @@ export const AllocationPage: FC = () => {
                                                     >
                                                         <span>
                                                             {/* {segment.subject.name} * {formatMinutes(segment.taken)} */}
-                                                            {segment.taken}
+                                                            {Math.round(segment.taken)}
                                                         </span>
                                                     </div>
                                                 ))}

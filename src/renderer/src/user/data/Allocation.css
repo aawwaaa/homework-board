@@ -43,7 +43,7 @@
 .allocation-range label {
     display: flex;
     flex-direction: column;
-    font-size: 0.85rem;
+    font-size: var(--small-font-size);
     color: var(--color-subtitle);
     gap: 0.25rem;
 }
@@ -59,7 +59,7 @@
 
 .allocation-status {
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: var(--small-font-size);
     color: var(--color-menu);
 }
 
@@ -88,7 +88,7 @@
     min-width: 0;
     padding: 0 0.35rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: var(--small-font-size);
     color: #fff;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
 }
@@ -105,7 +105,7 @@
     gap: 0.35rem 1rem;
     margin: 0;
     padding: 0;
-    font-size: 0.85rem;
+    font-size: var(--small-font-size);
     color: var(--color-menu);
 }
 
@@ -180,7 +180,7 @@
 
 .allocation-day-date span:last-child {
     color: var(--color-subtitle);
-    font-size: 0.9rem;
+    font-size: var(--small-font-size);
 }
 
 .allocation-day-bar-wrapper {
@@ -204,7 +204,7 @@
 
 .allocation-day-toggle-label {
     margin-left: auto;
-    font-size: 0.85rem;
+    font-size: var(--small-font-size);
     color: var(--color-menu);
 }
 

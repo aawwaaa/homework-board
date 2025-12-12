@@ -20,7 +20,7 @@
 
 .assignment-list-sidebar h3 {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: var(--small-font-size);
   font-weight: 600;
   color: var(--color-menu);
 }
@@ -42,7 +42,7 @@
   text-align: left;
   height: auto;
   padding: 0.25rem;
-  font-size: 0.95rem;
+  font-size: var(--small-font-size);
   font-weight: 500;
 }
 
@@ -71,7 +71,7 @@
   justify-content: space-between;
   align-items: center;
   color: var(--color-menu);
-  font-size: 0.85rem;
+  font-size: var(--small-font-size);
 }
 
 .assignment-list-items {
@@ -109,15 +109,15 @@
   gap: 0.15rem;
 }
 
-.assignment-list-item-title h4 {
+.assignment-list-item-title h5 {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--base-font-size);
   font-weight: 600;
   color: var(--color-title);
 }
 
 .assignment-list-deadline {
-  font-size: 0.85rem;
+  font-size: var(--small-font-size);
   color: var(--color-menu);
 }
 

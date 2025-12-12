@@ -1,5 +1,14 @@
 @import url("./color.css");
 
+:root {
+    --base-font-size: 1rem;
+    --base-height: 2rem;
+    --small-font-size: calc(var(--base-font-size) * 0.9);
+    --h1-font-size: calc(var(--base-font-size) * 2);
+    --h2-font-size: calc(var(--base-font-size) * 1.6);
+    --h3-font-size: calc(var(--base-font-size) * 1.2);
+}
+
 html {
     width: 100%;
     height: 100%;
@@ -43,16 +52,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: var(--h1-font-size);
 }
 
 h2 {
-    font-size: 1.6rem;
+    font-size: var(--h2-font-size);
     color: var(--color-subtitle);
 }
 
 h3, h4, h5, h6 {
-    font-size: 1.2rem;
+    font-size: var(--h3-font-size);
     color: var(--color-menu);
 }
 
@@ -67,7 +76,7 @@ button {
     color: var(--color-title);
     cursor: pointer;
     text-transform: none;
-    height: 2rem;
+    height: var(--base-height);
     transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
     box-sizing: border-box;
     text-wrap-mode: nowrap;

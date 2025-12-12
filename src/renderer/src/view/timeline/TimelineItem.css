@@ -4,6 +4,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    --timeline-item-x: 0px;
+    --timeline-item-width: 0px;
+}
+
+.timeline-item .assignment-title {
+    padding-left: clamp(0px, calc(var(--timeline-view-x, 0px) - var(--timeline-item-x, 0px)), var(--timeline-item-width, 0px));
 }
 
 .timeline-item-bar {
@@ -19,6 +25,8 @@
 .timeline-item-bar > * {
     z-index: 3;
     pointer-events: none;
+    text-wrap-mode: nowrap;
+    overflow-x: hidden;
 }
 
 .priority-1 {
@@ -85,4 +93,3 @@
     padding: 4px;
     text-wrap-mode: wrap;
 }
-

@@ -6,6 +6,8 @@ import { UserPage } from './page/UserPage';
 import { SignPage } from './page/SignPage';
 import { AssignmentPage } from './page/AssignmentPage';
 import { CompPage } from './page/CompPage';
+import { StudentSelectPage } from './page/StudentSelectPage';
+import { StudentPage } from './page/StudentPage';
 
 const route: Record<string, (left: string) => JSX.Element> = {
   "/main": () => <MainPage />,
@@ -14,6 +16,8 @@ const route: Record<string, (left: string) => JSX.Element> = {
   "/user": (left) => <UserPage left={left} />,
   "/assignment": (left) => <AssignmentPage left={left} />,
   "/comp": (left) => <CompPage left={left} />,
+  "/student-select": () => <StudentSelectPage />,
+  "/student": (left) => <StudentPage left={left} />,
 }
 
 const hash = window.location.hash;

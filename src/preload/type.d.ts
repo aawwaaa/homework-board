@@ -108,6 +108,7 @@ type DataAPI = {
     },
     submission: {
         create: (submission: Submission, description: string) => Promise<void>;
+        list: (student: Student) => Promise<Submission[]>;
     },
     progress: {
         update: (progress: [number, string][], description: string) => Promise<void>;
@@ -139,6 +140,7 @@ type DataAPI = {
     },
     day: {
         get: (begin: Date, end: Date) => Promise<Record<string, DayRecord[]>>;
+        recompute: (assignment: Assignment) => Promise<void>
     },
     database: {
         execute: (sql: string, params?: unknown[]) => Promise<void>;
@@ -150,14 +152,20 @@ type DataAPI = {
 type API = {
     login: (identity: string) => void;
     showDetail: (assignment: string) => void;
+    showStudentPage: (student: string) => void;
     showConfigWindow: (id: string) => void;
+    showSignWindow: () => void;
 
     openDataDirectory: () => void;
 
     getConfig: () => Promise<Config>;
     setConfig: (config: Config) => Promise<void>;
+
+    cutoffAllUselessInfoInOperationLogs: () => void;
 }
 
 type Config = {
     autoStartup: boolean;
+
+    hideAll: boolean;
 }

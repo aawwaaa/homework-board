@@ -42,6 +42,11 @@ export const Tab = ({ tabs: data, set, initial, className }: TabProps) => {
     const [active, setActive] = useState<string>(defaultName);
 
     useEffect(() => {
+        if (initial == null) return;
+        setActive(initial);
+    }, [initial])
+
+    useEffect(() => {
         if (!tabs.length) {
             if (active) {
                 setActive("");

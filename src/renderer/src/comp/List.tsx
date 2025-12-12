@@ -1,9 +1,8 @@
-import { SwipeAdjustInput } from "@renderer/component/SwipeAdjustInput";
 import { Component } from "@renderer/page/CompPage";
 import { FC, useEffect, useState } from "react";
 
 import "./Base.css"
-import { CompBaseConfig, ComponentBaseConfig } from "./Base";
+import { CompBaseConfig, ComponentBaseConfig, componentBaseDefaults, ComponentConfigHelper, componentStyle, useComponentConfigState } from "./Base";
 import { ListView } from "@renderer/view/list/ListView";
 
 export type ComponentListConfig = ComponentBaseConfig & {
@@ -13,72 +12,42 @@ export type ComponentListConfig = ComponentBaseConfig & {
 }
 
 const defaultValue: ComponentListConfig = {
-    scale: 1,
-    fontSize: "1rem",
+    ...componentBaseDefaults,
     submittedDuration: 4,
     submittingDuration: 6,
     forward: 7
 }
 
-export const CompListConfig: FC<{config: ComponentListConfig, setConfig: (config: unknown) => void}> = ({config, setConfig}) => {
-    const [submittedDuration, setSubmittedDuration] = useState(config.submittedDuration);
-    const [submittingDuration, setSubmittingDuration] = useState(config.submittingDuration);
-    const [forward, setForward] = useState(config.forward);
-
-    useEffect(() => {
-        const applied = {...defaultValue, ...config};
-        if (JSON.stringify(applied) !== JSON.stringify(config)) {
-            setConfig(applied);
-            setSubmittedDuration(applied.submittedDuration);
-            setSubmittingDuration(applied.submittingDuration);
-            setForward(applied.forward);
-        }
-    }, [config])
-
-    const update = (key: keyof ComponentListConfig) => (e: React.ChangeEvent<HTMLInputElement>) => {
-        config[key] = (typeof config[key] == "number"? Number(e.target.value): e.target.value) as never;
-        setConfig(config);
-        ({
-            submittedDuration: setSubmittedDuration,
-            submittingDuration: setSubmittingDuration,
-            forward: setForward
-        }[key])?.(config[key]);
-    }
+export const CompListConfig: FC<{config: ComponentListConfig, setConfig: (config: any) => void}> = ({config, setConfig}) => {
+    const {stateConfig, setStateConfig} = useComponentConfigState<ComponentListConfig>(
+        defaultValue,
+        config,
+        setConfig as (config: ComponentListConfig) => void
+    );
+    const helper = new ComponentConfigHelper(stateConfig, setStateConfig);
 
     return <>
-        <CompBaseConfig config={config} setConfig={setConfig}/>
+        <CompBaseConfig config={stateConfig} setConfig={setStateConfig}/>
         <div className="comp-config-group">
             <h3>列表</h3>
-            <div className="comp-config-item">
-                <label htmlFor="submittedDuration">已提交区间</label>
-                <SwipeAdjustInput id="submittedDuration" type="number" value={submittedDuration} onChange={update("submittedDuration")}
-                    swipePxPerStep={38} onSwipeAdjust={steps => {
-                        config.submittedDuration += steps * 1;
-                        setSubmittedDuration(config.submittedDuration);
-                        setConfig(config);
-                    }}/>
-                <span>小时</span>
-            </div>
-            <div className="comp-config-item">
-                <label htmlFor="submittingDuration">提交中区间</label>
-                <SwipeAdjustInput id="submittingDuration" type="number" value={submittingDuration} onChange={update("submittingDuration")}
-                    swipePxPerStep={38} onSwipeAdjust={steps => {
-                        config.submittingDuration += steps * 1;
-                        setSubmittingDuration(config.submittingDuration);
-                        setConfig(config);
-                    }}/>
-                <span>小时</span>
-            </div>
-            <div className="comp-config-item">
-                <label htmlFor="forward">前向</label>
-                <SwipeAdjustInput id="forward" type="number" value={forward} onChange={update("forward")}
-                    swipePxPerStep={38} onSwipeAdjust={steps => {
-                        config.forward += steps * 1;
-                        setForward(config.forward);
-                        setConfig(config);
-                    }}/>
-                <span>天</span>
-            </div>
+            {helper.swipeInput(
+                "submittedDuration",
+                "已提交区间",
+                1,
+                "小时"
+            )}
+            {helper.swipeInput(
+                "submittingDuration",
+                "提交中区间",
+                1,
+                "小时"
+            )}
+            {helper.swipeInput(
+                "forward",
+                "前向",
+                1,
+                "天"
+            )}
         </div>
     </>
 }
@@ -96,13 +65,7 @@ const CompList: FC<{config: ComponentListConfig, openConfigWindow: (() => void) 
     }, []);
 
     return <>
-        <div className="comp" style={{
-            transformOrigin: "left top",
-            transform: `scale(${config.scale})`,
-            fontSize: config.fontSize,
-            width: "100vw",
-            height: "100vh"
-        }}>
+        <div className="comp" style={componentStyle(config)}>
             <ListView
                 origin={origin}
                 submittedDuration={config.submittedDuration}

@@ -25,6 +25,11 @@ export const ManageConfigPage = () => {
         </div>
         <div>
             <button onClick={() => window.api.openDataDirectory()}>打开数据目录</button>
+            <button onClick={() => {
+                if (window.confirm("确定清理操作日志无用信息吗？")) {
+                    window.api.cutoffAllUselessInfoInOperationLogs();
+                }
+            }}>清理操作日志无用信息</button>
         </div>
     </div>
 }

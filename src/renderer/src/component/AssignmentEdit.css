@@ -14,7 +14,7 @@
 }
 
 .assignment-field-label {
-    font-size: 0.9rem;
+    font-size: var(--small-font-size);
     font-weight: 600;
     color: var(--color-menu);
 }
@@ -76,7 +76,7 @@
     justify-content: flex-start;
 }
 
-.assignment-edit .subject-badge:first-of-type {
+/* .assignment-edit .subject-badge:first-of-type {
     width: 60px;
     max-width: 60px;
-}
+} */

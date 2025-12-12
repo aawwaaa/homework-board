@@ -1,7 +1,8 @@
-import { SubjectBadge } from "@renderer/component/SubjectBadge";
 import { FC, KeyboardEvent } from "react";
 
 import "./ListItem.css";
+import { toRelativeTime } from "@renderer/util";
+import { AssignmentTitle } from "@renderer/component/AssignmentTitle";
 
 export type ListItemState = "submitted" | "submitting" | "normal";
 
@@ -39,7 +40,7 @@ export const ListItem: FC<ListItemProps> = ({
     onClick,
     className,
 }) => {
-    const classes = ["list-item", `state-${state}`, onClick ? "actionable" : "", className]
+    const classes = ["list-view-item", `state-${state}`, onClick ? "actionable" : "", className]
         .filter(Boolean)
         .join(" ");
 
@@ -72,18 +73,16 @@ export const ListItem: FC<ListItemProps> = ({
             tabIndex={onClick ? 0 : undefined}
             onKeyDown={onClick ? handleKeyDown : undefined}
         >
-            <header className="list-item-header">
-                <SubjectBadge subject={assignment.subject} />
-                <h5 title={assignment.title}>{assignment.title}</h5>
-                <span className="list-item-priority">P{assignment.priority}</span>
-                <time className="list-item-deadline" dateTime={assignment.deadline.toISOString()}>
-                    截止 {assignment.deadline.toLocaleString()}
+            <AssignmentTitle assignment={assignment} classList="list-view-item-header">
+                {/* <span className="list-view-item-priority">P{assignment.priority}</span> */}
+                <time className="list-view-item-deadline" dateTime={assignment.deadline.toISOString()}>
+                    {toRelativeTime(assignment.deadline)}
                 </time>
-            </header>
+            </AssignmentTitle>
             {hasDescription && (
-                <p className="list-item-description">{descriptionText}</p>
+                <p className="list-view-item-description">{descriptionText}</p>
             )}
-            {/* <footer className="list-item-meta">
+            {/* <footer className="list-view-item-meta">
                 <span>创建 {assignment.created.toLocaleString()}</span>
                 <span>
                     用时 {assignment.spent} / {assignment.estimated} 分钟 ({timePercent})

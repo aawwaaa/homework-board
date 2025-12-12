@@ -27,7 +27,7 @@ export function createWindow(options: BrowserWindowConstructorOptions, hash = "#
 export function createWindowButtomRight(options: BrowserWindowConstructorOptions, hash?: string): BrowserWindow {
   const { width, height } = screen.getPrimaryDisplay().size;
   options.x = width - (options.width ?? 800);
-  options.y = height - (options.height ?? 600);
+  options.y = height - (options.height ?? 600) + (process.platform == "win32"? -32: 0); // windows "feature"
   return createWindow(options, hash);
 }
 

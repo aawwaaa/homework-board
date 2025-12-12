@@ -20,7 +20,7 @@
   padding: 0.35rem 0.85rem;
   background: transparent;
   color: var(--color-menu);
-  font-size: 0.95rem;
+  font-size: var(--small-font-size);
   font-weight: 600;
   text-transform: none;
   cursor: pointer;

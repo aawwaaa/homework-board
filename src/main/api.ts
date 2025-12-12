@@ -1,6 +1,8 @@
 import { app, shell } from "electron";
 import { createWindowButtomRight } from "./util";
 import { getConfig, setConfig } from "./config";
+import { showSignWindow } from "./tray";
+import { cutoffAllUselessInfoInOperationLogs } from "./data";
 
 const api = {
     login(identity) {
@@ -13,13 +15,20 @@ const api = {
     },
     showDetail(assignment: string) {
         createWindowButtomRight({
-            width: 500,
-            height: 600,
+            width: 530,
+            height: 650,
 
             autoHideMenuBar: true
         }, "#/assignment/" + assignment)
     },
+    showStudentPage(student: string) {
+        createWindowButtomRight({
+            width: 700,
+            height: 500,
 
+            autoHideMenuBar: true
+        }, "#/student/" + student)
+    },
     showConfigWindow(component: string) {
         createWindowButtomRight({
             width: 500,
@@ -28,6 +37,7 @@ const api = {
             autoHideMenuBar: true
         }, "#/comp/" + component + "/config")
     },
+    showSignWindow: showSignWindow,
 
     openDataDirectory() {
         const path = app.getPath("userData");
@@ -41,6 +51,8 @@ const api = {
     async setConfig(config) {
         setConfig(config);
     },
+
+    cutoffAllUselessInfoInOperationLogs: cutoffAllUselessInfoInOperationLogs
 } as API
 
 export default api;

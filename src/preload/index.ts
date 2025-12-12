@@ -17,6 +17,7 @@ const dataAPITemplate = {
   },
   submission: {
     create: "",
+    list: "",
   },
   progress: {
     update: "",
@@ -58,12 +59,16 @@ const dataAPITemplate = {
 const apiTemplate = {
   login: "",
   showDetail: "",
+  showStudentPage: "",
   showConfigWindow: "",
+  showSignWindow: "",
   
   openDataDirectory: "",
 
   getConfig: "",
   setConfig: "",
+
+  cutoffAllUselessInfoInOperationLogs: ""
 }
 
 const dataAPI = {} as DataAPI;

@@ -17,17 +17,29 @@ function getTrayIconPath() {
     return path.join(app.getAppPath(), TRAY_ICON_SOURCE);
 }
 
+export function showSignWindow() {
+    createWindowButtomRight({
+        width: 450,
+        height: 600,
+
+        autoHideMenuBar: true
+    }, "#/sign")
+}
+
 let tray: Tray;
 export function updateTray() {
     tray.setToolTip("Homework Board")
     const menu = Menu.buildFromTemplate([
         { label: "签到", click: () => {
+            showSignWindow()
+        } },
+        { label: "个人数据", click: () => {
             createWindowButtomRight({
-                width: 450,
-                height: 600,
+                width: 530,
+                height: 350,
 
                 autoHideMenuBar: true
-            }, "#/sign")
+            }, "#/student-select")
         } },
         { label: "登录为...", click: () => {
             createWindowButtomRight({
@@ -55,4 +67,8 @@ export function updateTray() {
 export function createTray() {
     tray = new Tray(nativeImage.createFromPath(getTrayIconPath()))
     updateTray()
+
+    tray.on("click", () => {
+        showSignWindow()
+    })
 }

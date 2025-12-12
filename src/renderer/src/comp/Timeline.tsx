@@ -1,9 +1,8 @@
-import { SwipeAdjustInput } from "@renderer/component/SwipeAdjustInput";
 import { Component } from "@renderer/page/CompPage";
 import { FC, useEffect, useState } from "react";
 
 import "./Base.css"
-import { CompBaseConfig, ComponentBaseConfig } from "./Base";
+import { CompBaseConfig, ComponentBaseConfig, componentBaseDefaults, ComponentConfigHelper, componentStyle, useComponentConfigState } from "./Base";
 import { TimelineView } from "@renderer/view/timeline/TimelineView";
 
 export type ComponentTimelineConfig = ComponentBaseConfig & {
@@ -12,58 +11,35 @@ export type ComponentTimelineConfig = ComponentBaseConfig & {
 }
 
 const defaultValue: ComponentTimelineConfig = {
-    scale: 1,
-    fontSize: "1rem",
+    ...componentBaseDefaults,
     originOffset: -1,
     unitWidth: 200
 }
 
-export const CompTimelineConfig: FC<{config: ComponentTimelineConfig, setConfig: (config: unknown) => void}> = ({config, setConfig}) => {
-    const [originOffset, setOriginOffset] = useState(config.originOffset);
-    const [unitWidth, setUnitWidth] = useState(config.unitWidth);
-
-    useEffect(() => {
-        const applied = {...defaultValue, ...config};
-        if (JSON.stringify(applied) !== JSON.stringify(config)) {
-            setConfig(applied);
-            setOriginOffset(applied.originOffset);
-            setUnitWidth(applied.unitWidth);
-        }
-    }, [config])
-
-    const update = (key: keyof ComponentTimelineConfig) => (e: React.ChangeEvent<HTMLInputElement>) => {
-        config[key] = (typeof config[key] == "number"? Number(e.target.value): e.target.value) as never;
-        setConfig(config);
-        ({
-            originOffset: setOriginOffset,
-            unitWidth: setUnitWidth
-        }[key])?.(config[key]);
-    }
+export const CompTimelineConfig: FC<{config: ComponentTimelineConfig, setConfig: (config: any) => void}> = ({config, setConfig}) => {
+    const {stateConfig, setStateConfig} = useComponentConfigState<ComponentTimelineConfig>(
+        defaultValue,
+        config,
+        setConfig as (config: ComponentTimelineConfig) => void
+    );
+    const helper = new ComponentConfigHelper(stateConfig, setStateConfig);
 
     return <>
-        <CompBaseConfig config={config} setConfig={setConfig}/>
+        <CompBaseConfig config={stateConfig} setConfig={setStateConfig}/>
         <div className="comp-config-group">
             <h3>时间轴</h3>
-            <div className="comp-config-item">
-                <label htmlFor="originOffset">原点偏移</label>
-                <SwipeAdjustInput id="originOffset" type="number" value={originOffset} onChange={update("originOffset")}
-                    swipePxPerStep={38} onSwipeAdjust={steps => {
-                        config.originOffset += steps * 0.2;
-                        setOriginOffset(config.originOffset);
-                        setConfig(config);
-                    }}/>
-                <span>天</span>
-            </div>
-            <div className="comp-config-item">
-                <label htmlFor="unitWidth">单位宽度</label>
-                <SwipeAdjustInput id="unitWidth" type="number" value={unitWidth} onChange={update("unitWidth")}
-                    swipePxPerStep={38} onSwipeAdjust={steps => {
-                        config.unitWidth += steps * 50;
-                        setUnitWidth(config.unitWidth);
-                        setConfig(config);
-                    }}/>
-                <span>px</span>
-            </div>
+            {helper.swipeInput(
+                "originOffset",
+                "原点偏移",
+                0.2,
+                "天"
+            )}
+            {helper.swipeInput(
+                "unitWidth",
+                "单位宽度",
+                50,
+                "px"
+            )}
         </div>
     </>
 }
@@ -78,17 +54,13 @@ const CompTimeline: FC<{config: ComponentTimelineConfig, openConfigWindow: (() =
     }, []);
 
     return <>
-        <div className="comp" style={{
-            fontSize: config.fontSize,
-            width: "100vw",
-            height: "100vh"
-        }}>
+        <div className="comp" style={componentStyle(config)}>
             <TimelineView
                 // key={config.originOffset + " " + now.getTime()}
                 origin={new Date(now.getTime() + config.originOffset * 24 * 60 * 60 * 1000)}
                 unitWidth={config.unitWidth}
                 touchable={false}
-                scale={config.scale}
+                // scale={config.scale}
             />
         </div>
         {openConfigWindow && <button className="config-button primary" onClick={openConfigWindow}>配置</button>}

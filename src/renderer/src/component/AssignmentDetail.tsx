@@ -1,14 +1,9 @@
-import { SubjectBadge } from "./SubjectBadge";
-
 import "./AssignmentDetail.css";
+import { AssignmentTitle } from "./AssignmentTitle";
 
 export const AssignmentDetail: React.FC<{ assignment: AssignmentData }> = ({ assignment }) => {
     return <div className="assignment-detail">
-        <div className="title">
-            <SubjectBadge subject={assignment.subject} />
-            <h5>{assignment.title}</h5>
-            <span>{assignment.priority}</span>
-        </div>
+        <AssignmentTitle assignment={assignment} />
         <div className="content">
             <p>{assignment.description}</p>
         </div>

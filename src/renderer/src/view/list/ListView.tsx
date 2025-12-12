@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { ListItem } from "./ListItem";
 
 const HOUR = 60 * 60 * 1000;
@@ -13,22 +13,23 @@ export const ListView: FC<{
 }> = ({origin, filter, submittedDuration, submittingDuration, forward}) => {
     const [assignments, setAssignments] = useState<AssignmentData[]>([]);
 
-    const load = async () => {
-        const assignments = await window.data.assignment.list(
+    const load = useCallback(async () => {
+        const result = await window.data.assignment.list(
             new Date(origin.getTime() - submittedDuration * HOUR),
             new Date(origin.getTime() + forward * DAY)
         );
-        assignments.sort((a, b) => a.deadline.getTime() - b.deadline.getTime());
-        setAssignments(assignments);
-    }
+        const filtered = filter ? result.filter(filter) : result;
+        filtered.sort((a, b) => a.deadline.getTime() - b.deadline.getTime());
+        setAssignments(filtered);
+    }, [filter, forward, origin, submittedDuration, submittingDuration]);
 
     useEffect(() => {
         load()
-    }, [origin, filter, submittedDuration, submittingDuration, forward])
+    }, [load])
 
     useEffect(() => {
         return window.data.onChanged(load);
-    }, [])
+    }, [load])
 
     return <>
         {assignments.map(assignment => <ListItem

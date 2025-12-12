@@ -1,6 +1,6 @@
 import { SwipeAdjustInput } from "@renderer/component/SwipeAdjustInput";
 import { Component } from "@renderer/page/CompPage";
-import { FC, useEffect, useId, useState } from "react";
+import { ChangeEvent, FC, InputHTMLAttributes, TextareaHTMLAttributes, useCallback, useEffect, useId, useState } from "react";
 
 import "./Base.css"
 
@@ -9,60 +9,168 @@ export type ComponentBaseConfig = {
     fontSize: string;
 }
 
-const defaultValue: ComponentBaseConfig = {
+export const componentBaseDefaults: ComponentBaseConfig = {
     scale: 1,
     fontSize: "1rem"
 }
 
-export const CompBaseConfig: FC<{config: ComponentBaseConfig, setConfig: (config: ComponentBaseConfig) => void}> = ({config, setConfig}) => {
-    useEffect(() => {
-        const applied = {...defaultValue, ...config};
-        if (JSON.stringify(applied) !== JSON.stringify(config)) {
-            setConfig(applied);
-            setScale(applied.scale);
-            setFontSize(applied.fontSize);
-        }
-    }, [config])
+type ConfigStateSetter<T> = (config: T) => void;
+type NumberKeys<T> = {[K in keyof T]: T[K] extends number ? K : never}[keyof T];
+type StringKeys<T> = {[K in keyof T]: T[K] extends string ? K : never}[keyof T];
 
-    const update = (key: keyof ComponentBaseConfig) => (e: React.ChangeEvent<HTMLInputElement>) => {
-        config[key] = (typeof config[key] == "number"? Number(e.target.value): e.target.value) as never;
-        setConfig(config);
-        if (key === "scale") {
-            setScale(config.scale);
-        } else if (key === "fontSize") {
-            setFontSize(config.fontSize);
+type SwipeInputOptions = {
+    id?: string;
+    swipePxPerStep?: number;
+};
+
+type TextInputOptions = {
+    id?: string;
+    textarea?: boolean;
+    inputProps?: InputHTMLAttributes<HTMLInputElement>;
+    textareaProps?: TextareaHTMLAttributes<HTMLTextAreaElement>;
+};
+
+export const useComponentConfigState = <T extends Record<string, unknown>>(
+    defaults: T,
+    config: T,
+    setConfig: (config: T) => void
+) => {
+    const [stateConfig, _setStateConfig] = useState<T>(() => ({...defaults, ...config}));
+
+    const setStateConfig = useCallback((next: T) => {
+        setConfig(next);
+        _setStateConfig(next);
+    }, [setConfig]);
+
+    useEffect(() => {
+        const applied = {...defaults, ...config};
+        if (JSON.stringify(applied) !== JSON.stringify(config)) {
+            setStateConfig(applied);
+        } else {
+            _setStateConfig(applied);
         }
+    }, [config, defaults, setStateConfig]);
+
+    return {stateConfig, setStateConfig};
+}
+
+export class ComponentConfigHelper<T extends Record<string, unknown>> {
+    constructor(
+        private stateConfig: T,
+        private setStateConfig: ConfigStateSetter<T>
+    ) {}
+
+    private commit<K extends keyof T>(key: K, value: T[K]) {
+        this.stateConfig = {...this.stateConfig, [key]: value};
+        this.setStateConfig(this.stateConfig);
     }
 
-    const [scale, setScale] = useState(config.scale);
-    const [fontSize, setFontSize] = useState(config.fontSize);
+    swipeInput<K extends NumberKeys<T>>(
+        key: K,
+        name: string,
+        step: number,
+        unit: string = "",
+        options?: SwipeInputOptions
+    ) {
+        const id = options?.id ?? String(key);
+        const swipePxPerStep = options?.swipePxPerStep ?? 38;
+
+        const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+            const nextValue = Number(e.target.value) as T[K];
+            this.commit(key, nextValue);
+        };
+
+        return <div className="comp-config-item">
+            <label htmlFor={id}>{name}</label>
+            <SwipeAdjustInput
+                id={id}
+                type="number"
+                value={this.stateConfig[key] as number}
+                onChange={handleChange}
+                swipePxPerStep={swipePxPerStep}
+                onSwipeAdjust={steps => {
+                    const current = this.stateConfig[key] as number;
+                    this.commit(key, (current + steps * step) as T[K]);
+                }}
+            />
+            {unit && <span>{unit}</span>}
+        </div>
+    }
+
+    input<K extends StringKeys<T>>(key: K, name: string, options?: TextInputOptions) {
+        const id = options?.id ?? String(key);
+        const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            this.commit(key, e.target.value as T[K]);
+        };
+
+        const sharedProps = {
+            id,
+            value: this.stateConfig[key] as string,
+            onChange: handleChange
+        };
+
+        return <div className="comp-config-item">
+            <label htmlFor={id}>{name}</label>
+            {options?.textarea ? (
+                <textarea
+                    {...sharedProps}
+                    {...options.textareaProps}
+                />
+            ) : (
+                <input
+                    type="text"
+                    {...sharedProps}
+                    {...options?.inputProps}
+                />
+            )}
+        </div>
+    }
+}
+
+export const componentStyle = (config: ComponentBaseConfig) => {
+    return {
+        transformOrigin: "left top",
+        transform: `scale(${config.scale})`,
+        "--base-font-size": config.fontSize,
+        "--base-height": "calc(var(--base-font-size) * 2)",
+        "--small-font-size": `calc(var(--base-font-size) * 0.9)`,
+        "--h1-font-size": `calc(var(--base-font-size) * 2)`,
+        "--h2-font-size": `calc(var(--base-font-size) * 1.6)`,
+        "--h3-font-size": `calc(var(--base-font-size) * 1.2)`,
+        width: `${100 / config.scale}%`,
+        height: `${100 / config.scale}%`
+    }
+}
+
+export const CompBaseConfig: FC<{config: ComponentBaseConfig, setConfig: (config: any) => void}> = ({config, setConfig}) => {
+    const {stateConfig, setStateConfig} = useComponentConfigState(componentBaseDefaults, config, setConfig);
     const scaleInputId = useId();
     const fontSizeInputId = useId();
+    const helper = new ComponentConfigHelper(stateConfig, setStateConfig);
 
     return <div className="comp-config-group">
         <h3>基础</h3>
-        <div className="comp-config-item">
-            <label htmlFor={scaleInputId}>缩放</label>
-            <SwipeAdjustInput id={scaleInputId} type="number" value={scale} onChange={update("scale")}
-                swipePxPerStep={38} onSwipeAdjust={steps => {
-                    config.scale += steps * 0.2;
-                    setScale(config.scale);
-                    setConfig(config);
-                }}/>
-        </div>
-        <div className="comp-config-item">
-            <label htmlFor={fontSizeInputId}>字体大小</label>
-            <input type="text" id={fontSizeInputId} value={fontSize} onChange={update("fontSize")}/>
-        </div>
+        {helper.swipeInput(
+            "scale",
+            "缩放",
+            0.2,
+            "",
+            {id: scaleInputId}
+        )}
+            {helper.input(
+                "fontSize",
+                "字体大小",
+                {id: fontSizeInputId}
+            )}
     </div>
 }
 
 const CompBase: FC<{config: ComponentBaseConfig, openConfigWindow: (() => void) | null}> = ({config: conf, openConfigWindow}) => {
-    const config = {...defaultValue, ...conf};
+    const config = {...componentBaseDefaults, ...conf};
     const containerClassName = openConfigWindow == null? "comp-base": "comp-base comp-base--with-action";
     return <div className={containerClassName}>
         <div className="comp-base-preview">
-            <div className="comp-base-content" style={{transform: `scale(${config.scale})`, fontSize: config.fontSize}}>
+            <div className="comp-base-content" style={componentStyle(config)}>
                 <p>Hello world!</p>
                 <p className="comp-base-scale-note">Scale preview: {config.scale.toFixed(2)}</p>
             </div>

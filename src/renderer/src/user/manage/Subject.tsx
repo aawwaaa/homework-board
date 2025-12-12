@@ -208,7 +208,7 @@ const SubjectElement = ({subject, props, onChange}: {subject: Subject, props: Us
     return <div className="subject-row">
         <input key={subject.id + ".name"} type="text" value={subject.name} onChange={update('name')} />
         <input key={subject.id + ".color"} type="color" value={subject.color} onChange={update('color')} />
-        <button className="secondary" onClick={() => props.updatePage("config", <SubjectConfigPage subject={subject} />)}>
+        <button className="secondary" onClick={() => props.updatePage("config", <SubjectConfigPage key={Math.random()} subject={subject} />)}>
             配置
         </button>
         <button className="danger" onClick={() => window.data.subject.remove(subject.id)}>删除</button>
