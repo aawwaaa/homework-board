@@ -53,6 +53,6 @@ export const CompPage: FC<{left: string}> = ({left}) => {
         comp == null?
         <div>组件 {id}: {type} 不存在</div>:
         mode === "config"?
-        comp.config(config.config!, setConfigCallback):
+        <div style={{overflowY: "auto", height: "100vh"}}>{comp.config(config.config!, setConfigCallback)}</div>:
         comp.body(config.config!, showConfigWindow)
 }

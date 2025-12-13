@@ -13,6 +13,27 @@
     gap: 0.35rem;
 }
 
+.assignment-description-field {
+    position: relative;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.assignment-description-tools {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.assignment-description-preview {
+    flex-direction: column;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--gray-tinted-4);
+    background: var(--color-surface);
+}
+
 .assignment-field-label {
     font-size: var(--small-font-size);
     font-weight: 600;

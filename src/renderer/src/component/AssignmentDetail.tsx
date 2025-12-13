@@ -1,11 +1,12 @@
 import "./AssignmentDetail.css";
 import { AssignmentTitle } from "./AssignmentTitle";
+import { Markdown } from "./Markdown";
 
 export const AssignmentDetail: React.FC<{ assignment: AssignmentData }> = ({ assignment }) => {
     return <div className="assignment-detail">
         <AssignmentTitle assignment={assignment} />
         <div className="content">
-            <p>{assignment.description}</p>
+            <Markdown text={assignment.description} />
         </div>
         <div className="footer">
             创建时间: {assignment.created.toLocaleString()}<br/>

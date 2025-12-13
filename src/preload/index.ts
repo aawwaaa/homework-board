@@ -70,6 +70,8 @@ const apiTemplate = {
   showStudentPage: "",
   showConfigWindow: "",
   showSignWindow: "",
+
+  openExternal: "",
   
   openDataDirectory: "",
 

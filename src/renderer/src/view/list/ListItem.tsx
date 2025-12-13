@@ -3,6 +3,7 @@ import { FC, KeyboardEvent } from "react";
 import "./ListItem.css";
 import { toRelativeTime } from "@renderer/util";
 import { AssignmentTitle } from "@renderer/component/AssignmentTitle";
+import { Markdown } from "@renderer/component/Markdown";
 
 export type ListItemState = "submitted" | "submitting" | "normal";
 
@@ -80,7 +81,7 @@ export const ListItem: FC<ListItemProps> = ({
                 </time>
             </AssignmentTitle>
             {hasDescription && (
-                <p className="list-view-item-description">{descriptionText}</p>
+                <Markdown className="list-view-item-description" text={descriptionText} />
             )}
             {/* <footer className="list-view-item-meta">
                 <span>创建 {assignment.created.toLocaleString()}</span>

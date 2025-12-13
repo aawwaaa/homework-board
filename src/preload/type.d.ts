@@ -175,6 +175,7 @@ type API = {
     showConfigWindow: (id: string) => void;
     showSignWindow: () => void;
 
+    openExternal: (url: string) => void;
     openDataDirectory: () => void;
 
     getConfig: () => Promise<Config>;

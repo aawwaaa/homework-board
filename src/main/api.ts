@@ -4,6 +4,15 @@ import { getConfig, setConfig } from "./config";
 import { showSignWindow } from "./tray";
 import { cutoffAllUselessInfoInOperationLogs } from "./data";
 
+const isSafeExternalUrl = (raw: string) => {
+    try {
+        const url = new URL(String(raw));
+        return url.protocol === "http:" || url.protocol === "https:" || url.protocol === "mailto:";
+    } catch {
+        return false;
+    }
+};
+
 const api = {
     login(identity) {
         createWindowButtomRight({
@@ -38,6 +47,13 @@ const api = {
         }, "#/comp/" + component + "/config")
     },
     showSignWindow: showSignWindow,
+
+    openExternal(url: string) {
+        if (!isSafeExternalUrl(url)) {
+            return;
+        }
+        shell.openExternal(url);
+    },
 
     openDataDirectory() {
         const path = app.getPath("userData");

@@ -29,6 +29,11 @@
     gap: 0.3rem;
 }
 
+.comp-config-item.textarea-included {
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
 .comp-config-item label {
     min-width: 4.5rem;
     font-size: 1rem;

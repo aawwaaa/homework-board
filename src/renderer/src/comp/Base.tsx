@@ -109,7 +109,7 @@ export class ComponentConfigHelper<T extends Record<string, unknown>> {
             onChange: handleChange
         };
 
-        return <div className="comp-config-item">
+        return <div className={"comp-config-item" + (options?.textarea ? " textarea-included" : "")}>
             <label htmlFor={id}>{name}</label>
             {options?.textarea ? (
                 <textarea

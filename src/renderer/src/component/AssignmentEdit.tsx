@@ -6,6 +6,7 @@ import "./AssignmentEdit.css";
 import { Badge } from "./Badge";
 import { SwipeAdjustInput } from "./SwipeAdjustInput";
 import { BadgeEdit } from "./BadgeEdit";
+import { Markdown } from "./Markdown";
 
 /*
 
@@ -151,6 +152,13 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
     const presetSelectRef = useRef<HTMLSelectElement>(null);
 
     const [tags, setTags] = useState<Record<string, AssignmentTag> | null>(null);
+    const [descriptionPreview, setDescriptionPreview] = useState(false);
+
+    useEffect(() => {
+        if (disabled) {
+            setDescriptionPreview(false);
+        }
+    }, [disabled]);
 
     useEffect(() => {
         return window.data.onChanged(async () => {
@@ -331,15 +339,30 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
                 </select>: null}
             </label>
 
-            <label className="assignment-field">
+            <div className="assignment-field assignment-description-field">
                 <textarea
                     className="assignment-description"
                     value={descriptionValue}
                     onChange={handleDescriptionChange}
-                    placeholder="请输入作业详情"
-                    disabled={disabled}
+                    placeholder="请输入作业详情（支持 Markdown）"
+                    disabled={disabled || descriptionPreview}
                 />
-            </label>
+                <div className="assignment-description-tools">
+                    <button
+                        type="button"
+                        className="flat"
+                        onClick={() => setDescriptionPreview((value) => !value)}
+                        disabled={disabled}
+                    >
+                        {descriptionPreview ? "继续编辑" : "预览"}
+                    </button>
+                </div>
+            </div>
+            {descriptionPreview ? (
+                <div className="assignment-field assignment-description-preview">
+                    <Markdown text={descriptionValue} />
+                </div>
+            ) : null}
 
             {assignment ? (
                 <div className="assignment-field">

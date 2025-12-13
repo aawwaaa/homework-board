@@ -1,0 +1,66 @@
+@import url("../color.css");
+
+.markdown {
+    color: var(--color-title);
+    min-width: 0;
+}
+
+.markdown :where(p) {
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.markdown :where(p + p) {
+    margin-top: 0.5rem;
+}
+
+.markdown :where(ul, ol) {
+    margin: 0.25rem 0 0.25rem 1.25rem;
+    padding: 0;
+}
+
+.markdown :where(li) {
+    margin: 0.1rem 0;
+}
+
+.markdown :where(pre) {
+    margin: 0.4rem 0;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--gray-tinted-4);
+    background: var(--gray-tinted-1);
+    overflow: auto;
+}
+
+.markdown :where(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.95em;
+}
+
+.markdown :where(p code, li code) {
+    padding: 0 0.2rem;
+    border: 1px solid var(--gray-tinted-4);
+    background: var(--gray-tinted-1);
+}
+
+.markdown :where(a) {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.markdown :where(a:hover) {
+    color: var(--color-primary);
+}
+
+.markdown-color-block {
+    color: inherit;
+}
+
+.markdown-color-block :where(h1, h2, h3, h4, h5, h6) {
+    color: inherit;
+}
+
+.markdown-color-block :where(a) {
+    color: inherit;
+}
