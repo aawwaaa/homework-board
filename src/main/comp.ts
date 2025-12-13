@@ -167,9 +167,9 @@ export function loadComponents() {
     redrawAllWindows();
 }
 
-export function exitEditMode() {
+export function exitEditMode(redraw = true) {
     editingMode = false;
-    redrawAllWindows();
+    if (redraw) redrawAllWindows();
     updateTray();
 }
 

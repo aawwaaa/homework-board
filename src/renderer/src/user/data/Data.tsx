@@ -4,11 +4,13 @@ import { useState } from "react";
 import { ActualAllocationPage } from "./ActualAllocation";
 import { AllocationPage } from "./Allocation";
 import { OverviewPage } from "./Overview";
+import { SubmissionTimelinePage } from "./SubmissionTimeline";
 
 const pages = {
     "总览": () => <OverviewPage />,
     "估计": () => <AllocationPage />,
     "实际": () => <ActualAllocationPage />,
+    "提交时间线": () => <SubmissionTimelinePage />,
 }
 
 export const DataPage: React.FC<{ props: UserPageProps }> = ({props}) => {

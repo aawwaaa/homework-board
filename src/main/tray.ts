@@ -78,7 +78,7 @@ export function updateTray() {
         { type: "separator" },
 
         { label: "退出", click: () => {
-            exitEditMode();
+            exitEditMode(false);
             app.quit()
         } }
     ])

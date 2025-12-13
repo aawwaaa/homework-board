@@ -12,6 +12,10 @@
     padding-left: clamp(0px, calc(var(--timeline-view-x, 0px) - var(--timeline-item-x, 0px)), var(--timeline-item-width, 0px));
 }
 
+.timeline-item .assignment-title > h5 {
+    text-shadow: 1px 1px 0px var(--color-on-accent), -1px -1px 0px var(--color-on-accent), 1px -1px 0px var(--color-on-accent), -1px 1px 0px var(--color-on-accent);
+}
+
 .timeline-item-bar {
     display: flex;
     align-items: center;
@@ -42,11 +46,11 @@
 }
 
 .priority-4 {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
 }
 
 .priority-5 {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
 }
 
 .timeline-item-time-progress {

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import "./AssignmentManage.css";
 import { SubmissionStatus } from "./SubmissionStatus";
 import { TimeStatus } from "./TimeStatus";
+import { AssignmentSubmissionView } from "@renderer/view/AssignmentSubmissionView";
 
 export const AssignmentManage: React.FC<{ assignment: AssignmentData, props: UserPageProps }> = ({ assignment: assign, props }) => {
     const [assignment, setAssignment] = useState(assign);
@@ -30,7 +31,7 @@ export const AssignmentManage: React.FC<{ assignment: AssignmentData, props: Use
     return <div className="assignment-manage">
         <div className="title">
             <Tab
-                tabs={[["edit", "编辑"], ["submission", "提交"], ["time", "时间"]]} 
+                tabs={[["edit", "编辑"], ["submission", "提交"], ["time", "时间"], ["timeline", "提交时间线"]]} 
                 set={(id: string) => setPage(id)}
                 initial={page}
             />
@@ -47,5 +48,12 @@ export const AssignmentManage: React.FC<{ assignment: AssignmentData, props: Use
         </>)}
         {page === "submission" && (<SubmissionStatus assignment={assignment} />)}
         {page === "time" && (<TimeStatus assignment={assignment} />)}
+        {page === "timeline" && (<AssignmentSubmissionView
+            filter={(assignment) => assignment.id === assign.id}
+            start={assignment.created}
+            end={assignment.deadline}
+            extendDays={0}
+            heightPx={400}
+        />)}
     </div>;
 }

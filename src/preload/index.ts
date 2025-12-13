@@ -18,6 +18,7 @@ const dataAPITemplate = {
   submission: {
     create: "",
     list: "",
+    within: "",
   },
   tag: {
     list: "",

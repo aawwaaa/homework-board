@@ -2,17 +2,11 @@
 
 添加以下数据页，于 @src/renderer/user/data :
 
-实际时间分配：
-
-  从progress.within: (begin: Date, end: Date) => Promise<[Date, [number, Assignment][]][]>获取数据
-  格式同 @src/renderer/user/data/Allocation.tsx
-  或许可以提取公共组件来优化代码
-
-并按 @STYLING.md 辅以合适的css
-
-提交时间轴（分布）:
+提交时间轴（分布），以组件形式提供: AssignmentSubmissionView{filter?: (assignment: AssignmentData) => boolean, start?: Date, end?: Date, ...}，并在页面中使用:
 
   按照每6小时为横轴，跳过每天的（0~6小时，本地时间），每个作业的提交数为纵轴的堆叠柱状图：
   左，右滑动到边界后自动扩展
   点击柱状图可查看该作业标题和提交者名单
+
+并按 @STYLING.md 辅以合适的css
 
