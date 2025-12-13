@@ -1,10 +1,10 @@
 .assignment-title {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 3px;
 }
 
 .assignment-title > h5 {
-    margin: 0;
+  margin: 0;
 }

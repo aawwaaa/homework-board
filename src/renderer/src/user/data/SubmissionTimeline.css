@@ -1,52 +1,51 @@
 @import url("../../color.css");
 
 .submission-timeline-page {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .submission-timeline-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--gray-tinted-3);
-    border-radius: 0;
-    padding: 1rem 1.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--gray-tinted-3);
+  border-radius: 0;
+  padding: 1rem 1.25rem;
 }
 
 .submission-timeline-card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
 }
 
 .submission-timeline-card-header h3 {
-    margin: 0;
+  margin: 0;
 }
 
 .submission-timeline-range {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
 }
 
 .submission-timeline-range label {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--small-font-size);
-    color: var(--color-subtitle);
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--small-font-size);
+  color: var(--color-subtitle);
+  gap: 0.25rem;
 }
 
 .submission-timeline-range input[type="date"] {
-    width: 11rem;
+  width: 11rem;
 }
 
 .submission-timeline-range-sep {
-    font-weight: 700;
-    color: var(--color-menu);
+  font-weight: 700;
+  color: var(--color-menu);
 }
-

@@ -1,167 +1,186 @@
 @import url("./color.css");
 
 :root {
-    --base-font-size: 1rem;
-    --base-height: 2rem;
-    --small-font-size: calc(var(--base-font-size) * 0.9);
-    --h1-font-size: calc(var(--base-font-size) * 2);
-    --h2-font-size: calc(var(--base-font-size) * 1.6);
-    --h3-font-size: calc(var(--base-font-size) * 1.2);
+  --base-font-size: 1rem;
+  --base-height: 2rem;
+  --small-font-size: calc(var(--base-font-size) * 0.9);
+  --h1-font-size: calc(var(--base-font-size) * 2);
+  --h2-font-size: calc(var(--base-font-size) * 1.6);
+  --h3-font-size: calc(var(--base-font-size) * 1.2);
 }
 
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--gray-tinted-1);
-    font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--color-title);
-    line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray-tinted-1);
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  color: var(--color-title);
+  line-height: 1.4;
 }
 
 #root {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 :where(button, input, textarea, select) {
-    font: inherit;
-    color: inherit;
+  font: inherit;
+  color: inherit;
 }
 
 :focus-visible {
-    outline: 2px solid var(--color-secondary);
-    outline-offset: 2px;
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--color-title);
-    margin: 0 0 0.5rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-title);
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 h1 {
-    font-size: var(--h1-font-size);
+  font-size: var(--h1-font-size);
 }
 
 h2 {
-    font-size: var(--h2-font-size);
-    color: var(--color-subtitle);
+  font-size: var(--h2-font-size);
+  color: var(--color-subtitle);
 }
 
-h3, h4, h5, h6 {
-    font-size: var(--h3-font-size);
-    color: var(--color-menu);
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--h3-font-size);
+  color: var(--color-menu);
 }
 
 button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    padding: 0.3rem 0.85rem;
-    border: 1px solid var(--gray-tinted-4);
-    background-color: transparent;
-    color: var(--color-title);
-    cursor: pointer;
-    text-transform: none;
-    height: var(--base-height);
-    transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
-    box-sizing: border-box;
-    text-wrap-mode: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--gray-tinted-4);
+  background-color: transparent;
+  color: var(--color-title);
+  cursor: pointer;
+  text-transform: none;
+  height: var(--base-height);
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease;
+  box-sizing: border-box;
+  text-wrap-mode: nowrap;
 }
 
 button.primary {
-    background-color: var(--color-primary);
-    border-color: var(--color-secondary);
-    color: var(--color-on-accent);
+  background-color: var(--color-primary);
+  border-color: var(--color-secondary);
+  color: var(--color-on-accent);
 }
 
 button.primary:hover:not(:disabled) {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 button.primary:active:not(:disabled) {
-    background-color: var(--color-tertiary);
+  background-color: var(--color-tertiary);
 }
 
 button.secondary {
-    border-color: var(--color-secondary);
-    color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 button.secondary:hover:not(:disabled) {
-    background-color: var(--color-menu);
-    border-color: var(--color-menu);
-    color: var(--color-on-accent);
+  background-color: var(--color-menu);
+  border-color: var(--color-menu);
+  color: var(--color-on-accent);
 }
 
 button.secondary:active:not(:disabled) {
-    background-color: var(--color-list);
+  background-color: var(--color-list);
 }
 
 button.outline {
-    background-color: transparent;
-    border-color: var(--color-tertiary);
-    color: var(--color-secondary);
+  background-color: transparent;
+  border-color: var(--color-tertiary);
+  color: var(--color-secondary);
 }
 
 button.outline:hover:not(:disabled) {
-    background-color: var(--color-tertiary);
-    color: var(--color-on-accent);
+  background-color: var(--color-tertiary);
+  color: var(--color-on-accent);
 }
 
 button.outline:active:not(:disabled) {
-    border-color: var(--color-secondary);
-    background-color: var(--color-tertiary);
+  border-color: var(--color-secondary);
+  background-color: var(--color-tertiary);
 }
 
 button.outline.selected {
-    background-color: var(--color-secondary);
-    color: var(--color-on-accent);
+  background-color: var(--color-secondary);
+  color: var(--color-on-accent);
 }
 
 button.flat {
-    border-color: transparent;
-    background-color: transparent;
-    color: var(--color-menu);
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--color-menu);
 }
 
 button.flat:hover:not(:disabled) {
-    color: var(--color-secondary);
-    background-color: var(--gray-tinted-1);
+  color: var(--color-secondary);
+  background-color: var(--gray-tinted-1);
 }
 
 button.flat:active:not(:disabled) {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 button.danger {
-    color: var(--color-danger);
-    border-color: var(--color-danger);
+  color: var(--color-danger);
+  border-color: var(--color-danger);
 }
 
 button.danger:hover:not(:disabled) {
-    background-color: var(--color-danger);
-    border-color: var(--color-danger);
-    color: var(--color-on-accent);
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+  color: var(--color-on-accent);
 }
 
 button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 input[type="text"],
@@ -172,69 +191,76 @@ input[type="number"],
 input[type="search"],
 textarea,
 select {
-    width: 200px;
-    height: 2rem;
-    margin: 2px 2px;
-    border: 1px solid var(--gray-tinted-4);
-    background-color: var(--color-surface);
-    color: var(--color-title);
-    transition: border-color 120ms ease, background-color 120ms ease;
-    box-sizing: border-box;
+  width: 200px;
+  height: 2rem;
+  margin: 2px 2px;
+  border: 1px solid var(--gray-tinted-4);
+  background-color: var(--color-surface);
+  color: var(--color-title);
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+  box-sizing: border-box;
 }
 
 textarea {
-    height: 6rem;
-    resize: vertical;
+  height: 6rem;
+  resize: vertical;
 }
 
 input[type="color"] {
-    width: 2rem;
+  width: 2rem;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: var(--gray-tinted-5);
+  color: var(--gray-tinted-5);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: var(--color-secondary);
-    background-color: var(--gray-tinted-2);
+  border-color: var(--color-secondary);
+  background-color: var(--gray-tinted-2);
 }
 
 input:disabled,
 textarea:disabled,
 select:disabled {
-    background-color: var(--gray-tinted-2);
-    color: var(--gray-tinted-6);
-    cursor: not-allowed;
+  background-color: var(--gray-tinted-2);
+  color: var(--gray-tinted-6);
+  cursor: not-allowed;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-    width: 1rem;
-    height: 1rem;
-    accent-color: var(--color-primary);
-    margin: 0 0.4rem 0 0;
-    border-radius: 0;
-    box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-primary);
+  margin: 0 0.4rem 0 0;
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
 select {
-    appearance: none;
-    background-image: linear-gradient(45deg, transparent 50%, var(--color-menu) 50%),
-        linear-gradient(135deg, var(--color-menu) 50%, transparent 50%);
-    background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px);
-    background-size: 6px 6px, 6px 6px;
-    background-repeat: no-repeat;
-    padding-right: 2.5rem;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-menu) 50%),
+    linear-gradient(135deg, var(--color-menu) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 2px),
+    calc(100% - 12px) calc(50% - 2px);
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
 }
 
 label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--color-subtitle);
-    font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-subtitle);
+  font-weight: 500;
 }

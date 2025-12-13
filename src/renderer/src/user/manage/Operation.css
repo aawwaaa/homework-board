@@ -1,179 +1,179 @@
 @import url("../../color.css");
 
 .operation-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding: 0.5rem;
-    color: var(--color-title);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  color: var(--color-title);
 }
 
 .operation-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    align-items: flex-end;
-    border-bottom: 1px solid var(--gray-tinted-3);
-    padding-bottom: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--gray-tinted-3);
+  padding-bottom: 0.35rem;
 }
 
 .operation-control-group {
-    display: inline-flex;
-    align-items: flex-end;
-    gap: 0.4rem;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.4rem;
 }
 
 .operation-controls input[type="date"] {
-    width: 11rem;
-    margin: 0;
+  width: 11rem;
+  margin: 0;
 }
 
 .operation-controls input[type="search"] {
-    flex: 1;
-    min-width: 12rem;
-    margin: 0;
+  flex: 1;
+  min-width: 12rem;
+  margin: 0;
 }
 
 .operation-controls button {
-    margin: 0;
-    height: 2rem;
+  margin: 0;
+  height: 2rem;
 }
 
 .operation-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    font-size: var(--small-font-size);
-    color: var(--color-menu);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
 }
 
 .operation-error {
-    border: 1px solid var(--color-danger);
-    background-color: var(--color-surface-danger);
-    color: var(--color-danger);
-    padding: 0.4rem 0.5rem;
+  border: 1px solid var(--color-danger);
+  background-color: var(--color-surface-danger);
+  color: var(--color-danger);
+  padding: 0.4rem 0.5rem;
 }
 
 .operation-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    min-height: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 6rem;
 }
 
 .operation-placeholder {
-    border: 1px dashed var(--gray-tinted-4);
-    padding: 0.65rem;
-    text-align: center;
-    font-size: var(--small-font-size);
-    color: var(--gray-tinted-6);
+  border: 1px dashed var(--gray-tinted-4);
+  padding: 0.65rem;
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--gray-tinted-6);
 }
 
 .operation-entry {
-    border: 1px solid var(--gray-tinted-3);
-    background-color: var(--color-surface);
+  border: 1px solid var(--gray-tinted-3);
+  background-color: var(--color-surface);
 }
 
 .operation-entry--reverted {
-    border-color: var(--gray-tinted-4);
-    background-color: var(--gray-tinted-2);
+  border-color: var(--gray-tinted-4);
+  background-color: var(--gray-tinted-2);
 }
 
 .operation-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
 }
 
 .operation-row-trigger {
-    border: none;
-    border-right: 1px solid var(--gray-tinted-3);
-    background-color: transparent;
-    padding: 0.45rem 0.5rem;
-    text-align: left;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: auto;
-    min-height: 2.4rem;
-    gap: 0.3rem;
+  border: none;
+  border-right: 1px solid var(--gray-tinted-3);
+  background-color: transparent;
+  padding: 0.45rem 0.5rem;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: auto;
+  min-height: 2.4rem;
+  gap: 0.3rem;
 }
 
 .operation-row-trigger:hover:not(:disabled) {
-    background-color: var(--gray-tinted-2);
+  background-color: var(--gray-tinted-2);
 }
 
 .operation-row-time {
-    font-size: var(--small-font-size);
-    color: var(--color-menu);
-    min-width: 10rem;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
+  min-width: 10rem;
 }
 
 .operation-row-description {
-    flex: 1;
-    font-weight: 600;
-    color: var(--color-title);
+  flex: 1;
+  font-weight: 600;
+  color: var(--color-title);
 }
 
 .operation-row-action {
-    min-width: 5rem;
-    height: auto;
+  min-width: 5rem;
+  height: auto;
 }
 
 .operation-row-action.undo {
-    border-color: var(--color-danger);
-    color: var(--color-danger);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
 }
 
 .operation-row-action.undo:hover:not(:disabled) {
-    background-color: var(--color-danger);
-    color: var(--color-on-accent);
+  background-color: var(--color-danger);
+  color: var(--color-on-accent);
 }
 
 .operation-row-action.redo {
-    border-color: var(--color-secondary);
-    color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 .operation-row-action.redo:hover:not(:disabled) {
-    background-color: var(--color-secondary);
-    color: var(--color-on-accent);
+  background-color: var(--color-secondary);
+  color: var(--color-on-accent);
 }
 
 .operation-details {
-    border-top: 1px solid var(--gray-tinted-3);
-    padding: 0.45rem 0.5rem;
-    background-color: var(--gray-tinted-1);
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+  border-top: 1px solid var(--gray-tinted-3);
+  padding: 0.45rem 0.5rem;
+  background-color: var(--gray-tinted-1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .operation-detail-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    font-size: var(--small-font-size);
-    color: var(--color-menu);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
 }
 
 .operation-detail-data {
-    border: 1px solid var(--gray-tinted-3);
-    background-color: var(--color-surface);
-    padding: 0.5rem;
-    margin: 0;
-    white-space: pre-wrap;
-    font-family: "JetBrains Mono", "SFMono-Regular", "Cascadia Code", monospace;
-    font-size: var(--small-font-size);
-    overflow: auto;
-    max-height: 12rem;
+  border: 1px solid var(--gray-tinted-3);
+  background-color: var(--color-surface);
+  padding: 0.5rem;
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: "JetBrains Mono", "SFMono-Regular", "Cascadia Code", monospace;
+  font-size: var(--small-font-size);
+  overflow: auto;
+  max-height: 12rem;
 }
 
 .operation-load-more {
-    display: flex;
-    justify-content: center;
-    padding-top: 0.4rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.4rem;
 }
 
 .operation-load-more button {
-    min-width: 12rem;
+  min-width: 12rem;
 }

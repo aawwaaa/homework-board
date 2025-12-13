@@ -1,58 +1,62 @@
 @import url("../color.css");
 
 .priority-picker {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--color-menu);
-    font-size: var(--small-font-size);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-menu);
+  font-size: var(--small-font-size);
 }
 
 .priority-picker.disabled {
-    opacity: 0.6;
-    pointer-events: none;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .priority-label {
-    font-size: var(--small-font-size);
-    color: var(--color-menu);
-    user-select: none;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
+  user-select: none;
 }
 
 .priority-scale {
-    display: inline-flex;
-    gap: 0.4rem;
-    touch-action: pan-y;
+  display: inline-flex;
+  gap: 0.4rem;
+  touch-action: pan-y;
 }
 
 .priority-scale button {
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 0;
-    border: 1px solid var(--gray-tinted-3);
-    background-color: var(--priority-color-soft, var(--gray-tinted-1));
-    color: var(--color-title);
-    font-weight: 600;
-    padding: 0;
-    transition: background-color 0.15s ease, border-color 0.15s ease,
-        color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0;
+  border: 1px solid var(--gray-tinted-3);
+  background-color: var(--priority-color-soft, var(--gray-tinted-1));
+  color: var(--color-title);
+  font-weight: 600;
+  padding: 0;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .priority-scale button:hover:not(:disabled):not(.active) {
-    border-color: var(--priority-color, var(--color-secondary));
-    color: var(--color-secondary);
-    background-color: var(--priority-color-soft, var(--gray-tinted-2));
-    transform: translateY(-1px);
+  border-color: var(--priority-color, var(--color-secondary));
+  color: var(--color-secondary);
+  background-color: var(--priority-color-soft, var(--gray-tinted-2));
+  transform: translateY(-1px);
 }
 
 .priority-scale button.active {
-    color: var(--color-on-accent);
-    background-color: var(--priority-color, var(--color-primary));
-    border-color: var(--priority-color, var(--color-primary));
-    box-shadow: none;
-    transform: translateY(-1px);
+  color: var(--color-on-accent);
+  background-color: var(--priority-color, var(--color-primary));
+  border-color: var(--priority-color, var(--color-primary));
+  box-shadow: none;
+  transform: translateY(-1px);
 }
 
 .priority-scale button:disabled {
-    cursor: default;
+  cursor: default;
 }

@@ -1,4 +1,4 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer } from "electron";
 
 const dataAPITemplate = {
   assignment: {
@@ -61,8 +61,8 @@ const dataAPITemplate = {
   database: {
     execute: "",
     all: "",
-  }
-}
+  },
+};
 
 const apiTemplate = {
   login: "",
@@ -72,14 +72,14 @@ const apiTemplate = {
   showSignWindow: "",
 
   openExternal: "",
-  
+
   openDataDirectory: "",
 
   getConfig: "",
   setConfig: "",
 
-  cutoffAllUselessInfoInOperationLogs: ""
-}
+  cutoffAllUselessInfoInOperationLogs: "",
+};
 
 const dataAPI = {} as DataAPI;
 const api = {} as API;
@@ -93,9 +93,16 @@ function iter(obj: any, target: any, path: string[] = []) {
       const value = [...path, key].join(".");
       target[key] = (...args: any[]) => {
         try {
-          return ipcRenderer.invoke(value, ...args)
+          return ipcRenderer.invoke(value, ...args);
         } catch (e) {
-          alert("在调用 " + value + " (" + args.map(a => JSON.stringify(a)).join(", \n") + ") 时发生错误：" + e);
+          alert(
+            "在调用 " +
+              value +
+              " (" +
+              args.map((a) => JSON.stringify(a)).join(", \n") +
+              ") 时发生错误：" +
+              e,
+          );
           throw e;
         }
       };
@@ -114,10 +121,10 @@ dataAPI.onChanged = (handler: () => void) => {
   return () => {
     onChangedHandlers.delete(handler);
   };
-}
+};
 
 ipcRenderer.on("data.changed", () => {
-  onChangedHandlers.forEach(handler => handler());
+  onChangedHandlers.forEach((handler) => handler());
 });
 
 // Use `contextBridge` APIs to expose Electron APIs to
@@ -125,14 +132,14 @@ ipcRenderer.on("data.changed", () => {
 // just add to the DOM global.
 if (process.contextIsolated) {
   try {
-    contextBridge.exposeInMainWorld('data', dataAPI)
-    contextBridge.exposeInMainWorld('api', api)
+    contextBridge.exposeInMainWorld("data", dataAPI);
+    contextBridge.exposeInMainWorld("api", api);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 } else {
   // @ts-ignore (define in dts)
-  window.data = dataAPI
+  window.data = dataAPI;
   // @ts-ignore (define in dts)
-  window.api = api
+  window.api = api;
 }

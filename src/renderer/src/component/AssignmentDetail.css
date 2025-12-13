@@ -1,26 +1,26 @@
 .assignment-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .assignment-detail > .title {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .assignment-detail > .title > h5 {
-    flex: 1;
-    margin: 0;
+  flex: 1;
+  margin: 0;
 }
 
 .assignment-detail > .title > span {
-    margin: 0;
-    border-radius: 0;
-    padding: 2px 4px;
-    background-color: var(--color-menu);
-    color: var(--color-on-accent);
+  margin: 0;
+  border-radius: 0;
+  padding: 2px 4px;
+  background-color: var(--color-menu);
+  color: var(--color-on-accent);
 }

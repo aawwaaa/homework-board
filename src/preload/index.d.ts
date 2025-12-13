@@ -2,8 +2,8 @@ import { IpcRenderer } from "electron";
 
 declare global {
   interface Window {
-    ipcRenderer: IpcRenderer
-    data: DataAPI
-    api: API
+    ipcRenderer: IpcRenderer;
+    data: DataAPI;
+    api: API;
   }
 }

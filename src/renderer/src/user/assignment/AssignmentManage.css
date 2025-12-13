@@ -1,57 +1,57 @@
 @import url("../../color.css");
 
 .assignment-manage {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .assignment-manage .progress {
-    display: flex;
-    align-items: center;
-    width: calc(100% - 8px);
-    margin: 4px;
-    background-color: var(--color-quaternary);
-    position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 8px);
+  margin: 4px;
+  background-color: var(--color-quaternary);
+  position: relative;
 }
 
 .assignment-manage .progress > * {
-    z-index: 1;
-    color: var(--color-on-accent);
+  z-index: 1;
+  color: var(--color-on-accent);
 }
 
 .assignment-manage .bar {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: calc(100% - 4px);
-    background-color: var(--color-primary);
-    z-index: 0;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: calc(100% - 4px);
+  background-color: var(--color-primary);
+  z-index: 0;
 }
 
 .assignment-manage .title {
-    padding: 4px;
-    color: var(--color-text-primary);
-    font-weight: bold;
+  padding: 4px;
+  color: var(--color-text-primary);
+  font-weight: bold;
 }
 
 .assignment-manage .unsubmitted {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .assignment-manage .unsubmitted > span {
-    padding: 4px;
-    margin: 2px;
-    background-color: var(--color-quaternary);
+  padding: 4px;
+  margin: 2px;
+  background-color: var(--color-quaternary);
 }
 
 .assignment-manage .feedback > div {
-    padding: 4px;
-    margin: 2px;
-    border-left: 2px solid var(--color-primary);
+  padding: 4px;
+  margin: 2px;
+  border-left: 2px solid var(--color-primary);
 }
 
 .assignment-manage .time-data > *:nth-child(2) {
-    width: 70px;
+  width: 70px;
 }

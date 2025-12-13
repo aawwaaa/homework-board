@@ -1,276 +1,276 @@
 @import url("../../color.css");
 
 .allocation-page {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .allocation-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--gray-tinted-3);
-    border-radius: 0;
-    padding: 1rem 1.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--gray-tinted-3);
+  border-radius: 0;
+  padding: 1rem 1.25rem;
 }
 
 .allocation-card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
 }
 
 .allocation-card-header h3 {
-    margin: 0;
+  margin: 0;
 }
 
 .allocation-card-meta {
-    display: flex;
-    gap: 1.25rem;
-    font-weight: 600;
-    color: var(--color-menu);
+  display: flex;
+  gap: 1.25rem;
+  font-weight: 600;
+  color: var(--color-menu);
 }
 
 .allocation-range {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
 }
 
 .allocation-range label {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--small-font-size);
-    color: var(--color-subtitle);
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--small-font-size);
+  color: var(--color-subtitle);
+  gap: 0.25rem;
 }
 
 .allocation-range input[type="date"] {
-    width: 11rem;
+  width: 11rem;
 }
 
 .allocation-range-sep {
-    font-weight: 700;
-    color: var(--color-menu);
+  font-weight: 700;
+  color: var(--color-menu);
 }
 
 .allocation-status {
-    margin-top: 0.5rem;
-    font-size: var(--small-font-size);
-    color: var(--color-menu);
+  margin-top: 0.5rem;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
 }
 
 .allocation-status.error {
-    color: var(--color-danger);
+  color: var(--color-danger);
 }
 
 .allocation-summary {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .allocation-summary-bar {
-    display: flex;
-    height: 2rem;
-    border-radius: 0;
-    overflow: hidden;
-    background-color: var(--gray-tinted-2);
+  display: flex;
+  height: 2rem;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: var(--gray-tinted-2);
 }
 
 .allocation-bar-segment {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-    padding: 0 0.35rem;
-    font-weight: 600;
-    font-size: var(--small-font-size);
-    color: var(--color-on-accent);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 0.35rem;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+  color: var(--color-on-accent);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
 }
 
 .allocation-bar-segment span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-wrap-mode: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap-mode: nowrap;
 }
 
 .allocation-legend {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 1rem;
-    margin: 0;
-    padding: 0;
-    font-size: var(--small-font-size);
-    color: var(--color-menu);
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  padding: 0;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
 }
 
 .allocation-legend li {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .allocation-dot {
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 999px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: inline-block;
 }
 
 .allocation-empty {
-    padding: 1rem;
-    text-align: center;
-    border-radius: 0;
-    background-color: var(--gray-tinted-2);
-    color: var(--color-menu);
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0;
+  background-color: var(--gray-tinted-2);
+  color: var(--color-menu);
 }
 
 .allocation-day-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .allocation-day {
-    border: 1px solid var(--gray-tinted-3);
-    border-radius: 0;
-    overflow: visible;
-    background-color: var(--color-surface);
+  border: 1px solid var(--gray-tinted-3);
+  border-radius: 0;
+  overflow: visible;
+  background-color: var(--color-surface);
 }
 
 .allocation-day.expanded {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .allocation-day-trigger {
-    width: 100%;
-    border: none;
-    background: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.1rem;
-    cursor: pointer;
-    color: inherit;
+  width: 100%;
+  border: none;
+  background: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1rem;
+  cursor: pointer;
+  color: inherit;
 }
 
 .allocation-day-trigger:focus-visible {
-    outline: 2px solid var(--color-secondary);
-    outline-offset: -4px;
+  outline: 2px solid var(--color-secondary);
+  outline-offset: -4px;
 }
 
 .allocation-day-date {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.3rem;
-    min-width: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.3rem;
+  min-width: 120px;
 }
 
 .allocation-day-date--stack {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0.2rem;
-    min-width: 132px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.2rem;
+  min-width: 132px;
 }
 
 .allocation-day-subtitle {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 0.5rem;
-    color: var(--color-subtitle);
-    font-size: var(--small-font-size);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--color-subtitle);
+  font-size: var(--small-font-size);
 }
 
 .allocation-day-date span:first-child {
-    font-weight: 700;
-    color: var(--color-title);
+  font-weight: 700;
+  color: var(--color-title);
 }
 
 .allocation-day-date span:last-child {
-    color: var(--color-subtitle);
-    font-size: var(--small-font-size);
+  color: var(--color-subtitle);
+  font-size: var(--small-font-size);
 }
 
 .allocation-day-bar-wrapper {
-    flex: 1;
-    min-width: 220px;
-    height: 1.5rem;
-    border-radius: 0;
-    background-color: var(--gray-tinted-2);
-    padding: 0.25rem;
-    display: flex;
-    align-items: center;
+  flex: 1;
+  min-width: 220px;
+  height: 1.5rem;
+  border-radius: 0;
+  background-color: var(--gray-tinted-2);
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
 }
 
 .allocation-day-bar {
-    height: 100%;
-    display: flex;
-    border-radius: 0;
-    overflow: hidden;
-    transition: width 0.2s ease;
+  height: 100%;
+  display: flex;
+  border-radius: 0;
+  overflow: hidden;
+  transition: width 0.2s ease;
 }
 
 .allocation-day-toggle-label {
-    margin-left: auto;
-    font-size: var(--small-font-size);
-    color: var(--color-menu);
+  margin-left: auto;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
 }
 
 .allocation-day-details {
-    border-top: 1px solid var(--gray-tinted-3);
-    background-color: var(--gray-tinted-1);
+  border-top: 1px solid var(--gray-tinted-3);
+  background-color: var(--gray-tinted-1);
 }
 
 .allocation-day-details table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .allocation-day-details th,
 .allocation-day-details td {
-    padding: 0.6rem 1rem;
-    border-top: 1px solid var(--gray-tinted-3);
-    text-align: left;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--gray-tinted-3);
+  text-align: left;
 }
 
 .allocation-day-details th {
-    font-weight: 600;
-    color: var(--color-subtitle);
-    background-color: var(--gray-tinted-2);
+  font-weight: 600;
+  color: var(--color-subtitle);
+  background-color: var(--gray-tinted-2);
 }
 
 .allocation-day-details td:last-child {
-    text-align: right;
-    white-space: nowrap;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .allocation-day-details td:first-child {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .allocation-day-details td .allocation-dot {
-    margin-right: 0.35rem;
+  margin-right: 0.35rem;
 }
 
 .allocation-assignment-cell {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .allocation-assignment-cell span {
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

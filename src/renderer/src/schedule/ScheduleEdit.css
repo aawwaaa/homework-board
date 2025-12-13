@@ -1,128 +1,128 @@
 @import url("../color.css");
 
 .schedule-edit {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    width: 100%;
-    position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 .schedule-edit-toolbar {
-    min-height: var(--base-height);
+  min-height: var(--base-height);
 }
 
 .schedule-edit-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .schedule-entry {
-    border: 1px solid var(--gray-tinted-4);
-    background-color: var(--color-surface);
-    padding: 0.2rem 0.3rem;
+  border: 1px solid var(--gray-tinted-4);
+  background-color: var(--color-surface);
+  padding: 0.2rem 0.3rem;
 }
 
 .schedule-entry.dragging {
-    border-color: var(--color-secondary);
-    box-shadow: 0 4px 10px rgba(124, 124, 240, 0.16);
-    pointer-events: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 10px rgba(124, 124, 240, 0.16);
+  pointer-events: none;
 }
 
 .schedule-entry-row {
-    /* display: grid;
+  /* display: grid;
     grid-template-columns: auto minmax(6rem, 0.65fr) minmax(14rem, auto) auto auto; */
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    touch-action: pan-y;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  touch-action: pan-y;
 }
 
 .drag-handle {
-    width: 2.4rem;
-    min-height: 2.4rem;
-    justify-content: center;
-    cursor: grab;
-    user-select: none;
-    touch-action: none;
+  width: 2.4rem;
+  min-height: 2.4rem;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
 }
 
 .schedule-entry.dragging .drag-handle {
-    cursor: grabbing;
+  cursor: grabbing;
 }
 
 .duration-field {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .duration-field input[type="number"] {
-    width: 5rem;
+  width: 5rem;
 }
 
 .title-input {
-    flex: 1;
-    width: 100%;
-    font-weight: 600;
-    max-width: none;
+  flex: 1;
+  width: 100%;
+  font-weight: 600;
+  max-width: none;
 }
 
 .schedule-entry-details {
-    margin-top: 0.45rem;
+  margin-top: 0.45rem;
 }
 
 .schedule-entry-details textarea {
-    width: 100%;
-    min-height: 4.5rem;
+  width: 100%;
+  min-height: 4.5rem;
 }
 
 .schedule-add {
-    align-self: flex-start;
+  align-self: flex-start;
 }
 
 .schedule-empty {
-    padding: 0.75rem;
-    color: var(--color-menu);
+  padding: 0.75rem;
+  color: var(--color-menu);
 }
 
 .schedule-import-source {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    background: var(--color-surface);
-    /* border: 1px solid var(--gray-tinted-3); */
-    /* box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); */
-    transform: translateX(0);
-    pointer-events: auto;
-    transition: transform 200ms ease-out;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  /* border: 1px solid var(--gray-tinted-3); */
+  /* box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); */
+  transform: translateX(0);
+  pointer-events: auto;
+  transition: transform 200ms ease-out;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
 }
 
 .schedule-import-source.hidden {
-    transform: translateX(105%);
-    pointer-events: none;
+  transform: translateX(105%);
+  pointer-events: none;
 }
 
 .schedule-import-source-header {
-    display: flex;
-    justify-content: flex-start;
-    /* padding: 0.35rem 0.4rem; */
-    /* border-bottom: 1px solid var(--gray-tinted-3); */
-    /* background-color: var(--gray-tinted-1); */
+  display: flex;
+  justify-content: flex-start;
+  /* padding: 0.35rem 0.4rem; */
+  /* border-bottom: 1px solid var(--gray-tinted-3); */
+  /* background-color: var(--gray-tinted-1); */
 }
 
 .schedule-import-source-body {
-    flex: 1;
-    /* padding: 0.5rem; */
-    overflow: auto;
-    width: 100%;
-    height: 100%;
+  flex: 1;
+  /* padding: 0.5rem; */
+  overflow: auto;
+  width: 100%;
+  height: 100%;
 }

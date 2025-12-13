@@ -1,15 +1,15 @@
 .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 2px 4px;
-    border-radius: 0;
-    font-size: var(--base-font-size);
-    text-wrap-mode: nowrap;
-    /* width: calc(var(--base-font-size) * 2.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  border-radius: 0;
+  font-size: var(--base-font-size);
+  text-wrap-mode: nowrap;
+  /* width: calc(var(--base-font-size) * 2.5);
     max-width: calc(var(--base-font-size) * 2.5); */
 }
 
 .badge-name {
-    color: var(--color-on-accent);
+  color: var(--color-on-accent);
 }

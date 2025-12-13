@@ -1,9 +1,9 @@
-import { Statistics } from "./Statistics"
+import { Statistics } from "./Statistics";
 
 const tools = {
-    "/statistics": () => <Statistics />
-}
+  "/statistics": () => <Statistics />,
+};
 
-export const ToolPage = ({left}) => {
-    return tools[left]()
-}
+export const ToolPage = ({ left }) => {
+  return tools[left]();
+};

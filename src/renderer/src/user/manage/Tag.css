@@ -1,23 +1,23 @@
 @import url("../../color.css");
 
 .subject-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .subject-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .subject-row input[type="text"] {
-    flex: 1;
+  flex: 1;
 }
 
 .subject-row input[type="color"] {
-    width: 2.5rem;
-    min-width: 2.5rem;
-    padding: 0;
+  width: 2.5rem;
+  min-width: 2.5rem;
+  padding: 0;
 }

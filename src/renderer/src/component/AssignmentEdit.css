@@ -1,100 +1,100 @@
 @import url("../color.css");
 
 .assignment-edit {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  width: 100%;
 }
 
 .assignment-field {
-    display: flex;
-    flex-direction: row;
-    gap: 0.35rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.35rem;
 }
 
 .assignment-description-field {
-    position: relative;
-    flex-direction: column;
-    gap: 0.2rem;
+  position: relative;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .assignment-description-tools {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    display: flex;
-    justify-content: flex-end;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .assignment-description-preview {
-    flex-direction: column;
-    padding: 0.35rem 0.5rem;
-    border: 1px solid var(--gray-tinted-4);
-    background: var(--color-surface);
+  flex-direction: column;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--gray-tinted-4);
+  background: var(--color-surface);
 }
 
 .assignment-field-label {
-    font-size: var(--small-font-size);
-    font-weight: 600;
-    color: var(--color-menu);
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: var(--color-menu);
 }
 
 .assignment-title-input:first-of-type {
-    width: 100%;
-    font-weight: 600;
+  width: 100%;
+  font-weight: 600;
 }
 
 .assignment-description {
-    width: 100%;
-    min-height: 200px;
-    resize: vertical;
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
 }
 
 .assignment-inline-group {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .assignment-inline-input {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    min-width: 6rem;
-    flex: 1 1 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 6rem;
+  flex: 1 1 6rem;
 }
 
 .assignment-inline-input input {
-    width: 100%;
+  width: 100%;
 }
 
 .swipe-adjust-input {
-    touch-action: pan-y;
-    cursor: ew-resize;
+  touch-action: pan-y;
+  cursor: ew-resize;
 }
 
 /* Datetime inputs need the default tap behaviour to show the native picker. */
 .swipe-adjust-input[type="datetime-local"] {
-    touch-action: auto;
-    cursor: text;
+  touch-action: auto;
+  cursor: text;
 }
 
 .swipe-adjust-input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .assignment-priority-field {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.35rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .assignment-priority-field .priority-picker {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 /* .assignment-edit .subject-badge:first-of-type {

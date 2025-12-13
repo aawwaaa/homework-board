@@ -1,28 +1,28 @@
 .assignment-page {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 0.5rem;
 }
 
 .assignment-page__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .assignment-page__header > *:first-child {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .assignment-page__timeline {
-    flex: 1;
-    min-height: 0;
+  flex: 1;
+  min-height: 0;
 }
 
 .assignment-page__timeline > * {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }

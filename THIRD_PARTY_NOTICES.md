@@ -1,0 +1,661 @@
+# Third-Party Notices
+
+This project uses third-party open-source packages installed via npm. This file lists their declared licenses.
+
+Regenerate:
+
+```bash
+node scripts/generate-third-party-notices.mjs
+```
+
+## Summary
+
+Total unique packages: 598
+
+| License | Count |
+|---|---:|
+| MIT | 473 |
+| ISC | 69 |
+| Apache-2.0 | 25 |
+| BSD-2-Clause | 11 |
+| BSD-3-Clause | 7 |
+| BlueOak-1.0.0 | 5 |
+| (BSD-2-Clause OR MIT OR Apache-2.0) | 1 |
+| (MIT OR CC0-1.0) | 1 |
+| (MIT OR WTFPL) | 1 |
+| (WTFPL OR MIT) | 1 |
+| CC-BY-4.0 | 1 |
+| Python-2.0 | 1 |
+| WTFPL | 1 |
+| WTFPL OR ISC | 1 |
+
+## Direct Dependencies
+
+| Group | Package | Range | Installed | License |
+|---|---|---|---|---|
+| devDependencies | @electron-toolkit/eslint-config-prettier | ^3.0.0 | 3.0.0 | MIT |
+| devDependencies | @electron-toolkit/eslint-config-ts | ^3.1.0 | 3.1.0 | MIT |
+| dependencies | @electron-toolkit/preload | ^3.0.2 | 3.0.2 | MIT |
+| devDependencies | @electron-toolkit/tsconfig | ^2.0.0 | 2.0.0 | MIT |
+| dependencies | @electron-toolkit/utils | ^4.0.0 | 4.0.0 | MIT |
+| devDependencies | @types/better-sqlite3 | ^7.6.13 | 7.6.13 | MIT |
+| devDependencies | @types/node | ^22.18.6 | 22.19.1 | MIT |
+| devDependencies | @types/react | ^19.1.13 | 19.2.7 | MIT |
+| devDependencies | @types/react-dom | ^19.1.9 | 19.2.3 | MIT |
+| devDependencies | @vitejs/plugin-react | ^5.0.3 | 5.1.1 | MIT |
+| dependencies | better-sqlite3 | ^12.5.0 | 12.5.0 | MIT |
+| devDependencies | electron | ^39.2.4 | 39.2.4 | MIT |
+| devDependencies | electron-builder | ^25.1.8 | 25.1.8 | MIT |
+| devDependencies | electron-vite | ^4.0.1 | 4.0.1 | MIT |
+| devDependencies | eslint | ^9.36.0 | 9.39.1 | MIT |
+| devDependencies | eslint-plugin-react | ^7.37.5 | 7.37.5 | MIT |
+| devDependencies | eslint-plugin-react-hooks | ^5.2.0 | 5.2.0 | MIT |
+| devDependencies | eslint-plugin-react-refresh | ^0.4.20 | 0.4.24 | MIT |
+| devDependencies | prettier | ^3.6.2 | 3.7.2 | MIT |
+| devDependencies | react | ^19.1.1 | 19.2.0 | MIT |
+| devDependencies | react-dom | ^19.1.1 | 19.2.0 | MIT |
+| devDependencies | typescript | ^5.9.2 | 5.9.3 | Apache-2.0 |
+| devDependencies | vite | ^7.1.6 | 7.2.4 | MIT |
+
+## Full Dependency List
+
+For license texts, see each package’s license file under `node_modules/` (when available).
+
+- @babel/code-frame@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/code-frame/LICENSE`]
+- @babel/compat-data@7.28.5 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/compat-data/LICENSE`]
+- @babel/core@7.28.5 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/core/LICENSE`]
+- @babel/generator@7.28.5 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/generator/LICENSE`]
+- @babel/helper-compilation-targets@7.27.2 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-compilation-targets/LICENSE`]
+- @babel/helper-globals@7.28.0 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-globals/LICENSE`]
+- @babel/helper-module-imports@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-module-imports/LICENSE`]
+- @babel/helper-module-transforms@7.28.3 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-module-transforms/LICENSE`]
+- @babel/helper-plugin-utils@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-plugin-utils/LICENSE`]
+- @babel/helper-string-parser@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-string-parser/LICENSE`]
+- @babel/helper-validator-identifier@7.28.5 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-validator-identifier/LICENSE`]
+- @babel/helper-validator-option@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helper-validator-option/LICENSE`]
+- @babel/helpers@7.28.4 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/helpers/LICENSE`]
+- @babel/parser@7.28.5 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/parser/LICENSE`]
+- @babel/plugin-transform-arrow-functions@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/plugin-transform-arrow-functions/LICENSE`]
+- @babel/plugin-transform-react-jsx-self@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/plugin-transform-react-jsx-self/LICENSE`]
+- @babel/plugin-transform-react-jsx-source@7.27.1 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/plugin-transform-react-jsx-source/LICENSE`]
+- @babel/template@7.27.2 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/template/LICENSE`]
+- @babel/traverse@7.28.5 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/traverse/LICENSE`]
+- @babel/types@7.28.5 — MIT (https://github.com/babel/babel.git) [license text: `node_modules/@babel/types/LICENSE`]
+- @develar/schema-utils@2.6.5 — MIT (webpack/schema-utils) [license text: `node_modules/@develar/schema-utils/LICENSE`]
+- @electron-toolkit/eslint-config-prettier@3.0.0 — MIT (git+https://github.com/alex8088/electron-toolkit.git) [license text: `node_modules/@electron-toolkit/eslint-config-prettier/LICENSE`]
+- @electron-toolkit/eslint-config-ts@3.1.0 — MIT (git+https://github.com/alex8088/electron-toolkit.git) [license text: `node_modules/@electron-toolkit/eslint-config-ts/LICENSE`]
+- @electron-toolkit/preload@3.0.2 — MIT (git+https://github.com/alex8088/electron-toolkit.git) [license text: `node_modules/@electron-toolkit/preload/LICENSE`]
+- @electron-toolkit/tsconfig@2.0.0 — MIT (git+https://github.com/alex8088/electron-toolkit.git) [license text: `node_modules/@electron-toolkit/tsconfig/LICENSE`]
+- @electron-toolkit/utils@4.0.0 — MIT (git+https://github.com/alex8088/electron-toolkit.git) [license text: `node_modules/@electron-toolkit/utils/LICENSE`]
+- @electron/asar@3.4.1 — MIT (git+https://github.com/electron/asar.git) [license text: `node_modules/@electron/asar/LICENSE.md`]
+- @electron/get@2.0.3 — MIT (https://github.com/electron/get) [license text: `node_modules/@electron/get/LICENSE`]
+- @electron/notarize@2.5.0 — MIT (git+https://github.com/electron/notarize.git) [license text: `node_modules/@electron/notarize/LICENSE`]
+- @electron/osx-sign@1.3.1 — BSD-2-Clause (git+https://github.com/electron/osx-sign.git) [license text: `node_modules/@electron/osx-sign/LICENSE`]
+- @electron/rebuild@3.6.1 — MIT (git+https://github.com/electron/rebuild.git) [license text: `node_modules/@electron/rebuild/LICENSE`]
+- @electron/universal@2.0.1 — MIT (https://github.com/electron/universal.git) [license text: `node_modules/@electron/universal/LICENSE`]
+- @esbuild/linux-x64@0.25.12 — MIT (git+https://github.com/evanw/esbuild.git)
+- @eslint-community/eslint-utils@4.9.0 — MIT (https://github.com/eslint-community/eslint-utils) [license text: `node_modules/@eslint-community/eslint-utils/LICENSE`]
+- @eslint-community/regexpp@4.12.2 — MIT (https://github.com/eslint-community/regexpp) [license text: `node_modules/@eslint-community/regexpp/LICENSE`]
+- @eslint/config-array@0.21.1 — Apache-2.0 (git+https://github.com/eslint/rewrite.git) [license text: `node_modules/@eslint/config-array/LICENSE`]
+- @eslint/config-helpers@0.4.2 — Apache-2.0 (git+https://github.com/eslint/rewrite.git) [license text: `node_modules/@eslint/config-helpers/LICENSE`]
+- @eslint/core@0.17.0 — Apache-2.0 (git+https://github.com/eslint/rewrite.git) [license text: `node_modules/@eslint/core/LICENSE`]
+- @eslint/eslintrc@3.3.3 — MIT (eslint/eslintrc) [license text: `node_modules/@eslint/eslintrc/LICENSE`]
+- @eslint/js@9.39.1 — MIT (https://github.com/eslint/eslint.git) [license text: `node_modules/@eslint/js/LICENSE`]
+- @eslint/object-schema@2.1.7 — Apache-2.0 (git+https://github.com/eslint/rewrite.git) [license text: `node_modules/@eslint/object-schema/LICENSE`]
+- @eslint/plugin-kit@0.4.1 — Apache-2.0 (git+https://github.com/eslint/rewrite.git) [license text: `node_modules/@eslint/plugin-kit/LICENSE`]
+- @gar/promisify@1.1.3 — MIT (https://github.com/wraithgar/gar-promisify.git) [license text: `node_modules/@gar/promisify/LICENSE.md`]
+- @humanfs/core@0.19.1 — Apache-2.0 (git+https://github.com/humanwhocodes/humanfs.git) [license text: `node_modules/@humanfs/core/LICENSE`]
+- @humanfs/node@0.16.7 — Apache-2.0 (git+https://github.com/humanwhocodes/humanfs.git) [license text: `node_modules/@humanfs/node/LICENSE`]
+- @humanwhocodes/module-importer@1.0.1 — Apache-2.0 (git+https://github.com/humanwhocodes/module-importer.git) [license text: `node_modules/@humanwhocodes/module-importer/LICENSE`]
+- @humanwhocodes/retry@0.4.3 — Apache-2.0 (git+https://github.com/humanwhocodes/retry.git) [license text: `node_modules/@humanwhocodes/retry/LICENSE`]
+- @isaacs/balanced-match@4.0.1 — MIT (git://github.com/isaacs/balanced-match.git) [license text: `node_modules/@isaacs/balanced-match/LICENSE.md`]
+- @isaacs/brace-expansion@5.0.0 — MIT [license text: `node_modules/@isaacs/brace-expansion/LICENSE`]
+- @isaacs/cliui@8.0.2 — ISC (yargs/cliui) [license text: `node_modules/@isaacs/cliui/LICENSE.txt`]
+- @jridgewell/gen-mapping@0.3.13 — MIT (git+https://github.com/jridgewell/sourcemaps.git) [license text: `node_modules/@jridgewell/gen-mapping/LICENSE`]
+- @jridgewell/remapping@2.3.5 — MIT (git+https://github.com/jridgewell/sourcemaps.git) [license text: `node_modules/@jridgewell/remapping/LICENSE`]
+- @jridgewell/resolve-uri@3.1.2 — MIT (https://github.com/jridgewell/resolve-uri) [license text: `node_modules/@jridgewell/resolve-uri/LICENSE`]
+- @jridgewell/sourcemap-codec@1.5.5 — MIT (git+https://github.com/jridgewell/sourcemaps.git) [license text: `node_modules/@jridgewell/sourcemap-codec/LICENSE`]
+- @jridgewell/trace-mapping@0.3.31 — MIT (git+https://github.com/jridgewell/sourcemaps.git) [license text: `node_modules/@jridgewell/trace-mapping/LICENSE`]
+- @malept/cross-spawn-promise@2.0.0 — Apache-2.0 (https://github.com/malept/cross-spawn-promise) [license text: `node_modules/@malept/cross-spawn-promise/LICENSE`]
+- @malept/flatpak-bundler@0.4.0 — MIT (git+https://github.com/malept/flatpak-bundler.git) [license text: `node_modules/@malept/flatpak-bundler/LICENSE`]
+- @npmcli/fs@2.1.2 — ISC (https://github.com/npm/fs.git) [license text: `node_modules/@npmcli/fs/LICENSE.md`]
+- @npmcli/move-file@2.0.1 — MIT (https://github.com/npm/move-file.git) [license text: `node_modules/@npmcli/move-file/LICENSE.md`]
+- @pkgjs/parseargs@0.11.0 — MIT (git@github.com:pkgjs/parseargs.git) [license text: `node_modules/@pkgjs/parseargs/LICENSE`]
+- @pkgr/core@0.2.9 — MIT (git+https://github.com/un-ts/pkgr.git)
+- @rolldown/pluginutils@1.0.0-beta.47 — MIT (git+https://github.com/rolldown/rolldown.git) [license text: `node_modules/@rolldown/pluginutils/LICENSE`]
+- @rollup/rollup-linux-x64-gnu@4.53.3 — MIT (git+https://github.com/rollup/rollup.git)
+- @rollup/rollup-linux-x64-musl@4.53.3 — MIT (git+https://github.com/rollup/rollup.git)
+- @sindresorhus/is@4.6.0 — MIT (sindresorhus/is)
+- @szmarczak/http-timer@4.0.6 — MIT (git+https://github.com/szmarczak/http-timer.git) [license text: `node_modules/@szmarczak/http-timer/LICENSE`]
+- @tootallnate/once@2.0.0 — MIT (git://github.com/TooTallNate/once.git) [license text: `node_modules/@tootallnate/once/LICENSE`]
+- @types/babel__core@7.20.5 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/babel__core/LICENSE`]
+- @types/babel__generator@7.27.0 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/babel__generator/LICENSE`]
+- @types/babel__template@7.4.4 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/babel__template/LICENSE`]
+- @types/babel__traverse@7.28.0 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/babel__traverse/LICENSE`]
+- @types/better-sqlite3@7.6.13 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/better-sqlite3/LICENSE`]
+- @types/cacheable-request@6.0.3 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/cacheable-request/LICENSE`]
+- @types/debug@4.1.12 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/debug/LICENSE`]
+- @types/estree@1.0.8 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/estree/LICENSE`]
+- @types/fs-extra@9.0.13 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/fs-extra/LICENSE`]
+- @types/http-cache-semantics@4.0.4 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/http-cache-semantics/LICENSE`]
+- @types/json-schema@7.0.15 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/json-schema/LICENSE`]
+- @types/keyv@3.1.4 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/keyv/LICENSE`]
+- @types/ms@2.1.0 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/ms/LICENSE`]
+- @types/node@22.19.1 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/node/LICENSE`]
+- @types/react@19.2.7 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/react/LICENSE`]
+- @types/react-dom@19.2.3 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/react-dom/LICENSE`]
+- @types/responselike@1.0.3 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/responselike/LICENSE`]
+- @types/yauzl@2.10.3 — MIT (https://github.com/DefinitelyTyped/DefinitelyTyped.git) [license text: `node_modules/@types/yauzl/LICENSE`]
+- @typescript-eslint/eslint-plugin@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/eslint-plugin/LICENSE`]
+- @typescript-eslint/parser@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/parser/LICENSE`]
+- @typescript-eslint/project-service@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/project-service/LICENSE`]
+- @typescript-eslint/scope-manager@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/scope-manager/LICENSE`]
+- @typescript-eslint/tsconfig-utils@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/tsconfig-utils/LICENSE`]
+- @typescript-eslint/type-utils@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/type-utils/LICENSE`]
+- @typescript-eslint/types@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/types/LICENSE`]
+- @typescript-eslint/typescript-estree@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/typescript-estree/LICENSE`]
+- @typescript-eslint/utils@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/utils/LICENSE`]
+- @typescript-eslint/visitor-keys@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/@typescript-eslint/visitor-keys/LICENSE`]
+- @vitejs/plugin-react@5.1.1 — MIT (git+https://github.com/vitejs/vite-plugin-react.git) [license text: `node_modules/@vitejs/plugin-react/LICENSE`]
+- @xmldom/xmldom@0.8.11 — MIT (git://github.com/xmldom/xmldom.git) [license text: `node_modules/@xmldom/xmldom/LICENSE`]
+- 7zip-bin@5.2.0 — MIT (develar/7zip-bin) [license text: `node_modules/7zip-bin/LICENSE.txt`]
+- abbrev@1.1.1 — ISC (http://github.com/isaacs/abbrev-js) [license text: `node_modules/abbrev/LICENSE`]
+- acorn@8.15.0 — MIT (git+https://github.com/acornjs/acorn.git) [license text: `node_modules/acorn/LICENSE`]
+- acorn-jsx@5.3.2 — MIT (https://github.com/acornjs/acorn-jsx) [license text: `node_modules/acorn-jsx/LICENSE`]
+- agent-base@6.0.2 — MIT (git://github.com/TooTallNate/node-agent-base.git)
+- agent-base@7.1.4 — MIT (https://github.com/TooTallNate/proxy-agents.git) [license text: `node_modules/agent-base/LICENSE`]
+- agentkeepalive@4.6.0 — MIT (git://github.com/node-modules/agentkeepalive.git) [license text: `node_modules/agentkeepalive/LICENSE`]
+- aggregate-error@3.1.0 — MIT (sindresorhus/aggregate-error)
+- ajv@6.12.6 — MIT (https://github.com/ajv-validator/ajv.git) [license text: `node_modules/ajv/LICENSE`]
+- ajv-keywords@3.5.2 — MIT (git+https://github.com/epoberezkin/ajv-keywords.git) [license text: `node_modules/ajv-keywords/LICENSE`]
+- ansi-regex@5.0.1 — MIT (chalk/ansi-regex)
+- ansi-regex@6.2.2 — MIT (chalk/ansi-regex)
+- ansi-styles@4.3.0 — MIT (chalk/ansi-styles)
+- ansi-styles@6.2.3 — MIT (chalk/ansi-styles)
+- app-builder-bin@5.0.0-alpha.10 — MIT (develar/app-builder) [license text: `node_modules/app-builder-bin/LICENSE`]
+- app-builder-lib@25.1.8 — MIT (git+https://github.com/electron-userland/electron-builder.git)
+- aproba@2.1.0 — ISC (https://github.com/iarna/aproba) [license text: `node_modules/aproba/LICENSE`]
+- archiver@5.3.2 — MIT (https://github.com/archiverjs/node-archiver.git) [license text: `node_modules/archiver/LICENSE`]
+- archiver-utils@2.1.0 — MIT (https://github.com/archiverjs/archiver-utils.git) [license text: `node_modules/archiver-utils/LICENSE`]
+- archiver-utils@3.0.4 — MIT (https://github.com/archiverjs/archiver-utils.git) [license text: `node_modules/zip-stream/node_modules/archiver-utils/LICENSE`]
+- are-we-there-yet@3.0.1 — ISC (https://github.com/npm/are-we-there-yet.git) [license text: `node_modules/are-we-there-yet/LICENSE.md`]
+- argparse@2.0.1 — Python-2.0 (nodeca/argparse) [license text: `node_modules/argparse/LICENSE`]
+- array-buffer-byte-length@1.0.2 — MIT (git+https://github.com/inspect-js/array-buffer-byte-length.git) [license text: `node_modules/array-buffer-byte-length/LICENSE`]
+- array-includes@3.1.9 — MIT (git://github.com/es-shims/array-includes.git) [license text: `node_modules/array-includes/LICENSE`]
+- array.prototype.findlast@1.2.5 — MIT (git+https://github.com/es-shims/Array.prototype.findLast.git) [license text: `node_modules/array.prototype.findlast/LICENSE`]
+- array.prototype.flat@1.3.3 — MIT (git://github.com/es-shims/Array.prototype.flat.git) [license text: `node_modules/array.prototype.flat/LICENSE`]
+- array.prototype.flatmap@1.3.3 — MIT (git://github.com/es-shims/Array.prototype.flatMap.git) [license text: `node_modules/array.prototype.flatmap/LICENSE`]
+- array.prototype.tosorted@1.1.4 — MIT (git+https://github.com/es-shims/Array.prototype.toSorted.git) [license text: `node_modules/array.prototype.tosorted/LICENSE`]
+- arraybuffer.prototype.slice@1.0.4 — MIT (git+https://github.com/es-shims/ArrayBuffer.prototype.slice.git) [license text: `node_modules/arraybuffer.prototype.slice/LICENSE`]
+- async@3.2.6 — MIT (https://github.com/caolan/async.git) [license text: `node_modules/async/LICENSE`]
+- async-exit-hook@2.0.1 — MIT (https://github.com/tapppi/async-exit-hook.git)
+- async-function@1.0.0 — MIT (git+https://github.com/ljharb/async-function.git) [license text: `node_modules/async-function/LICENSE`]
+- asynckit@0.4.0 — MIT (git+https://github.com/alexindigo/asynckit.git) [license text: `node_modules/asynckit/LICENSE`]
+- at-least-node@1.0.0 — ISC (git+https://github.com/RyanZim/at-least-node.git) [license text: `node_modules/at-least-node/LICENSE`]
+- available-typed-arrays@1.0.7 — MIT (git+https://github.com/inspect-js/available-typed-arrays.git) [license text: `node_modules/available-typed-arrays/LICENSE`]
+- balanced-match@1.0.2 — MIT (git://github.com/juliangruber/balanced-match.git) [license text: `node_modules/balanced-match/LICENSE.md`]
+- base64-js@1.5.1 — MIT (git://github.com/beatgammit/base64-js.git) [license text: `node_modules/base64-js/LICENSE`]
+- baseline-browser-mapping@2.8.32 — Apache-2.0 (git+https://github.com/web-platform-dx/baseline-browser-mapping.git) [license text: `node_modules/baseline-browser-mapping/LICENSE.txt`]
+- better-sqlite3@12.5.0 — MIT (git://github.com/WiseLibs/better-sqlite3.git) [license text: `node_modules/better-sqlite3/LICENSE`]
+- bindings@1.5.0 — MIT (git://github.com/TooTallNate/node-bindings.git) [license text: `node_modules/bindings/LICENSE.md`]
+- bl@4.1.0 — MIT (https://github.com/rvagg/bl.git) [license text: `node_modules/bl/LICENSE.md`]
+- bluebird@3.7.2 — MIT (git://github.com/petkaantonov/bluebird.git) [license text: `node_modules/bluebird/LICENSE`]
+- bluebird-lst@1.0.9 — MIT (develar/fs-extra-p)
+- boolean@3.2.0 — MIT (git://github.com/thenativeweb/boolean.git) [license text: `node_modules/boolean/LICENSE.txt`]
+- brace-expansion@1.1.12 — MIT (git://github.com/juliangruber/brace-expansion.git) [license text: `node_modules/brace-expansion/LICENSE`]
+- brace-expansion@2.0.2 — MIT (git://github.com/juliangruber/brace-expansion.git) [license text: `node_modules/@electron/universal/node_modules/brace-expansion/LICENSE`]
+- browserslist@4.28.0 — MIT (browserslist/browserslist) [license text: `node_modules/browserslist/LICENSE`]
+- buffer@5.7.1 — MIT (git://github.com/feross/buffer.git) [license text: `node_modules/buffer/LICENSE`]
+- buffer-crc32@0.2.13 — MIT (git://github.com/brianloveswords/buffer-crc32.git) [license text: `node_modules/buffer-crc32/LICENSE`]
+- buffer-from@1.1.2 — MIT (LinusU/buffer-from) [license text: `node_modules/buffer-from/LICENSE`]
+- builder-util@25.1.7 — MIT (git+https://github.com/electron-userland/electron-builder.git) [license text: `node_modules/builder-util/LICENSE`]
+- builder-util-runtime@9.2.10 — MIT (git+https://github.com/electron-userland/electron-builder.git) [license text: `node_modules/builder-util-runtime/LICENSE`]
+- cac@6.7.14 — MIT (egoist/cac) [license text: `node_modules/cac/LICENSE`]
+- cacache@16.1.3 — ISC (https://github.com/npm/cacache.git) [license text: `node_modules/cacache/LICENSE.md`]
+- cacheable-lookup@5.0.4 — MIT (git+https://github.com/szmarczak/cacheable-lookup.git) [license text: `node_modules/cacheable-lookup/LICENSE`]
+- cacheable-request@7.0.4 — MIT (lukechilds/cacheable-request) [license text: `node_modules/cacheable-request/LICENSE`]
+- call-bind@1.0.8 — MIT (git+https://github.com/ljharb/call-bind.git) [license text: `node_modules/call-bind/LICENSE`]
+- call-bind-apply-helpers@1.0.2 — MIT (git+https://github.com/ljharb/call-bind-apply-helpers.git) [license text: `node_modules/call-bind-apply-helpers/LICENSE`]
+- call-bound@1.0.4 — MIT (git+https://github.com/ljharb/call-bound.git) [license text: `node_modules/call-bound/LICENSE`]
+- callsites@3.1.0 — MIT (sindresorhus/callsites)
+- caniuse-lite@1.0.30001757 — CC-BY-4.0 (browserslist/caniuse-lite) [license text: `node_modules/caniuse-lite/LICENSE`]
+- chalk@4.1.2 — MIT (chalk/chalk)
+- chownr@1.1.4 — ISC (git://github.com/isaacs/chownr.git) [license text: `node_modules/tar-fs/node_modules/chownr/LICENSE`]
+- chownr@2.0.0 — ISC (git://github.com/isaacs/chownr.git) [license text: `node_modules/chownr/LICENSE`]
+- chromium-pickle-js@0.2.0 — MIT (https://github.com/electron/node-chromium-pickle-js.git)
+- ci-info@3.9.0 — MIT (https://github.com/watson/ci-info.git) [license text: `node_modules/ci-info/LICENSE`]
+- clean-stack@2.2.0 — MIT (sindresorhus/clean-stack)
+- cli-cursor@3.1.0 — MIT (sindresorhus/cli-cursor)
+- cli-spinners@2.9.2 — MIT (sindresorhus/cli-spinners)
+- cliui@8.0.1 — ISC (yargs/cliui) [license text: `node_modules/cliui/LICENSE.txt`]
+- clone@1.0.4 — MIT (git://github.com/pvorb/node-clone.git) [license text: `node_modules/clone/LICENSE`]
+- clone-response@1.0.3 — MIT (git+https://github.com/sindresorhus/clone-response.git) [license text: `node_modules/clone-response/LICENSE`]
+- color-convert@2.0.1 — MIT (Qix-/color-convert) [license text: `node_modules/color-convert/LICENSE`]
+- color-name@1.1.4 — MIT (git@github.com:colorjs/color-name.git) [license text: `node_modules/color-name/LICENSE`]
+- color-support@1.1.3 — ISC (git+https://github.com/isaacs/color-support.git) [license text: `node_modules/color-support/LICENSE`]
+- combined-stream@1.0.8 — MIT (git://github.com/felixge/node-combined-stream.git)
+- commander@5.1.0 — MIT (https://github.com/tj/commander.js.git) [license text: `node_modules/commander/LICENSE`]
+- compare-version@0.1.2 — MIT (kevva/compare-version)
+- compress-commons@4.1.2 — MIT (https://github.com/archiverjs/node-compress-commons.git) [license text: `node_modules/compress-commons/LICENSE`]
+- concat-map@0.0.1 — MIT (git://github.com/substack/node-concat-map.git) [license text: `node_modules/concat-map/LICENSE`]
+- config-file-ts@0.2.8-rc1 — MIT (https://github.com/mighdoll/config-file-ts) [license text: `node_modules/config-file-ts/LICENSE`]
+- console-control-strings@1.1.0 — ISC (https://github.com/iarna/console-control-strings) [license text: `node_modules/console-control-strings/LICENSE`]
+- convert-source-map@2.0.0 — MIT (git://github.com/thlorenz/convert-source-map.git) [license text: `node_modules/convert-source-map/LICENSE`]
+- core-util-is@1.0.2 — MIT (git://github.com/isaacs/core-util-is) [license text: `node_modules/core-util-is/LICENSE`]
+- crc-32@1.2.2 — Apache-2.0 (git://github.com/SheetJS/js-crc32.git) [license text: `node_modules/crc-32/LICENSE`]
+- crc32-stream@4.0.3 — MIT (https://github.com/archiverjs/node-crc32-stream.git) [license text: `node_modules/crc32-stream/LICENSE`]
+- cross-spawn@7.0.6 — MIT (git@github.com:moxystudio/node-cross-spawn.git) [license text: `node_modules/cross-spawn/LICENSE`]
+- csstype@3.2.3 — MIT (https://github.com/frenic/csstype) [license text: `node_modules/csstype/LICENSE`]
+- data-view-buffer@1.0.2 — MIT (git+https://github.com/inspect-js/data-view-buffer.git) [license text: `node_modules/data-view-buffer/LICENSE`]
+- data-view-byte-length@1.0.2 — MIT (git+https://github.com/inspect-js/data-view-byte-length.git) [license text: `node_modules/data-view-byte-length/LICENSE`]
+- data-view-byte-offset@1.0.1 — MIT (git+https://github.com/inspect-js/data-view-byte-offset.git) [license text: `node_modules/data-view-byte-offset/LICENSE`]
+- debug@4.4.3 — MIT (git://github.com/debug-js/debug.git) [license text: `node_modules/debug/LICENSE`]
+- decompress-response@6.0.0 — MIT (sindresorhus/decompress-response)
+- deep-extend@0.6.0 — MIT (git://github.com/unclechu/node-deep-extend.git) [license text: `node_modules/deep-extend/LICENSE`]
+- deep-is@0.1.4 — MIT (http://github.com/thlorenz/deep-is.git) [license text: `node_modules/deep-is/LICENSE`]
+- defaults@1.0.4 — MIT (git://github.com/sindresorhus/node-defaults.git) [license text: `node_modules/defaults/LICENSE`]
+- defer-to-connect@2.0.1 — MIT (git+https://github.com/szmarczak/defer-to-connect.git) [license text: `node_modules/defer-to-connect/LICENSE`]
+- define-data-property@1.1.4 — MIT (git+https://github.com/ljharb/define-data-property.git) [license text: `node_modules/define-data-property/LICENSE`]
+- define-properties@1.2.1 — MIT (git://github.com/ljharb/define-properties.git) [license text: `node_modules/define-properties/LICENSE`]
+- delayed-stream@1.0.0 — MIT (git://github.com/felixge/node-delayed-stream.git)
+- delegates@1.0.0 — MIT (visionmedia/node-delegates)
+- detect-libc@2.1.2 — Apache-2.0 (git://github.com/lovell/detect-libc.git) [license text: `node_modules/detect-libc/LICENSE`]
+- detect-node@2.1.0 — MIT (https://github.com/iliakan/detect-node) [license text: `node_modules/detect-node/LICENSE`]
+- dir-compare@4.2.0 — MIT (https://github.com/gliviu/dir-compare) [license text: `node_modules/dir-compare/LICENSE`]
+- dmg-builder@25.1.8 — MIT (git+https://github.com/electron-userland/electron-builder.git)
+- doctrine@2.1.0 — Apache-2.0 (eslint/doctrine) [license text: `node_modules/doctrine/LICENSE`]
+- dotenv@16.6.1 — BSD-2-Clause (git://github.com/motdotla/dotenv.git) [license text: `node_modules/dotenv/LICENSE`]
+- dotenv-expand@11.0.7 — BSD-2-Clause (https://github.com/motdotla/dotenv-expand) [license text: `node_modules/dotenv-expand/LICENSE`]
+- dunder-proto@1.0.1 — MIT (git+https://github.com/es-shims/dunder-proto.git) [license text: `node_modules/dunder-proto/LICENSE`]
+- eastasianwidth@0.2.0 — MIT (git://github.com/komagata/eastasianwidth.git)
+- ejs@3.1.10 — Apache-2.0 (git://github.com/mde/ejs.git) [license text: `node_modules/ejs/LICENSE`]
+- electron@39.2.4 — MIT (https://github.com/electron/electron) [license text: `node_modules/electron/LICENSE`]
+- electron-builder@25.1.8 — MIT (git+https://github.com/electron-userland/electron-builder.git) [license text: `node_modules/electron-builder/LICENSE`]
+- electron-builder-squirrel-windows@25.1.8 — MIT (git+https://github.com/electron-userland/electron-builder.git) [license text: `node_modules/electron-builder-squirrel-windows/LICENSE`]
+- electron-publish@25.1.7 — MIT (git+https://github.com/electron-userland/electron-builder.git) [license text: `node_modules/electron-publish/LICENSE`]
+- electron-to-chromium@1.5.262 — ISC (https://github.com/kilian/electron-to-chromium/) [license text: `node_modules/electron-to-chromium/LICENSE`]
+- electron-vite@4.0.1 — MIT (git+https://github.com/alex8088/electron-vite.git) [license text: `node_modules/electron-vite/LICENSE`]
+- emoji-regex@8.0.0 — MIT (https://github.com/mathiasbynens/emoji-regex.git)
+- emoji-regex@9.2.2 — MIT (https://github.com/mathiasbynens/emoji-regex.git)
+- encoding@0.1.13 — MIT (https://github.com/andris9/encoding.git) [license text: `node_modules/encoding/LICENSE`]
+- end-of-stream@1.4.5 — MIT (git://github.com/mafintosh/end-of-stream.git) [license text: `node_modules/end-of-stream/LICENSE`]
+- env-paths@2.2.1 — MIT (sindresorhus/env-paths)
+- err-code@2.0.3 — MIT (git://github.com/IndigoUnited/js-err-code.git)
+- es-abstract@1.24.0 — MIT (git://github.com/ljharb/es-abstract.git) [license text: `node_modules/es-abstract/LICENSE`]
+- es-define-property@1.0.1 — MIT (git+https://github.com/ljharb/es-define-property.git) [license text: `node_modules/es-define-property/LICENSE`]
+- es-errors@1.3.0 — MIT (git+https://github.com/ljharb/es-errors.git) [license text: `node_modules/es-errors/LICENSE`]
+- es-iterator-helpers@1.2.1 — MIT (git+https://github.com/es-shims/iterator-helpers.git) [license text: `node_modules/es-iterator-helpers/LICENSE`]
+- es-object-atoms@1.1.1 — MIT (git+https://github.com/ljharb/es-object-atoms.git) [license text: `node_modules/es-object-atoms/LICENSE`]
+- es-set-tostringtag@2.1.0 — MIT (git+https://github.com/es-shims/es-set-tostringtag.git) [license text: `node_modules/es-set-tostringtag/LICENSE`]
+- es-shim-unscopables@1.1.0 — MIT (git+https://github.com/ljharb/es-shim-unscopables.git) [license text: `node_modules/es-shim-unscopables/LICENSE`]
+- es-to-primitive@1.3.0 — MIT (git://github.com/ljharb/es-to-primitive.git) [license text: `node_modules/es-to-primitive/LICENSE`]
+- es6-error@4.1.1 — MIT (https://github.com/bjyoungblood/es6-error.git) [license text: `node_modules/es6-error/LICENSE.md`]
+- esbuild@0.25.12 — MIT (git+https://github.com/evanw/esbuild.git) [license text: `node_modules/esbuild/LICENSE.md`]
+- escalade@3.2.0 — MIT (lukeed/escalade)
+- escape-string-regexp@4.0.0 — MIT (sindresorhus/escape-string-regexp)
+- eslint@9.39.1 — MIT (eslint/eslint) [license text: `node_modules/eslint/LICENSE`]
+- eslint-config-prettier@10.1.8 — MIT (prettier/eslint-config-prettier) [license text: `node_modules/eslint-config-prettier/LICENSE`]
+- eslint-plugin-prettier@5.5.4 — MIT (https://github.com/prettier/eslint-plugin-prettier.git) [license text: `node_modules/eslint-plugin-prettier/LICENSE.md`]
+- eslint-plugin-react@7.37.5 — MIT (https://github.com/jsx-eslint/eslint-plugin-react) [license text: `node_modules/eslint-plugin-react/LICENSE`]
+- eslint-plugin-react-hooks@5.2.0 — MIT (https://github.com/facebook/react.git) [license text: `node_modules/eslint-plugin-react-hooks/LICENSE`]
+- eslint-plugin-react-refresh@0.4.24 — MIT (github:ArnaudBarre/eslint-plugin-react-refresh) [license text: `node_modules/eslint-plugin-react-refresh/LICENSE`]
+- eslint-scope@8.4.0 — BSD-2-Clause (https://github.com/eslint/js.git) [license text: `node_modules/eslint-scope/LICENSE`]
+- eslint-visitor-keys@3.4.3 — Apache-2.0 (eslint/eslint-visitor-keys) [license text: `node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys/LICENSE`]
+- eslint-visitor-keys@4.2.1 — Apache-2.0 (https://github.com/eslint/js.git) [license text: `node_modules/eslint-visitor-keys/LICENSE`]
+- espree@10.4.0 — BSD-2-Clause (https://github.com/eslint/js.git) [license text: `node_modules/espree/LICENSE`]
+- esquery@1.6.0 — BSD-3-Clause (https://github.com/estools/esquery.git)
+- esrecurse@4.3.0 — BSD-2-Clause (https://github.com/estools/esrecurse.git)
+- estraverse@5.3.0 — BSD-2-Clause (http://github.com/estools/estraverse.git)
+- esutils@2.0.3 — BSD-2-Clause (http://github.com/estools/esutils.git)
+- expand-template@2.0.3 — (MIT OR WTFPL) (https://github.com/ralphtheninja/expand-template.git) [license text: `node_modules/expand-template/LICENSE`]
+- exponential-backoff@3.1.3 — Apache-2.0 (git+https://github.com/coveooss/exponential-backoff.git) [license text: `node_modules/exponential-backoff/LICENSE`]
+- extract-zip@2.0.1 — BSD-2-Clause (maxogden/extract-zip) [license text: `node_modules/extract-zip/LICENSE`]
+- fast-deep-equal@3.1.3 — MIT (git+https://github.com/epoberezkin/fast-deep-equal.git) [license text: `node_modules/fast-deep-equal/LICENSE`]
+- fast-diff@1.3.0 — Apache-2.0 (https://github.com/jhchen/fast-diff) [license text: `node_modules/fast-diff/LICENSE`]
+- fast-json-stable-stringify@2.1.0 — MIT (git://github.com/epoberezkin/fast-json-stable-stringify.git) [license text: `node_modules/fast-json-stable-stringify/LICENSE`]
+- fast-levenshtein@2.0.6 — MIT (https://github.com/hiddentao/fast-levenshtein.git) [license text: `node_modules/fast-levenshtein/LICENSE.md`]
+- fd-slicer@1.1.0 — MIT (git://github.com/andrewrk/node-fd-slicer.git) [license text: `node_modules/fd-slicer/LICENSE`]
+- fdir@6.5.0 — MIT (git+https://github.com/thecodrr/fdir.git) [license text: `node_modules/fdir/LICENSE`]
+- file-entry-cache@8.0.0 — MIT (jaredwray/file-entry-cache) [license text: `node_modules/file-entry-cache/LICENSE`]
+- file-uri-to-path@1.0.0 — MIT (git://github.com/TooTallNate/file-uri-to-path.git) [license text: `node_modules/file-uri-to-path/LICENSE`]
+- filelist@1.0.4 — Apache-2.0 (git://github.com/mde/filelist.git)
+- find-up@5.0.0 — MIT (sindresorhus/find-up)
+- flat-cache@4.0.1 — MIT (jaredwray/flat-cache) [license text: `node_modules/flat-cache/LICENSE`]
+- flatted@3.3.3 — ISC (git+https://github.com/WebReflection/flatted.git) [license text: `node_modules/flatted/LICENSE`]
+- for-each@0.3.5 — MIT (https://github.com/Raynos/for-each.git) [license text: `node_modules/for-each/LICENSE`]
+- foreground-child@3.3.1 — ISC (git+https://github.com/tapjs/foreground-child.git) [license text: `node_modules/foreground-child/LICENSE`]
+- form-data@4.0.5 — MIT (git://github.com/form-data/form-data.git)
+- fs-constants@1.0.0 — MIT (https://github.com/mafintosh/fs-constants.git) [license text: `node_modules/fs-constants/LICENSE`]
+- fs-extra@10.1.0 — MIT (https://github.com/jprichardson/node-fs-extra) [license text: `node_modules/@electron/osx-sign/node_modules/fs-extra/LICENSE`]
+- fs-extra@11.3.2 — MIT (https://github.com/jprichardson/node-fs-extra) [license text: `node_modules/@electron/universal/node_modules/fs-extra/LICENSE`]
+- fs-extra@8.1.0 — MIT (https://github.com/jprichardson/node-fs-extra) [license text: `node_modules/fs-extra/LICENSE`]
+- fs-extra@9.1.0 — MIT (https://github.com/jprichardson/node-fs-extra) [license text: `node_modules/@electron/notarize/node_modules/fs-extra/LICENSE`]
+- fs-minipass@2.1.0 — ISC (git+https://github.com/npm/fs-minipass.git) [license text: `node_modules/fs-minipass/LICENSE`]
+- fs.realpath@1.0.0 — ISC (git+https://github.com/isaacs/fs.realpath.git) [license text: `node_modules/fs.realpath/LICENSE`]
+- function-bind@1.1.2 — MIT (https://github.com/Raynos/function-bind.git) [license text: `node_modules/function-bind/LICENSE`]
+- function.prototype.name@1.1.8 — MIT (git://github.com/es-shims/Function.prototype.name.git) [license text: `node_modules/function.prototype.name/LICENSE`]
+- functions-have-names@1.2.3 — MIT (git+https://github.com/inspect-js/functions-have-names.git) [license text: `node_modules/functions-have-names/LICENSE`]
+- gauge@4.0.4 — ISC (https://github.com/npm/gauge.git) [license text: `node_modules/gauge/LICENSE.md`]
+- generator-function@2.0.1 — MIT (git+https://github.com/TimothyGu/generator-function.git) [license text: `node_modules/generator-function/LICENSE.md`]
+- gensync@1.0.0-beta.2 — MIT (https://github.com/loganfsmyth/gensync.git) [license text: `node_modules/gensync/LICENSE`]
+- get-caller-file@2.0.5 — ISC (git+https://github.com/stefanpenner/get-caller-file.git) [license text: `node_modules/get-caller-file/LICENSE.md`]
+- get-intrinsic@1.3.0 — MIT (git+https://github.com/ljharb/get-intrinsic.git) [license text: `node_modules/get-intrinsic/LICENSE`]
+- get-proto@1.0.1 — MIT (git+https://github.com/ljharb/get-proto.git) [license text: `node_modules/get-proto/LICENSE`]
+- get-stream@5.2.0 — MIT (sindresorhus/get-stream)
+- get-symbol-description@1.1.0 — MIT (git+https://github.com/inspect-js/get-symbol-description.git) [license text: `node_modules/get-symbol-description/LICENSE`]
+- github-from-package@0.0.0 — MIT (git://github.com/substack/github-from-package.git) [license text: `node_modules/github-from-package/LICENSE`]
+- glob@10.5.0 — ISC (git://github.com/isaacs/node-glob.git) [license text: `node_modules/config-file-ts/node_modules/glob/LICENSE`]
+- glob@7.2.3 — ISC (git://github.com/isaacs/node-glob.git) [license text: `node_modules/glob/LICENSE`]
+- glob@8.1.0 — ISC (git://github.com/isaacs/node-glob.git) [license text: `node_modules/cacache/node_modules/glob/LICENSE`]
+- glob-parent@6.0.2 — ISC (gulpjs/glob-parent) [license text: `node_modules/glob-parent/LICENSE`]
+- global-agent@3.0.0 — BSD-3-Clause (https://github.com/gajus/global-agent) [license text: `node_modules/global-agent/LICENSE`]
+- globals@14.0.0 — MIT (sindresorhus/globals)
+- globals@16.5.0 — MIT (sindresorhus/globals)
+- globalthis@1.0.4 — MIT (git://github.com/ljharb/System.global.git) [license text: `node_modules/globalthis/LICENSE`]
+- gopd@1.2.0 — MIT (git+https://github.com/ljharb/gopd.git) [license text: `node_modules/gopd/LICENSE`]
+- got@11.8.6 — MIT (sindresorhus/got)
+- graceful-fs@4.2.11 — ISC (https://github.com/isaacs/node-graceful-fs) [license text: `node_modules/graceful-fs/LICENSE`]
+- graphemer@1.4.0 — MIT (https://github.com/flmnt/graphemer.git) [license text: `node_modules/graphemer/LICENSE`]
+- has-bigints@1.1.0 — MIT (git+https://github.com/ljharb/has-bigints.git) [license text: `node_modules/has-bigints/LICENSE`]
+- has-flag@4.0.0 — MIT (sindresorhus/has-flag)
+- has-property-descriptors@1.0.2 — MIT (git+https://github.com/inspect-js/has-property-descriptors.git) [license text: `node_modules/has-property-descriptors/LICENSE`]
+- has-proto@1.2.0 — MIT (git+https://github.com/inspect-js/has-proto.git) [license text: `node_modules/has-proto/LICENSE`]
+- has-symbols@1.1.0 — MIT (git://github.com/inspect-js/has-symbols.git) [license text: `node_modules/has-symbols/LICENSE`]
+- has-tostringtag@1.0.2 — MIT (git+https://github.com/inspect-js/has-tostringtag.git) [license text: `node_modules/has-tostringtag/LICENSE`]
+- has-unicode@2.0.1 — ISC (https://github.com/iarna/has-unicode) [license text: `node_modules/has-unicode/LICENSE`]
+- hasown@2.0.2 — MIT (git+https://github.com/inspect-js/hasOwn.git) [license text: `node_modules/hasown/LICENSE`]
+- hosted-git-info@4.1.0 — ISC (git+https://github.com/npm/hosted-git-info.git) [license text: `node_modules/hosted-git-info/LICENSE`]
+- http-cache-semantics@4.2.0 — BSD-2-Clause (git+https://github.com/kornelski/http-cache-semantics.git) [license text: `node_modules/http-cache-semantics/LICENSE`]
+- http-proxy-agent@5.0.0 — MIT (git://github.com/TooTallNate/node-http-proxy-agent.git)
+- http-proxy-agent@7.0.2 — MIT (https://github.com/TooTallNate/proxy-agents.git) [license text: `node_modules/http-proxy-agent/LICENSE`]
+- http2-wrapper@1.0.3 — MIT (git+https://github.com/szmarczak/http2-wrapper.git) [license text: `node_modules/http2-wrapper/LICENSE`]
+- https-proxy-agent@5.0.1 — MIT (git://github.com/TooTallNate/node-https-proxy-agent.git)
+- https-proxy-agent@7.0.6 — MIT (https://github.com/TooTallNate/proxy-agents.git) [license text: `node_modules/https-proxy-agent/LICENSE`]
+- humanize-ms@1.2.1 — MIT (https://github.com/node-modules/humanize-ms) [license text: `node_modules/humanize-ms/LICENSE`]
+- iconv-lite@0.6.3 — MIT (git://github.com/ashtuchkin/iconv-lite.git) [license text: `node_modules/iconv-lite/LICENSE`]
+- ieee754@1.2.1 — BSD-3-Clause (git://github.com/feross/ieee754.git) [license text: `node_modules/ieee754/LICENSE`]
+- ignore@5.3.2 — MIT (git@github.com:kaelzhang/node-ignore.git)
+- ignore@7.0.5 — MIT (git@github.com:kaelzhang/node-ignore.git)
+- import-fresh@3.3.1 — MIT (sindresorhus/import-fresh)
+- imurmurhash@0.1.4 — MIT (https://github.com/jensyt/imurmurhash-js)
+- indent-string@4.0.0 — MIT (sindresorhus/indent-string)
+- infer-owner@1.0.4 — ISC (https://github.com/npm/infer-owner) [license text: `node_modules/infer-owner/LICENSE`]
+- inflight@1.0.6 — ISC (https://github.com/npm/inflight.git) [license text: `node_modules/inflight/LICENSE`]
+- inherits@2.0.4 — ISC (git://github.com/isaacs/inherits) [license text: `node_modules/inherits/LICENSE`]
+- ini@1.3.8 — ISC (git://github.com/isaacs/ini.git) [license text: `node_modules/ini/LICENSE`]
+- internal-slot@1.1.0 — MIT (git+https://github.com/ljharb/internal-slot.git) [license text: `node_modules/internal-slot/LICENSE`]
+- ip-address@10.1.0 — MIT (git://github.com/beaugunderson/ip-address.git) [license text: `node_modules/ip-address/LICENSE`]
+- is-array-buffer@3.0.5 — MIT (git+https://github.com/inspect-js/is-array-buffer.git) [license text: `node_modules/is-array-buffer/LICENSE`]
+- is-async-function@2.1.1 — MIT (git://github.com/inspect-js/is-async-function.git) [license text: `node_modules/is-async-function/LICENSE`]
+- is-bigint@1.1.0 — MIT (git+https://github.com/inspect-js/is-bigint.git) [license text: `node_modules/is-bigint/LICENSE`]
+- is-boolean-object@1.2.2 — MIT (git://github.com/inspect-js/is-boolean-object.git) [license text: `node_modules/is-boolean-object/LICENSE`]
+- is-callable@1.2.7 — MIT (git://github.com/inspect-js/is-callable.git) [license text: `node_modules/is-callable/LICENSE`]
+- is-ci@3.0.1 — MIT (https://github.com/watson/is-ci.git) [license text: `node_modules/is-ci/LICENSE`]
+- is-core-module@2.16.1 — MIT (git+https://github.com/inspect-js/is-core-module.git) [license text: `node_modules/is-core-module/LICENSE`]
+- is-data-view@1.0.2 — MIT (git+https://github.com/inspect-js/is-data-view.git) [license text: `node_modules/is-data-view/LICENSE`]
+- is-date-object@1.1.0 — MIT (git://github.com/inspect-js/is-date-object.git) [license text: `node_modules/is-date-object/LICENSE`]
+- is-extglob@2.1.1 — MIT (jonschlinkert/is-extglob) [license text: `node_modules/is-extglob/LICENSE`]
+- is-finalizationregistry@1.1.1 — MIT (git+https://github.com/inspect-js/is-finalizationregistry.git) [license text: `node_modules/is-finalizationregistry/LICENSE`]
+- is-fullwidth-code-point@3.0.0 — MIT (sindresorhus/is-fullwidth-code-point)
+- is-generator-function@1.1.2 — MIT (git://github.com/inspect-js/is-generator-function.git) [license text: `node_modules/is-generator-function/LICENSE`]
+- is-glob@4.0.3 — MIT (micromatch/is-glob) [license text: `node_modules/is-glob/LICENSE`]
+- is-interactive@1.0.0 — MIT (sindresorhus/is-interactive)
+- is-lambda@1.0.1 — MIT (https://github.com/watson/is-lambda.git) [license text: `node_modules/is-lambda/LICENSE`]
+- is-map@2.0.3 — MIT (git+https://github.com/inspect-js/is-map.git) [license text: `node_modules/is-map/LICENSE`]
+- is-negative-zero@2.0.3 — MIT (git://github.com/inspect-js/is-negative-zero.git) [license text: `node_modules/is-negative-zero/LICENSE`]
+- is-number-object@1.1.1 — MIT (git://github.com/inspect-js/is-number-object.git) [license text: `node_modules/is-number-object/LICENSE`]
+- is-regex@1.2.1 — MIT (git://github.com/inspect-js/is-regex.git) [license text: `node_modules/is-regex/LICENSE`]
+- is-set@2.0.3 — MIT (git+https://github.com/inspect-js/is-set.git) [license text: `node_modules/is-set/LICENSE`]
+- is-shared-array-buffer@1.0.4 — MIT (git+https://github.com/inspect-js/is-shared-array-buffer.git) [license text: `node_modules/is-shared-array-buffer/LICENSE`]
+- is-string@1.1.1 — MIT (git://github.com/inspect-js/is-string.git) [license text: `node_modules/is-string/LICENSE`]
+- is-symbol@1.1.1 — MIT (git://github.com/inspect-js/is-symbol.git) [license text: `node_modules/is-symbol/LICENSE`]
+- is-typed-array@1.1.15 — MIT (git://github.com/inspect-js/is-typed-array.git) [license text: `node_modules/is-typed-array/LICENSE`]
+- is-unicode-supported@0.1.0 — MIT (sindresorhus/is-unicode-supported)
+- is-weakmap@2.0.2 — MIT (git+https://github.com/inspect-js/is-weakmap.git) [license text: `node_modules/is-weakmap/LICENSE`]
+- is-weakref@1.1.1 — MIT (git+https://github.com/inspect-js/is-weakref.git) [license text: `node_modules/is-weakref/LICENSE`]
+- is-weakset@2.0.4 — MIT (git+https://github.com/inspect-js/is-weakset.git) [license text: `node_modules/is-weakset/LICENSE`]
+- isarray@1.0.0 — MIT (git://github.com/juliangruber/isarray.git)
+- isarray@2.0.5 — MIT (git://github.com/juliangruber/isarray.git) [license text: `node_modules/isarray/LICENSE`]
+- isbinaryfile@4.0.10 — MIT (https://github.com/gjtorikian/isBinaryFile) [license text: `node_modules/@electron/osx-sign/node_modules/isbinaryfile/LICENSE.txt`]
+- isbinaryfile@5.0.7 — MIT (https://github.com/gjtorikian/isBinaryFile) [license text: `node_modules/isbinaryfile/LICENSE.txt`]
+- isexe@2.0.0 — ISC (git+https://github.com/isaacs/isexe.git) [license text: `node_modules/isexe/LICENSE`]
+- iterator.prototype@1.1.5 — MIT (git+https://github.com/ljharb/Iterator.prototype.git) [license text: `node_modules/iterator.prototype/LICENSE`]
+- jackspeak@3.4.3 — BlueOak-1.0.0 (git+https://github.com/isaacs/jackspeak.git) [license text: `node_modules/jackspeak/LICENSE.md`]
+- jake@10.9.4 — Apache-2.0 (git://github.com/jakejs/jake.git)
+- js-tokens@4.0.0 — MIT (lydell/js-tokens) [license text: `node_modules/js-tokens/LICENSE`]
+- js-yaml@4.1.1 — MIT (nodeca/js-yaml) [license text: `node_modules/js-yaml/LICENSE`]
+- jsesc@3.1.0 — MIT (https://github.com/mathiasbynens/jsesc.git)
+- json-buffer@3.0.1 — MIT (git://github.com/dominictarr/json-buffer.git) [license text: `node_modules/json-buffer/LICENSE`]
+- json-schema-traverse@0.4.1 — MIT (git+https://github.com/epoberezkin/json-schema-traverse.git) [license text: `node_modules/json-schema-traverse/LICENSE`]
+- json-stable-stringify-without-jsonify@1.0.1 — MIT (git://github.com/samn/json-stable-stringify.git) [license text: `node_modules/json-stable-stringify-without-jsonify/LICENSE`]
+- json-stringify-safe@5.0.1 — ISC (git://github.com/isaacs/json-stringify-safe) [license text: `node_modules/json-stringify-safe/LICENSE`]
+- json5@2.2.3 — MIT (git+https://github.com/json5/json5.git) [license text: `node_modules/json5/LICENSE.md`]
+- jsonfile@4.0.0 — MIT (git@github.com:jprichardson/node-jsonfile.git) [license text: `node_modules/jsonfile/LICENSE`]
+- jsonfile@6.2.0 — MIT (git@github.com:jprichardson/node-jsonfile.git) [license text: `node_modules/@electron/notarize/node_modules/jsonfile/LICENSE`]
+- jsx-ast-utils@3.3.5 — MIT (https://github.com/jsx-eslint/jsx-ast-utils) [license text: `node_modules/jsx-ast-utils/LICENSE.md`]
+- keyv@4.5.4 — MIT (git+https://github.com/jaredwray/keyv.git)
+- lazy-val@1.0.5 — MIT (develar/lazy-val)
+- lazystream@1.0.1 — MIT (https://github.com/jpommerening/node-lazystream.git) [license text: `node_modules/lazystream/LICENSE`]
+- levn@0.4.1 — MIT (git://github.com/gkz/levn.git) [license text: `node_modules/levn/LICENSE`]
+- locate-path@6.0.0 — MIT (sindresorhus/locate-path)
+- lodash@4.17.21 — MIT (lodash/lodash) [license text: `node_modules/lodash/LICENSE`]
+- lodash.defaults@4.2.0 — MIT (lodash/lodash) [license text: `node_modules/lodash.defaults/LICENSE`]
+- lodash.difference@4.5.0 — MIT (lodash/lodash) [license text: `node_modules/lodash.difference/LICENSE`]
+- lodash.flatten@4.4.0 — MIT (lodash/lodash) [license text: `node_modules/lodash.flatten/LICENSE`]
+- lodash.isplainobject@4.0.6 — MIT (lodash/lodash) [license text: `node_modules/lodash.isplainobject/LICENSE`]
+- lodash.merge@4.6.2 — MIT (lodash/lodash) [license text: `node_modules/lodash.merge/LICENSE`]
+- lodash.union@4.6.0 — MIT (lodash/lodash) [license text: `node_modules/lodash.union/LICENSE`]
+- log-symbols@4.1.0 — MIT (sindresorhus/log-symbols)
+- loose-envify@1.4.0 — MIT (git://github.com/zertosh/loose-envify.git) [license text: `node_modules/loose-envify/LICENSE`]
+- lowercase-keys@2.0.0 — MIT (sindresorhus/lowercase-keys)
+- lru-cache@10.4.3 — ISC (git://github.com/isaacs/node-lru-cache.git) [license text: `node_modules/path-scurry/node_modules/lru-cache/LICENSE`]
+- lru-cache@5.1.1 — ISC (git://github.com/isaacs/node-lru-cache.git) [license text: `node_modules/lru-cache/LICENSE`]
+- lru-cache@6.0.0 — ISC (git://github.com/isaacs/node-lru-cache.git) [license text: `node_modules/hosted-git-info/node_modules/lru-cache/LICENSE`]
+- lru-cache@7.18.3 — ISC (git://github.com/isaacs/node-lru-cache.git) [license text: `node_modules/cacache/node_modules/lru-cache/LICENSE`]
+- magic-string@0.30.21 — MIT (git+https://github.com/Rich-Harris/magic-string.git) [license text: `node_modules/magic-string/LICENSE`]
+- make-fetch-happen@10.2.1 — ISC (https://github.com/npm/make-fetch-happen.git) [license text: `node_modules/make-fetch-happen/LICENSE`]
+- matcher@3.0.0 — MIT (sindresorhus/matcher)
+- math-intrinsics@1.1.0 — MIT (git+https://github.com/es-shims/math-intrinsics.git) [license text: `node_modules/math-intrinsics/LICENSE`]
+- mime@2.6.0 — MIT (https://github.com/broofa/mime) [license text: `node_modules/mime/LICENSE`]
+- mime-db@1.52.0 — MIT (jshttp/mime-db) [license text: `node_modules/mime-db/LICENSE`]
+- mime-types@2.1.35 — MIT (jshttp/mime-types) [license text: `node_modules/mime-types/LICENSE`]
+- mimic-fn@2.1.0 — MIT (sindresorhus/mimic-fn)
+- mimic-response@1.0.1 — MIT (sindresorhus/mimic-response)
+- mimic-response@3.1.0 — MIT (sindresorhus/mimic-response)
+- minimatch@10.1.1 — BlueOak-1.0.0 (git@github.com:isaacs/minimatch) [license text: `node_modules/minimatch/LICENSE.md`]
+- minimatch@3.1.2 — ISC (git://github.com/isaacs/minimatch.git) [license text: `node_modules/@electron/asar/node_modules/minimatch/LICENSE`]
+- minimatch@5.1.6 — ISC (git://github.com/isaacs/minimatch.git) [license text: `node_modules/cacache/node_modules/minimatch/LICENSE`]
+- minimatch@9.0.5 — ISC (git://github.com/isaacs/minimatch.git) [license text: `node_modules/@electron/universal/node_modules/minimatch/LICENSE`]
+- minimist@1.2.8 — MIT (git://github.com/minimistjs/minimist.git) [license text: `node_modules/minimist/LICENSE`]
+- minipass@3.3.6 — ISC (git+https://github.com/isaacs/minipass.git) [license text: `node_modules/minipass/LICENSE`]
+- minipass@5.0.0 — ISC (git+https://github.com/isaacs/minipass.git) [license text: `node_modules/tar/node_modules/minipass/LICENSE`]
+- minipass@7.1.2 — ISC (https://github.com/isaacs/minipass) [license text: `node_modules/config-file-ts/node_modules/minipass/LICENSE`]
+- minipass-collect@1.0.2 — ISC [license text: `node_modules/minipass-collect/LICENSE`]
+- minipass-fetch@2.1.2 — MIT (https://github.com/npm/minipass-fetch.git) [license text: `node_modules/minipass-fetch/LICENSE`]
+- minipass-flush@1.0.5 — ISC (git+https://github.com/isaacs/minipass-flush.git) [license text: `node_modules/minipass-flush/LICENSE`]
+- minipass-pipeline@1.2.4 — ISC [license text: `node_modules/minipass-pipeline/LICENSE`]
+- minipass-sized@1.0.3 — ISC (git+https://github.com/isaacs/minipass-sized.git) [license text: `node_modules/minipass-sized/LICENSE`]
+- minizlib@2.1.2 — MIT (git+https://github.com/isaacs/minizlib.git) [license text: `node_modules/minizlib/LICENSE`]
+- mkdirp@1.0.4 — MIT (https://github.com/isaacs/node-mkdirp.git) [license text: `node_modules/mkdirp/LICENSE`]
+- mkdirp-classic@0.5.3 — MIT (https://github.com/mafintosh/mkdirp-classic.git) [license text: `node_modules/mkdirp-classic/LICENSE`]
+- ms@2.1.3 — MIT (vercel/ms)
+- nanoid@3.3.11 — MIT (ai/nanoid) [license text: `node_modules/nanoid/LICENSE`]
+- napi-build-utils@2.0.0 — MIT (git+https://github.com/inspiredware/napi-build-utils.git) [license text: `node_modules/napi-build-utils/LICENSE`]
+- natural-compare@1.4.0 — MIT (git://github.com/litejs/natural-compare-lite.git)
+- negotiator@0.6.4 — MIT (jshttp/negotiator) [license text: `node_modules/negotiator/LICENSE`]
+- node-abi@3.85.0 — MIT (git+https://github.com/electron/node-abi.git) [license text: `node_modules/node-abi/LICENSE`]
+- node-api-version@0.2.1 — MIT (https://github.com/timfish/node-api-version)
+- node-gyp@9.4.1 — MIT (git://github.com/nodejs/node-gyp.git) [license text: `node_modules/node-gyp/LICENSE`]
+- node-releases@2.0.27 — MIT (git+https://github.com/chicoxyzzy/node-releases.git) [license text: `node_modules/node-releases/LICENSE`]
+- nopt@6.0.0 — ISC (https://github.com/npm/nopt.git) [license text: `node_modules/nopt/LICENSE`]
+- normalize-path@3.0.0 — MIT (jonschlinkert/normalize-path) [license text: `node_modules/normalize-path/LICENSE`]
+- normalize-url@6.1.0 — MIT (sindresorhus/normalize-url)
+- npmlog@6.0.2 — ISC (https://github.com/npm/npmlog.git) [license text: `node_modules/npmlog/LICENSE.md`]
+- object-assign@4.1.1 — MIT (sindresorhus/object-assign)
+- object-inspect@1.13.4 — MIT (git://github.com/inspect-js/object-inspect.git) [license text: `node_modules/object-inspect/LICENSE`]
+- object-keys@1.1.1 — MIT (git://github.com/ljharb/object-keys.git) [license text: `node_modules/object-keys/LICENSE`]
+- object.assign@4.1.7 — MIT (git://github.com/ljharb/object.assign.git) [license text: `node_modules/object.assign/LICENSE`]
+- object.entries@1.1.9 — MIT (git://github.com/es-shims/Object.entries.git) [license text: `node_modules/object.entries/LICENSE`]
+- object.fromentries@2.0.8 — MIT (git://github.com/es-shims/Object.fromEntries.git) [license text: `node_modules/object.fromentries/LICENSE`]
+- object.values@1.2.1 — MIT (git://github.com/es-shims/Object.values.git) [license text: `node_modules/object.values/LICENSE`]
+- once@1.4.0 — ISC (git://github.com/isaacs/once) [license text: `node_modules/once/LICENSE`]
+- onetime@5.1.2 — MIT (sindresorhus/onetime)
+- optionator@0.9.4 — MIT (git://github.com/gkz/optionator.git) [license text: `node_modules/optionator/LICENSE`]
+- ora@5.4.1 — MIT (sindresorhus/ora)
+- own-keys@1.0.1 — MIT (git+https://github.com/ljharb/own-keys.git) [license text: `node_modules/own-keys/LICENSE`]
+- p-cancelable@2.1.1 — MIT (sindresorhus/p-cancelable)
+- p-limit@3.1.0 — MIT (sindresorhus/p-limit)
+- p-locate@5.0.0 — MIT (sindresorhus/p-locate)
+- p-map@4.0.0 — MIT (sindresorhus/p-map)
+- package-json-from-dist@1.0.1 — BlueOak-1.0.0 (git+https://github.com/isaacs/package-json-from-dist.git) [license text: `node_modules/package-json-from-dist/LICENSE.md`]
+- parent-module@1.0.1 — MIT (sindresorhus/parent-module)
+- path-exists@4.0.0 — MIT (sindresorhus/path-exists)
+- path-is-absolute@1.0.1 — MIT (sindresorhus/path-is-absolute)
+- path-key@3.1.1 — MIT (sindresorhus/path-key)
+- path-parse@1.0.7 — MIT (https://github.com/jbgutierrez/path-parse.git) [license text: `node_modules/path-parse/LICENSE`]
+- path-scurry@1.11.1 — BlueOak-1.0.0 (git+https://github.com/isaacs/path-scurry) [license text: `node_modules/path-scurry/LICENSE.md`]
+- pe-library@0.4.1 — MIT (https://github.com/jet2jet/pe-library-js.git) [license text: `node_modules/pe-library/LICENSE`]
+- pend@1.2.0 — MIT (git://github.com/andrewrk/node-pend.git) [license text: `node_modules/pend/LICENSE`]
+- picocolors@1.1.1 — ISC (alexeyraspopov/picocolors) [license text: `node_modules/picocolors/LICENSE`]
+- picomatch@4.0.3 — MIT (micromatch/picomatch) [license text: `node_modules/picomatch/LICENSE`]
+- plist@3.1.0 — MIT (git://github.com/TooTallNate/node-plist.git) [license text: `node_modules/plist/LICENSE`]
+- possible-typed-array-names@1.1.0 — MIT (git+https://github.com/ljharb/possible-typed-array-names.git) [license text: `node_modules/possible-typed-array-names/LICENSE`]
+- postcss@8.5.6 — MIT (postcss/postcss) [license text: `node_modules/postcss/LICENSE`]
+- prebuild-install@7.1.3 — MIT (https://github.com/prebuild/prebuild-install.git) [license text: `node_modules/prebuild-install/LICENSE`]
+- prelude-ls@1.2.1 — MIT (git://github.com/gkz/prelude-ls.git) [license text: `node_modules/prelude-ls/LICENSE`]
+- prettier@3.7.2 — MIT (prettier/prettier) [license text: `node_modules/prettier/LICENSE`]
+- prettier-linter-helpers@1.0.0 — MIT (git+https://github.com/prettier/prettier-linter-helpers.git) [license text: `node_modules/prettier-linter-helpers/LICENSE.md`]
+- process-nextick-args@2.0.1 — MIT (https://github.com/calvinmetcalf/process-nextick-args.git)
+- progress@2.0.3 — MIT (git://github.com/visionmedia/node-progress) [license text: `node_modules/progress/LICENSE`]
+- promise-inflight@1.0.1 — ISC (git+https://github.com/iarna/promise-inflight.git) [license text: `node_modules/promise-inflight/LICENSE`]
+- promise-retry@2.0.1 — MIT (git://github.com/IndigoUnited/node-promise-retry.git) [license text: `node_modules/promise-retry/LICENSE`]
+- prop-types@15.8.1 — MIT (facebook/prop-types) [license text: `node_modules/prop-types/LICENSE`]
+- pump@3.0.3 — MIT (git://github.com/mafintosh/pump.git) [license text: `node_modules/pump/LICENSE`]
+- punycode@2.3.1 — MIT (https://github.com/mathiasbynens/punycode.js.git)
+- quick-lru@5.1.1 — MIT (sindresorhus/quick-lru)
+- rc@1.2.8 — (BSD-2-Clause OR MIT OR Apache-2.0) (https://github.com/dominictarr/rc.git)
+- react@19.2.0 — MIT (https://github.com/facebook/react.git) [license text: `node_modules/react/LICENSE`]
+- react-dom@19.2.0 — MIT (https://github.com/facebook/react.git) [license text: `node_modules/react-dom/LICENSE`]
+- react-is@16.13.1 — MIT (https://github.com/facebook/react.git) [license text: `node_modules/react-is/LICENSE`]
+- react-refresh@0.18.0 — MIT (https://github.com/facebook/react.git) [license text: `node_modules/react-refresh/LICENSE`]
+- read-binary-file-arch@1.0.6 — MIT (git+ssh://git@github.com/samuelmaddock/read-binary-file-arch.git)
+- readable-stream@2.3.8 — MIT (git://github.com/nodejs/readable-stream) [license text: `node_modules/archiver-utils/node_modules/readable-stream/LICENSE`]
+- readable-stream@3.6.2 — MIT (git://github.com/nodejs/readable-stream) [license text: `node_modules/readable-stream/LICENSE`]
+- readdir-glob@1.1.3 — Apache-2.0 (git://github.com/Yqnn/node-readdir-glob.git) [license text: `node_modules/readdir-glob/LICENSE`]
+- reflect.getprototypeof@1.0.10 — MIT (git+https://github.com/es-shims/Reflect.getPrototypeOf.git) [license text: `node_modules/reflect.getprototypeof/LICENSE`]
+- regexp.prototype.flags@1.5.4 — MIT (git://github.com/es-shims/RegExp.prototype.flags.git) [license text: `node_modules/regexp.prototype.flags/LICENSE`]
+- require-directory@2.1.1 — MIT (git://github.com/troygoode/node-require-directory.git) [license text: `node_modules/require-directory/LICENSE`]
+- resedit@1.7.2 — MIT (https://github.com/jet2jet/resedit-js.git) [license text: `node_modules/resedit/LICENSE`]
+- resolve@2.0.0-next.5 — MIT (git://github.com/browserify/resolve.git) [license text: `node_modules/resolve/LICENSE`]
+- resolve-alpn@1.2.1 — MIT (git+https://github.com/szmarczak/resolve-alpn.git) [license text: `node_modules/resolve-alpn/LICENSE`]
+- resolve-from@4.0.0 — MIT (sindresorhus/resolve-from)
+- responselike@2.0.1 — MIT (https://github.com/sindresorhus/responselike.git) [license text: `node_modules/responselike/LICENSE`]
+- restore-cursor@3.1.0 — MIT (sindresorhus/restore-cursor)
+- retry@0.12.0 — MIT (git://github.com/tim-kos/node-retry.git)
+- rimraf@3.0.2 — ISC (git://github.com/isaacs/rimraf.git) [license text: `node_modules/rimraf/LICENSE`]
+- roarr@2.15.4 — BSD-3-Clause (git@github.com:gajus/roarr.git) [license text: `node_modules/roarr/LICENSE`]
+- rollup@4.53.3 — MIT (git+https://github.com/rollup/rollup.git) [license text: `node_modules/rollup/LICENSE.md`]
+- safe-array-concat@1.1.3 — MIT (git+https://github.com/ljharb/safe-array-concat.git) [license text: `node_modules/safe-array-concat/LICENSE`]
+- safe-buffer@5.1.2 — MIT (git://github.com/feross/safe-buffer.git) [license text: `node_modules/archiver-utils/node_modules/safe-buffer/LICENSE`]
+- safe-buffer@5.2.1 — MIT (git://github.com/feross/safe-buffer.git) [license text: `node_modules/safe-buffer/LICENSE`]
+- safe-push-apply@1.0.0 — MIT (git+https://github.com/ljharb/safe-push-apply.git) [license text: `node_modules/safe-push-apply/LICENSE`]
+- safe-regex-test@1.1.0 — MIT (git+https://github.com/ljharb/safe-regex-test.git) [license text: `node_modules/safe-regex-test/LICENSE`]
+- safer-buffer@2.1.2 — MIT (git+https://github.com/ChALkeR/safer-buffer.git) [license text: `node_modules/safer-buffer/LICENSE`]
+- sanitize-filename@1.6.3 — WTFPL OR ISC (git@github.com:parshap/node-sanitize-filename.git) [license text: `node_modules/sanitize-filename/LICENSE.md`]
+- sax@1.4.3 — BlueOak-1.0.0 (git://github.com/isaacs/sax-js.git) [license text: `node_modules/sax/LICENSE.md`]
+- scheduler@0.27.0 — MIT (https://github.com/facebook/react.git) [license text: `node_modules/scheduler/LICENSE`]
+- semver@6.3.1 — ISC (https://github.com/npm/node-semver.git) [license text: `node_modules/semver/LICENSE`]
+- semver@7.7.3 — ISC (git+https://github.com/npm/node-semver.git) [license text: `node_modules/@electron/rebuild/node_modules/semver/LICENSE`]
+- semver-compare@1.0.0 — MIT (git://github.com/substack/semver-compare.git) [license text: `node_modules/semver-compare/LICENSE`]
+- serialize-error@7.0.1 — MIT (sindresorhus/serialize-error)
+- set-blocking@2.0.0 — ISC (git+https://github.com/yargs/set-blocking.git) [license text: `node_modules/set-blocking/LICENSE.txt`]
+- set-function-length@1.2.2 — MIT (git+https://github.com/ljharb/set-function-length.git) [license text: `node_modules/set-function-length/LICENSE`]
+- set-function-name@2.0.2 — MIT (git+https://github.com/ljharb/set-function-name.git) [license text: `node_modules/set-function-name/LICENSE`]
+- set-proto@1.0.0 — MIT (git+https://github.com/ljharb/set-proto.git) [license text: `node_modules/set-proto/LICENSE`]
+- shebang-command@2.0.0 — MIT (kevva/shebang-command)
+- shebang-regex@3.0.0 — MIT (sindresorhus/shebang-regex)
+- side-channel@1.1.0 — MIT (git+https://github.com/ljharb/side-channel.git) [license text: `node_modules/side-channel/LICENSE`]
+- side-channel-list@1.0.0 — MIT (git+https://github.com/ljharb/side-channel-list.git) [license text: `node_modules/side-channel-list/LICENSE`]
+- side-channel-map@1.0.1 — MIT (git+https://github.com/ljharb/side-channel-map.git) [license text: `node_modules/side-channel-map/LICENSE`]
+- side-channel-weakmap@1.0.2 — MIT (git+https://github.com/ljharb/side-channel-weakmap.git) [license text: `node_modules/side-channel-weakmap/LICENSE`]
+- signal-exit@3.0.7 — ISC (https://github.com/tapjs/signal-exit.git) [license text: `node_modules/signal-exit/LICENSE.txt`]
+- signal-exit@4.1.0 — ISC (https://github.com/tapjs/signal-exit.git) [license text: `node_modules/foreground-child/node_modules/signal-exit/LICENSE.txt`]
+- simple-concat@1.0.1 — MIT (git://github.com/feross/simple-concat.git) [license text: `node_modules/simple-concat/LICENSE`]
+- simple-get@4.0.1 — MIT (git://github.com/feross/simple-get.git) [license text: `node_modules/simple-get/LICENSE`]
+- simple-update-notifier@2.0.0 — MIT (https://github.com/alexbrazier/simple-update-notifier.git) [license text: `node_modules/simple-update-notifier/LICENSE`]
+- smart-buffer@4.2.0 — MIT (https://github.com/JoshGlazebrook/smart-buffer.git) [license text: `node_modules/smart-buffer/LICENSE`]
+- socks@2.8.7 — MIT (https://github.com/JoshGlazebrook/socks.git) [license text: `node_modules/socks/LICENSE`]
+- socks-proxy-agent@7.0.0 — MIT (git://github.com/TooTallNate/node-socks-proxy-agent.git)
+- source-map@0.6.1 — BSD-3-Clause (http://github.com/mozilla/source-map.git) [license text: `node_modules/source-map/LICENSE`]
+- source-map-js@1.2.1 — BSD-3-Clause (7rulnik/source-map-js) [license text: `node_modules/source-map-js/LICENSE`]
+- source-map-support@0.5.21 — MIT (https://github.com/evanw/node-source-map-support) [license text: `node_modules/source-map-support/LICENSE.md`]
+- sprintf-js@1.1.3 — BSD-3-Clause (https://github.com/alexei/sprintf.js.git) [license text: `node_modules/sprintf-js/LICENSE`]
+- ssri@9.0.1 — ISC (https://github.com/npm/ssri.git) [license text: `node_modules/ssri/LICENSE.md`]
+- stat-mode@1.0.0 — MIT (git://github.com/TooTallNate/stat-mode.git) [license text: `node_modules/stat-mode/LICENSE`]
+- stop-iteration-iterator@1.1.0 — MIT (git+https://github.com/ljharb/stop-iteration-iterator.git) [license text: `node_modules/stop-iteration-iterator/LICENSE`]
+- string_decoder@1.1.1 — MIT (git://github.com/nodejs/string_decoder.git) [license text: `node_modules/archiver-utils/node_modules/string_decoder/LICENSE`]
+- string_decoder@1.3.0 — MIT (git://github.com/nodejs/string_decoder.git) [license text: `node_modules/string_decoder/LICENSE`]
+- string-width@4.2.3 — MIT (sindresorhus/string-width)
+- string-width@5.1.2 — MIT (sindresorhus/string-width)
+- string.prototype.matchall@4.0.12 — MIT (git+https://github.com/es-shims/String.prototype.matchAll.git) [license text: `node_modules/string.prototype.matchall/LICENSE`]
+- string.prototype.repeat@1.0.0 — MIT (https://github.com/mathiasbynens/String.prototype.repeat.git)
+- string.prototype.trim@1.2.10 — MIT (git://github.com/es-shims/String.prototype.trim.git) [license text: `node_modules/string.prototype.trim/LICENSE`]
+- string.prototype.trimend@1.0.9 — MIT (git://github.com/es-shims/String.prototype.trimEnd.git) [license text: `node_modules/string.prototype.trimend/LICENSE`]
+- string.prototype.trimstart@1.0.8 — MIT (git://github.com/es-shims/String.prototype.trimStart.git) [license text: `node_modules/string.prototype.trimstart/LICENSE`]
+- strip-ansi@6.0.1 — MIT (chalk/strip-ansi)
+- strip-ansi@7.1.2 — MIT (chalk/strip-ansi)
+- strip-json-comments@2.0.1 — MIT (sindresorhus/strip-json-comments)
+- strip-json-comments@3.1.1 — MIT (sindresorhus/strip-json-comments)
+- sumchecker@3.0.1 — Apache-2.0 (git+https://github.com/malept/sumchecker.git) [license text: `node_modules/sumchecker/LICENSE`]
+- supports-color@7.2.0 — MIT (chalk/supports-color)
+- supports-preserve-symlinks-flag@1.0.0 — MIT (git+https://github.com/inspect-js/node-supports-preserve-symlinks-flag.git) [license text: `node_modules/supports-preserve-symlinks-flag/LICENSE`]
+- synckit@0.11.11 — MIT (https://github.com/un-ts/synckit.git) [license text: `node_modules/synckit/LICENSE`]
+- tar@6.2.1 — ISC (https://github.com/isaacs/node-tar.git) [license text: `node_modules/tar/LICENSE`]
+- tar-fs@2.1.4 — MIT (https://github.com/mafintosh/tar-fs.git) [license text: `node_modules/tar-fs/LICENSE`]
+- tar-stream@2.2.0 — MIT (git+https://github.com/mafintosh/tar-stream.git) [license text: `node_modules/tar-stream/LICENSE`]
+- temp-file@3.4.0 — MIT (develar/temp-file)
+- tinyglobby@0.2.15 — MIT (git+https://github.com/SuperchupuDev/tinyglobby.git) [license text: `node_modules/tinyglobby/LICENSE`]
+- tmp@0.2.5 — MIT (https://github.com/raszi/node-tmp.git) [license text: `node_modules/tmp/LICENSE`]
+- tmp-promise@3.0.3 — MIT (git://github.com/benjamingr/tmp-promise.git)
+- truncate-utf8-bytes@1.0.2 — WTFPL (git+https://github.com/parshap/truncate-utf8-bytes.git)
+- ts-api-utils@2.1.0 — MIT (https://github.com/JoshuaKGoldberg/ts-api-utils) [license text: `node_modules/ts-api-utils/LICENSE.md`]
+- tunnel-agent@0.6.0 — Apache-2.0 (https://github.com/mikeal/tunnel-agent) [license text: `node_modules/tunnel-agent/LICENSE`]
+- type-check@0.4.0 — MIT (git://github.com/gkz/type-check.git) [license text: `node_modules/type-check/LICENSE`]
+- type-fest@0.13.1 — (MIT OR CC0-1.0) (sindresorhus/type-fest)
+- typed-array-buffer@1.0.3 — MIT (git+https://github.com/inspect-js/typed-array-buffer.git) [license text: `node_modules/typed-array-buffer/LICENSE`]
+- typed-array-byte-length@1.0.3 — MIT (git+https://github.com/inspect-js/typed-array-byte-length.git) [license text: `node_modules/typed-array-byte-length/LICENSE`]
+- typed-array-byte-offset@1.0.4 — MIT (git+https://github.com/inspect-js/typed-array-byte-offset.git) [license text: `node_modules/typed-array-byte-offset/LICENSE`]
+- typed-array-length@1.0.7 — MIT (git+https://github.com/inspect-js/typed-array-length.git) [license text: `node_modules/typed-array-length/LICENSE`]
+- typescript@5.9.3 — Apache-2.0 (https://github.com/microsoft/TypeScript.git) [license text: `node_modules/typescript/LICENSE.txt`]
+- typescript-eslint@8.48.0 — MIT (https://github.com/typescript-eslint/typescript-eslint.git) [license text: `node_modules/typescript-eslint/LICENSE`]
+- unbox-primitive@1.1.0 — MIT (git+https://github.com/ljharb/unbox-primitive.git) [license text: `node_modules/unbox-primitive/LICENSE`]
+- undici-types@6.21.0 — MIT (git+https://github.com/nodejs/undici.git) [license text: `node_modules/undici-types/LICENSE`]
+- unique-filename@2.0.1 — ISC (https://github.com/npm/unique-filename.git) [license text: `node_modules/unique-filename/LICENSE`]
+- unique-slug@3.0.0 — ISC (https://github.com/npm/unique-slug.git) [license text: `node_modules/unique-slug/LICENSE`]
+- universalify@0.1.2 — MIT (git+https://github.com/RyanZim/universalify.git) [license text: `node_modules/universalify/LICENSE`]
+- universalify@2.0.1 — MIT (git+https://github.com/RyanZim/universalify.git) [license text: `node_modules/@electron/notarize/node_modules/universalify/LICENSE`]
+- update-browserslist-db@1.1.4 — MIT (browserslist/update-db) [license text: `node_modules/update-browserslist-db/LICENSE`]
+- uri-js@4.4.1 — BSD-2-Clause (http://github.com/garycourt/uri-js) [license text: `node_modules/uri-js/LICENSE`]
+- utf8-byte-length@1.0.5 — (WTFPL OR MIT) (git+https://github.com/parshap/utf8-byte-length.git)
+- util-deprecate@1.0.2 — MIT (git://github.com/TooTallNate/util-deprecate.git) [license text: `node_modules/util-deprecate/LICENSE`]
+- vite@7.2.4 — MIT (git+https://github.com/vitejs/vite.git) [license text: `node_modules/vite/LICENSE.md`]
+- wcwidth@1.0.1 — MIT (git+https://github.com/timoxley/wcwidth.git) [license text: `node_modules/wcwidth/LICENSE`]
+- which@2.0.2 — ISC (git://github.com/isaacs/node-which.git) [license text: `node_modules/which/LICENSE`]
+- which-boxed-primitive@1.1.1 — MIT (git+https://github.com/inspect-js/which-boxed-primitive.git) [license text: `node_modules/which-boxed-primitive/LICENSE`]
+- which-builtin-type@1.2.1 — MIT (git+https://github.com/inspect-js/which-builtin-type.git) [license text: `node_modules/which-builtin-type/LICENSE`]
+- which-collection@1.0.2 — MIT (git+https://github.com/inspect-js/which-collection.git) [license text: `node_modules/which-collection/LICENSE`]
+- which-typed-array@1.1.19 — MIT (git://github.com/inspect-js/which-typed-array.git) [license text: `node_modules/which-typed-array/LICENSE`]
+- wide-align@1.1.5 — ISC (https://github.com/iarna/wide-align) [license text: `node_modules/wide-align/LICENSE`]
+- word-wrap@1.2.5 — MIT (jonschlinkert/word-wrap) [license text: `node_modules/word-wrap/LICENSE`]
+- wrap-ansi@7.0.0 — MIT (chalk/wrap-ansi)
+- wrap-ansi@8.1.0 — MIT (chalk/wrap-ansi)
+- wrappy@1.0.2 — ISC (https://github.com/npm/wrappy) [license text: `node_modules/wrappy/LICENSE`]
+- xmlbuilder@15.1.1 — MIT (git://github.com/oozcitak/xmlbuilder-js.git) [license text: `node_modules/xmlbuilder/LICENSE`]
+- y18n@5.0.8 — ISC (yargs/y18n) [license text: `node_modules/y18n/LICENSE`]
+- yallist@3.1.1 — ISC (git+https://github.com/isaacs/yallist.git) [license text: `node_modules/yallist/LICENSE`]
+- yallist@4.0.0 — ISC (git+https://github.com/isaacs/yallist.git) [license text: `node_modules/hosted-git-info/node_modules/yallist/LICENSE`]
+- yargs@17.7.2 — MIT (https://github.com/yargs/yargs.git) [license text: `node_modules/yargs/LICENSE`]
+- yargs-parser@21.1.1 — ISC (https://github.com/yargs/yargs-parser.git) [license text: `node_modules/yargs-parser/LICENSE.txt`]
+- yauzl@2.10.0 — MIT (https://github.com/thejoshwolfe/yauzl.git) [license text: `node_modules/yauzl/LICENSE`]
+- yocto-queue@0.1.0 — MIT (sindresorhus/yocto-queue)
+- zip-stream@4.1.1 — MIT (https://github.com/archiverjs/node-zip-stream.git) [license text: `node_modules/zip-stream/LICENSE`]

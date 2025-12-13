@@ -14,26 +14,26 @@ import "./SubmissionTimeline.css";
 // const endOfLocalDay = (value: Date) => new Date(value.getFullYear(), value.getMonth(), value.getDate(), 23, 59, 59, 999);
 
 export const SubmissionTimelinePage: FC = () => {
-    const [range, setRange] = useState(() => {
-        const end = new Date();
-        const start = new Date(end);
-        start.setDate(start.getDate() - 14);
-        return { start, end };
-    });
+  const [range, setRange] = useState(() => {
+    const end = new Date();
+    const start = new Date(end);
+    start.setDate(start.getDate() - 14);
+    return { start, end };
+  });
 
-    // const beginValue = useMemo(() => formatInputDate(range.start), [range.start]);
-    // const endValue = useMemo(() => formatInputDate(range.end), [range.end]);
+  // const beginValue = useMemo(() => formatInputDate(range.start), [range.start]);
+  // const endValue = useMemo(() => formatInputDate(range.end), [range.end]);
 
-    // const resetRange = () => {
-    //     const end = new Date();
-    //     const start = new Date(end);
-    //     start.setDate(start.getDate() - 3);
-    //     setRange({ start, end });
-    // };
+  // const resetRange = () => {
+  //     const end = new Date();
+  //     const start = new Date(end);
+  //     start.setDate(start.getDate() - 3);
+  //     setRange({ start, end });
+  // };
 
-    return (
-        <div className="submission-timeline-page">
-            {/* <section className="submission-timeline-card">
+  return (
+    <div className="submission-timeline-page">
+      {/* <section className="submission-timeline-card">
                 <header className="submission-timeline-card-header">
                     <div>
                         <h3>日期范围</h3>
@@ -67,20 +67,19 @@ export const SubmissionTimelinePage: FC = () => {
                 </div>
             </section> */}
 
-            {/* <section className="submission-timeline-card"> */}
-                {/* <header className="submission-timeline-card-header">
+      {/* <section className="submission-timeline-card"> */}
+      {/* <header className="submission-timeline-card-header">
                     <div>
                         <h3>提交时间轴</h3>
                     </div>
                 </header> */}
-                <AssignmentSubmissionView
-                    start={range.start}
-                    end={range.end}
-                    onRangeChange={(start, end) => setRange({ start, end })}
-                    heightPx={400}
-                />
-            {/* </section> */}
-        </div>
-    );
+      <AssignmentSubmissionView
+        start={range.start}
+        end={range.end}
+        onRangeChange={(start, end) => setRange({ start, end })}
+        heightPx={400}
+      />
+      {/* </section> */}
+    </div>
+  );
 };
-
