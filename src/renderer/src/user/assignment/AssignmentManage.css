@@ -1,6 +1,12 @@
 @import url("../../color.css");
 
-.progress {
+.assignment-manage {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.assignment-manage .progress {
     display: flex;
     align-items: center;
     width: calc(100% - 8px);
@@ -9,12 +15,12 @@
     position: relative;
 }
 
-.progress > * {
+.assignment-manage .progress > * {
     z-index: 1;
-    color: white;
+    color: var(--color-on-accent);
 }
 
-.bar {
+.assignment-manage .bar {
     position: absolute;
     top: 2px;
     left: 2px;
@@ -23,29 +29,29 @@
     z-index: 0;
 }
 
-.title {
+.assignment-manage .title {
     padding: 4px;
     color: var(--color-text-primary);
     font-weight: bold;
 }
 
-.unsubmitted {
+.assignment-manage .unsubmitted {
     display: flex;
     flex-wrap: wrap;
 }
 
-.unsubmitted > span {
+.assignment-manage .unsubmitted > span {
     padding: 4px;
     margin: 2px;
     background-color: var(--color-quaternary);
 }
 
-.feedback > div {
+.assignment-manage .feedback > div {
     padding: 4px;
     margin: 2px;
     border-left: 2px solid var(--color-primary);
 }
 
-.time-data > *:nth-child(2) {
+.assignment-manage .time-data > *:nth-child(2) {
     width: 70px;
 }

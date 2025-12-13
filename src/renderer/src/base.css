@@ -85,7 +85,7 @@ button {
 button.primary {
     background-color: var(--color-primary);
     border-color: var(--color-secondary);
-    color: #fff;
+    color: var(--color-on-accent);
 }
 
 button.primary:hover:not(:disabled) {
@@ -105,7 +105,7 @@ button.secondary {
 button.secondary:hover:not(:disabled) {
     background-color: var(--color-menu);
     border-color: var(--color-menu);
-    color: #fff;
+    color: var(--color-on-accent);
 }
 
 button.secondary:active:not(:disabled) {
@@ -120,7 +120,7 @@ button.outline {
 
 button.outline:hover:not(:disabled) {
     background-color: var(--color-tertiary);
-    color: #fff;
+    color: var(--color-on-accent);
 }
 
 button.outline:active:not(:disabled) {
@@ -130,7 +130,7 @@ button.outline:active:not(:disabled) {
 
 button.outline.selected {
     background-color: var(--color-secondary);
-    color: #fff;
+    color: var(--color-on-accent);
 }
 
 button.flat {
@@ -156,7 +156,7 @@ button.danger {
 button.danger:hover:not(:disabled) {
     background-color: var(--color-danger);
     border-color: var(--color-danger);
-    color: #fff;
+    color: var(--color-on-accent);
 }
 
 button:disabled {
@@ -176,7 +176,7 @@ select {
     height: 2rem;
     margin: 2px 2px;
     border: 1px solid var(--gray-tinted-4);
-    background-color: #fff;
+    background-color: var(--color-surface);
     color: var(--color-title);
     transition: border-color 120ms ease, background-color 120ms ease;
     box-sizing: border-box;

@@ -6,7 +6,7 @@
     gap: 0.35rem;
     padding: 0.1rem 0.3rem;
     border: 0.3rem solid var(--gray-tinted-4);
-    background-color: #fff;
+    background-color: var(--color-surface);
     color: var(--color-title);
     transition: border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
 }

@@ -7,9 +7,11 @@ import { ManageDatabasePage } from "./Database";
 import { ManageIdentityPage } from "./Identity";
 import { ManageStudentPage } from "./Student";
 import { ManageOperationPage } from "./Operation";
+import { ManageTagPage } from "./Tag";
 
 const pages = {
     "科目": (props: UserPageProps) => <ManageSubjectPage props={props} />,
+    "标签": (props: UserPageProps) => <ManageTagPage props={props} />,
     "学生": () => <ManageStudentPage />,
     "身份": (props: UserPageProps) => <ManageIdentityPage props={props} />,
     "配置": () => <ManageConfigPage />,

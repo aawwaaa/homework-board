@@ -14,7 +14,9 @@ export const CreateAssignment: React.FC<{ subject: Subject, props: UserPageProps
         title: "",
         description: "",
         subject: subject,
-        config: {}
+        config: {
+            tags: []
+        }
     });
 
     const handleChange = (key: keyof Assignment, value: Assignment[keyof Assignment]) => {

@@ -1,22 +1,28 @@
 @import url("../../color.css");
 
-.identity-list {
+.identity-manage {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.identity-row {
+.identity-manage .identity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.identity-manage .identity-row {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.identity-row input[type="text"] {
+.identity-manage .identity-row input[type="text"] {
     flex: 1;
 }
 
-.roles {
+.identity-manage .roles {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -24,6 +30,6 @@
     flex: 3;
 }
 
-select {
+.identity-manage .roles select {
     width: 150px;
 }

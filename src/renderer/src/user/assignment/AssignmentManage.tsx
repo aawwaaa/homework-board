@@ -27,7 +27,7 @@ export const AssignmentManage: React.FC<{ assignment: AssignmentData, props: Use
         });
     }, []);
 
-    return <>
+    return <div className="assignment-manage">
         <div className="title">
             <Tab
                 tabs={[["edit", "编辑"], ["submission", "提交"], ["time", "时间"]]} 
@@ -37,13 +37,15 @@ export const AssignmentManage: React.FC<{ assignment: AssignmentData, props: Use
         </div>
         {page === "edit" && (<>
             <AssignmentEdit value={editingAssignment} onChange={handleChange} />
-            <button onClick={confirmEdit}>保存</button>
-            <button className="danger" onClick={() => {
-                window.data.assignment.remove(assignment.id, `[${assignment.subject.name}] 删除作业 ${assignment.title}`);
-                props.popPage();
-            }}>删除</button>
+            <div>
+                <button onClick={confirmEdit}>保存</button>
+                <button className="danger" onClick={() => {
+                    window.data.assignment.remove(assignment.id, `[${assignment.subject.name}] 删除作业 ${assignment.title}`);
+                    props.popPage();
+                }}>删除</button>
+            </div>
         </>)}
         {page === "submission" && (<SubmissionStatus assignment={assignment} />)}
         {page === "time" && (<TimeStatus assignment={assignment} />)}
-    </>;
+    </div>;
 }

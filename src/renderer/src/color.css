@@ -19,6 +19,11 @@
   --color-menu: #7575c5;
   --color-list: #a0a0e6;
 
+  --color-surface: #ffffff;
+  --color-surface-danger: #fff5f5;
+  --color-on-accent: #ffffff;
+  --color-text-primary: var(--color-title);
+
   --gray-tinted-1: #f6f6ff;
   --gray-tinted-2: #ececff;
   --gray-tinted-3: #dfdff2;

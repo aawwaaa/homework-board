@@ -8,6 +8,8 @@ import { AssignmentPage } from './page/AssignmentPage';
 import { CompPage } from './page/CompPage';
 import { StudentSelectPage } from './page/StudentSelectPage';
 import { StudentPage } from './page/StudentPage';
+import { SchedulePage } from './schedule/SchedulePage';
+import { ToolPage } from './tool/ToolPage';
 
 const route: Record<string, (left: string) => JSX.Element> = {
   "/main": () => <MainPage />,
@@ -18,6 +20,8 @@ const route: Record<string, (left: string) => JSX.Element> = {
   "/comp": (left) => <CompPage left={left} />,
   "/student-select": () => <StudentSelectPage />,
   "/student": (left) => <StudentPage left={left} />,
+  "/schedule": () => <SchedulePage />,
+  "/tool": (left) => <ToolPage left={left} />,
 }
 
 const hash = window.location.hash;

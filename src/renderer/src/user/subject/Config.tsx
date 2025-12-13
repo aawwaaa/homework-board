@@ -23,6 +23,7 @@ const createPreset = (index: number): AssignmentPreset => ({
     duration: 2 * DAY_IN_MS,
     estimated: 30 * MINUTE_IN_MS,
     priority: 1,
+    tags: []
 });
 
 export const SubjectConfigPage = ({ subject }: { subject: Subject }) => {

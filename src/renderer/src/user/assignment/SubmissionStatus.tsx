@@ -23,7 +23,7 @@ export const SubmissionStatus: FC<{ assignment: AssignmentData }> = ({ assignmen
         </div>
         <div>
             <div className="title" style={{width: "100%"}}>
-                <span style={{float: "left"}}>{!inversed? "未提交": "已提交"}</span>
+                <span>{!inversed? "未提交": "已提交"}</span>
                 <a style={{float: "right", fontWeight: "normal", cursor: "pointer" }} onClick={() => setInversed(!inversed)}>切换</a>
             </div>
             <div className="unsubmitted">

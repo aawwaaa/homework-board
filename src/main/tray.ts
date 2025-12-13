@@ -52,6 +52,27 @@ export function updateTray() {
 
         { type: "separator" },
 
+        { label: "工具", submenu: [
+            { label: "规划计时", click: () => {
+                createWindowButtomRight({
+                    width: 800,
+                    height: 600,
+
+                    autoHideMenuBar: true
+                }, "#/schedule")
+            } },
+            { label: "统计器", click: () => {
+                createWindowButtomRight({
+                    width: 600,
+                    height: 450,
+
+                    autoHideMenuBar: true
+                }, "#/tool/statistics")
+            } },
+        ] },
+
+        { type: "separator" },
+
         ...compGetTray(),
 
         { type: "separator" },

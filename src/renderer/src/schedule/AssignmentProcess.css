@@ -1,0 +1,110 @@
+@import url("../color.css");
+
+.assignment-process {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0.35rem 0.4rem;
+    background-color: var(--color-surface);
+    color: var(--color-title);
+    gap: 0.25rem;
+}
+
+.assignment-process .schedule-import-source-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--gray-tinted-3);
+}
+
+.assignment-process .schedule-import-source-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0 0.05rem 0.35rem;
+    overflow: auto;
+}
+
+.assignment-process-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.25rem 0.35rem 0.3rem;
+    border: 1px solid var(--gray-tinted-3);
+    background-color: var(--gray-tinted-1);
+}
+
+.assignment-process-slider {
+    position: relative;
+    height: 2.1rem;
+    padding: 0.55rem 0.5rem 0.45rem;
+    /* border: 1px solid var(--gray-tinted-4); */
+    /* background-color: var(--color-surface); */
+    overflow: hidden;
+}
+
+.assignment-process-slider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 0.35rem;
+    background-color: var(--gray-tinted-2);
+    z-index: 0;
+}
+
+.assignment-process-slider .filled,
+.assignment-process-slider .delta {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 0.35rem;
+    transform: translateY(-50%);
+}
+
+.assignment-process-slider .delta {
+    background-color: var(--color-tertiary);
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.assignment-process-slider .filled {
+    background-color: var(--color-secondary);
+    z-index: 2;
+}
+
+.assignment-process-slider .handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-primary);
+    z-index: 3;
+}
+
+.assignment-process-slider .handle::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    width: 10px;
+    top: 0.3rem;
+    bottom: 0.3rem;
+    border: 1px solid var(--color-primary);
+    background-color: var(--gray-tinted-1);
+}
+
+.assignment-process-slider .text {
+    position: absolute;
+    right: 0.45rem;
+    top: 0.18rem;
+    font-size: var(--small-font-size);
+    color: var(--color-menu);
+    /* background-color: var(--color-surface); */
+    padding: 0 0.25rem;
+    z-index: 4;
+    pointer-events: none;
+}

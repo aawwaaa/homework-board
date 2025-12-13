@@ -86,7 +86,7 @@
 
 .assignment-list-item {
   border: 1px solid var(--gray-tinted-3);
-  background-color: #fff;
+  background-color: var(--color-surface);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;

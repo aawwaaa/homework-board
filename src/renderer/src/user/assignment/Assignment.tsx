@@ -26,8 +26,8 @@ export const AssignmentPage: React.FC<{ props: UserPageProps }> = ({ props }) =>
         })
     }, []);
 
-    return <>
-        <div className="title">
+    return <div className="assignment-page">
+        <div className="assignment-page__header">
             <Tab
                 tabs={tabs}
                 set={(id: string) => setSubject(subjects.find(subject => subject.id === id)!)}
@@ -40,7 +40,7 @@ export const AssignmentPage: React.FC<{ props: UserPageProps }> = ({ props }) =>
                 添加
             </button>
         </div>
-        <div style={{ width: "100%", height: "calc(100% - 40px)" }}>
+        <div className="assignment-page__timeline">
             <TimelineView
                 key={subject?.id ?? "all"}
                 origin={new Date()}
@@ -50,5 +50,5 @@ export const AssignmentPage: React.FC<{ props: UserPageProps }> = ({ props }) =>
                 )}
             />
         </div>
-    </>;
+    </div>;
 }

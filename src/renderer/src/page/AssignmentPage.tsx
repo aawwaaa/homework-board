@@ -54,7 +54,7 @@ export const AssignmentPage: React.FC<{ left: string }> = ({ left }) => {
         document.title = `${assignment.title}`
     }, [assignment]);
 
-    return <div>
+    return <div className="assignment-page">
         <div className="title">
             <Tab tabs={[
                 ["sign", "签到"],

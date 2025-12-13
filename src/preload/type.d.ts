@@ -1,4 +1,6 @@
-type AssignmentConfig = {}
+type AssignmentConfig = {
+    tags: string[];
+}
 
 type Assignment = {
     id: string;
@@ -19,6 +21,7 @@ type Assignment = {
 type AssignmentData = Assignment & {
     submissions: Submission[];
     totalRequiredSubmissions: number;
+    tags: AssignmentTag[];
 }
 
 type Student = {
@@ -55,6 +58,8 @@ type AssignmentPreset = {
     duration: number;
     estimated: number;
     priority: number;
+
+    tags: string[];
 }
 
 type SubjectConfig = {
@@ -89,6 +94,12 @@ type DayRecord = {
     assignment: Assignment;
     subject: Subject;
     taken: number;
+}
+
+type AssignmentTag = {
+    id: string;
+    name: string;
+    color: string;
 }
 
 type DataAPI = {
@@ -129,6 +140,12 @@ type DataAPI = {
         list: () => Promise<Identity[]>;
         add: (identity: Identity) => Promise<Identity>;
         update: (identity: Identity) => Promise<void>;
+        remove: (id: string) => Promise<void>;
+    },
+    tag: {
+        list: () => Promise<AssignmentTag[]>;
+        add: (tag: AssignmentTag) => Promise<void>;
+        update: (tag: AssignmentTag) => Promise<void>;
         remove: (id: string) => Promise<void>;
     },
     component: {

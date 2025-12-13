@@ -2,7 +2,7 @@ import { randomId } from "@renderer/util";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import "./Identity.css";
 import { UserPageProps } from "@renderer/page/UserPage";
-import { SubjectBadge } from "@renderer/component/SubjectBadge";
+import { Badge } from "@renderer/component/Badge";
 
 const IdentityElement = ({identity, subjects, props: _, onChange}: {identity: Identity, subjects: Subject[], props: UserPageProps, onChange: (identity: Identity) => void}) => {
     const [role, setRole] = useState<string>(identity.role);
@@ -28,7 +28,7 @@ const IdentityElement = ({identity, subjects, props: _, onChange}: {identity: Id
         <div className="roles">
             {role == "admin"? <span>管理员</span>: null}
             {role.split(",").map(role => subjects.find(a => a.id == role)).filter(Boolean)
-                .map(subject => <SubjectBadge key={subject!.id} subject={subject!} onClick={() => removeRole(subject!.id)} />)}
+                .map(subject => <Badge key={subject!.id} data={subject!} onClick={() => removeRole(subject!.id)} />)}
             <select onChange={(event) => addRole(event.target.value)}>
                 <option value="">添加角色</option>
                 <option value="admin">设置为管理员</option>
@@ -103,7 +103,7 @@ export const ManageIdentityPage = ({props}: {props: UserPageProps}) => {
         presetSelectRef.current!.blur();
     }
     
-    return <div>
+    return <div className="identity-manage">
         <div className="identity-list">
             {identities.map(identity => <IdentityElement key={identity.id} identity={identity} subjects={subjects} props={props} onChange={updateIdentity} />)}
         </div>

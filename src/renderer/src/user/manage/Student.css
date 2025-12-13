@@ -22,7 +22,7 @@
 
 .student-group {
     border: 1px solid var(--gray-tinted-3);
-    background-color: #fff;
+    background-color: var(--color-surface);
     padding: 0.65rem;
     display: flex;
     flex-direction: column;
@@ -95,7 +95,7 @@
 .student-add-panel,
 .student-import-panel {
     border: 1px solid var(--gray-tinted-3);
-    background-color: #fff;
+    background-color: var(--color-surface);
     padding: 0.75rem;
     display: flex;
     flex-direction: column;
@@ -163,7 +163,7 @@
 .student-import-preview {
     border: 1px solid var(--gray-tinted-3);
     overflow: auto;
-    background-color: #fff;
+    background-color: var(--color-surface);
 }
 
 .student-import-preview table {

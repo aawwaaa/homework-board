@@ -19,6 +19,12 @@ const dataAPITemplate = {
     create: "",
     list: "",
   },
+  tag: {
+    list: "",
+    add: "",
+    update: "",
+    remove: "",
+  },
   progress: {
     update: "",
   },

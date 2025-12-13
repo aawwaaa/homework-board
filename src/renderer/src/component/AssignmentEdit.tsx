@@ -1,10 +1,11 @@
-import { ChangeEvent, useEffect, useRef } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 import { Priority } from "./Priority";
 
 import "./AssignmentEdit.css";
-import { SubjectBadge } from "./SubjectBadge";
+import { Badge } from "./Badge";
 import { SwipeAdjustInput } from "./SwipeAdjustInput";
+import { BadgeEdit } from "./BadgeEdit";
 
 /*
 
@@ -148,6 +149,14 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
     const durationRef = useRef<number>(preset?.value.duration ?? 0);
     const estimatedMinutesRef = useRef<number>(estimatedMinutes);
     const presetSelectRef = useRef<HTMLSelectElement>(null);
+
+    const [tags, setTags] = useState<Record<string, AssignmentTag> | null>(null);
+
+    useEffect(() => {
+        return window.data.onChanged(async () => {
+            setTags(Object.fromEntries((await window.data.tag.list()).map(a => [a.id, a])));
+        });
+    }, []);
 
     useEffect(() => {
         if (assignment) {
@@ -294,6 +303,7 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
         assignment.onChange("created", new Date());
         assignment.onChange("deadline", new Date(Date.now() + preset.duration));
         assignment.onChange("priority", preset.priority);
+        assignment.onChange("config", { ...assignment.value.config, tags: preset.tags });
 
         presetSelectRef.current!.value = "";
         presetSelectRef.current!.blur()
@@ -302,7 +312,7 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
     return (
         <div className={containerClass} aria-readonly={disabled}>
             <label className="assignment-field">
-                {assignment? <SubjectBadge subject={assignment.value.subject}/>: null}
+                {assignment? <Badge data={assignment.value.subject}/>: null}
                 <input
                     type="text"
                     className="assignment-title-input"
@@ -434,6 +444,41 @@ export const AssignmentEdit = (props: AssignmentEditProps) => {
                     onChange={disabled ? undefined : handlePriorityChange}
                 />
             </div>
+
+            <div className="assignment-field">
+                <div className="assignment-inline-group">
+                    <span>标签</span>
+                    {tags && <BadgeEdit
+                        value={((assignment? assignment.value.config.tags: preset!.value.tags) ?? []).map(a => tags[a]).filter(Boolean)}
+                        setValue={(tags) => {
+                            tags ??= []
+                            if (assignment) {
+                                assignment.onChange("config", { ...assignment.value.config, tags: tags.map(t => t.id) });
+                            } else {
+                                preset!.onChange("tags", tags.map(t => t.id));
+                            }
+                        }}
+                        available={Object.values(tags)}
+                    />}
+                </div>
+            </div>
+
+            {assignment && !preset && <div className="assignment-field">
+                <div className="assignment-inline-group">
+                    <span>已使用</span>
+                    <SwipeAdjustInput
+                        type="number"
+                        min={0}
+                        step={1}
+                        value={assignment.value.spent}
+                        onChange={(value) => assignment.onChange("spent", +value.target.value)}
+                        disabled={disabled}
+                        onSwipeAdjust={(steps) => assignment.onChange("spent", assignment.value.spent + steps * 5)}
+                        swipeDisabled={disabled}
+                    />
+                    <span>分钟</span>
+                </div>
+            </div>}
         </div>
     );
 };

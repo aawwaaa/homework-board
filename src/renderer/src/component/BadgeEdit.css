@@ -1,0 +1,9 @@
+.badge-edit {
+    display: inline-block;
+}
+
+.badge-edit > div {
+    margin: 0 4px;
+    display: inline-flex;
+    gap: 4px;
+}

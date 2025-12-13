@@ -7,9 +7,10 @@ const UNALLOCATED = "未分配";
 export const StudentList: FC<{
     selected?: Student | null,
     setSelected: (student: Student) => void,
-    onConfirm: (student: Student) => void,
+    onConfirm?: (student: Student) => void,
     filter?: (student: Student) => boolean,
-}> = ({ selected, setSelected, onConfirm, filter }) => {
+    active?: (student: Student) => boolean,
+}> = ({ selected, setSelected, onConfirm, filter, active }) => {
     const [students, setStudents] = useState<Record<string, Student[]> | null>(null);
     const [groups, setGroups] = useState<string[]>([]);
 
@@ -41,10 +42,10 @@ export const StudentList: FC<{
                     {students[group].map(student => (
                             <button
                                 key={student.id}
-                                className={"outline" + (selected?.id === student.id ? " selected" : "")}
+                                className={"outline" + (selected?.id === student.id || active?.(student) ? " selected" : "")}
                                 onClick={() => {
                                     if (selected?.id === student.id) {
-                                        onConfirm(selected);
+                                        onConfirm?.(selected);
                                     } else {
                                         setSelected(student);
                                     }

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { FC } from "react";
 
-import { SubjectBadge } from "@renderer/component/SubjectBadge";
+import { Badge } from "@renderer/component/Badge";
 
 import "./Allocation.css";
 
@@ -383,7 +383,7 @@ export const AllocationPage: FC = () => {
                                                     {day.records.map((record, index) => (
                                                         <tr key={`${record.assignment.id}-${index}`}>
                                                             <td className="allocation-assignment-cell">
-                                                                <SubjectBadge subject={record.subject} />
+                                                                <Badge data={record.subject} />
                                                                 <span>{record.assignment.title}</span>
                                                             </td>
                                                             <td>{formatMinutes(record.taken)}</td>

@@ -19,8 +19,8 @@
 
 .assignment-detail > .title > span {
     margin: 0;
-    border-radius: 4px;
+    border-radius: 0;
     padding: 2px 4px;
     background-color: var(--color-menu);
-    color: white;
+    color: var(--color-on-accent);
 }

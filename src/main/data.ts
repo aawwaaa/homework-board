@@ -71,6 +71,11 @@ const ready = (async () => {
         FOREIGN KEY(assignment) REFERENCES assignments(id) ON DELETE SET NULL,
         FOREIGN KEY(subject) REFERENCES subjects(id) ON DELETE SET NULL
     )`);
+    run(`CREATE TABLE IF NOT EXISTS assignment_tags (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        color TEXT NOT NULL
+    )`);
 
     await ensureAdminIdentity();
 })().catch(err => {
@@ -353,6 +358,18 @@ function fetchSubmissionsForStudent(student: Student) {
     return rows.map(row => mapSubmissionRow(row, fetchAssignment(row.assignment)));
 }
 
+function fetchAssignmentTagsForAssignment(assignment: Assignment) {
+    if (!assignment.config.tags?.length) {
+        return [];
+    }
+    const placeholders = assignment.config.tags.map(() => '?').join(',');
+    const rows = allRows<AssignmentTag>(
+        `SELECT * FROM assignment_tags WHERE id IN (${placeholders})`, 
+        assignment.config.tags
+    );
+    return rows;
+}
+
 function insertSubmissionRecord(submission: Submission) {
     const created = ensureDate(submission.created).getTime();
     run('INSERT INTO submissions (id, assignment, student, created, spent, feedback) VALUES (?, ?, ?, ?, ?, ?)', [
@@ -588,10 +605,12 @@ async function redoOperation(id: string) {
 
 async function fetchAssignmentData(assignment: Assignment): Promise<AssignmentData> {
     const submissions = fetchSubmissionsForAssignment(assignment);
+    const tags = fetchAssignmentTagsForAssignment(assignment);
     return {
         ...assignment,
         submissions,
         totalRequiredSubmissions: (await data.student.list()).length,
+        tags,
     };
 }
 
@@ -696,6 +715,28 @@ const data: DataAPI = {
         async remove(id) {
             await ready;
             run('DELETE FROM identities WHERE id = ?', [id]);
+            emitChange();
+        },
+    },
+    tag: {
+        async list() {
+            await ready;
+            const rows = allRows<AssignmentTag>('SELECT * FROM assignment_tags');
+            return rows.sort((a, b) => a.id.localeCompare(b.id));
+        },
+        async add(tag) {
+            await ready;
+            run('INSERT INTO assignment_tags (id, name, color) VALUES (?, ?, ?)', [tag.id, tag.name, tag.color]);
+            emitChange();
+        },
+        async update(tag) {
+            await ready;
+            run('UPDATE assignment_tags SET name = ?, color = ? WHERE id = ?', [tag.name, tag.color, tag.id]);
+            emitChange();
+        },
+        async remove(id) {
+            await ready;
+            run('DELETE FROM assignment_tags WHERE id = ?', [id]);
             emitChange();
         },
     },
