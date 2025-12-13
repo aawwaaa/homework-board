@@ -746,9 +746,33 @@ const data: DataAPI = {
             await ready;
             return fetchSubmissionsForStudent(student);
         },
+        async within(begin: Date, end: Date) {
+            await ready;
+            const rows = allRows<SubmissionJoinedRow>(
+                `SELECT submissions.*, students.name AS student_name, students.[group] AS student_group, assignments.id AS assignment
+                FROM submissions
+                JOIN assignments ON assignments.id = submissions.assignment
+                JOIN students ON students.id = submissions.student
+                WHERE submissions.created >= ? AND submissions.created <= ?
+                ORDER BY submissions.created`,
+                [begin.getTime(), end.getTime()],
+            );
+            return rows.map(row => mapSubmissionRow(row, fetchAssignment(row.assignment)));
+        },
     },
     progress: {
         update: op2func(updateProgressOp),
+        async within(begin, end) {
+            await ready;
+            const rows = allRows<OperationLogRow>(
+                `SELECT * FROM operation_logs WHERE created >= ? AND created <= ? AND type = 'finish-progress' AND reverted = 0`,
+                [begin.getTime(), end.getTime()],
+            );
+            const logs = rows.map(row => mapOperationLogRow(row));
+            const progress = logs.map(log => [log.created, JSON.parse(log.changes) as [number, string][]]) as [Date, [number, string][]][];
+            const result = progress.map(([date, progress]) => [date, progress.map(([spent, id]) => [spent, fetchAssignment(id)])]) as [Date, [number, Assignment][]][];
+            return result;
+        },
     },
     operation: {
         async list(limit: number, offset: number, date?: Date, filter?: string) {

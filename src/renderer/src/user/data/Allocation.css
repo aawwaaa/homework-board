@@ -96,6 +96,7 @@
 .allocation-bar-segment span {
     overflow: hidden;
     text-overflow: ellipsis;
+    text-wrap-mode: nowrap;
 }
 
 .allocation-legend {
@@ -171,6 +172,23 @@
     justify-content: center;
     gap: 0.3rem;
     min-width: 120px;
+}
+
+.allocation-day-date--stack {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.2rem;
+    min-width: 132px;
+}
+
+.allocation-day-subtitle {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: var(--color-subtitle);
+    font-size: var(--small-font-size);
 }
 
 .allocation-day-date span:first-child {

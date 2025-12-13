@@ -1,10 +1,14 @@
 import { Tab } from "@renderer/component/Tab";
 import { UserPageProps } from "@renderer/page/UserPage";
 import { useState } from "react";
+import { ActualAllocationPage } from "./ActualAllocation";
 import { AllocationPage } from "./Allocation";
+import { OverviewPage } from "./Overview";
 
 const pages = {
-    "占比": () => <AllocationPage />,
+    "总览": () => <OverviewPage />,
+    "估计": () => <AllocationPage />,
+    "实际": () => <ActualAllocationPage />,
 }
 
 export const DataPage: React.FC<{ props: UserPageProps }> = ({props}) => {

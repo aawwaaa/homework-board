@@ -120,9 +120,11 @@ type DataAPI = {
     submission: {
         create: (submission: Submission, description: string) => Promise<void>;
         list: (student: Student) => Promise<Submission[]>;
+        within: (begin: Date, end: Date) => Promise<Submission[]>;
     },
     progress: {
         update: (progress: [number, string][], description: string) => Promise<void>;
+        within: (begin: Date, end: Date) => Promise<[Date, [number, Assignment][]][]>;
     },
     operation: {
         list: (limit: number, offset: number, date?: Date, filter?: string) => Promise<OperationLog[]>;

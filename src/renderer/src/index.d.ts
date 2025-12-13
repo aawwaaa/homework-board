@@ -101,6 +101,7 @@ type DataAPI = {
     },
     progress: {
         update: (progress: [number, string][], description: string) => Promise<void>;
+        within: (begin: Date, end: Date) => Promise<[Date, [number, Assignment][]][]>;
     },
     operation: {
         list: () => Promise<OperationLog[]>;

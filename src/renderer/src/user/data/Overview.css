@@ -1,0 +1,74 @@
+@import url("../../color.css");
+
+.overview-page {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.overview-card {
+    border: 1px solid var(--gray-tinted-3);
+    background-color: var(--color-surface);
+    padding: 1rem 1.25rem;
+}
+
+.overview-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.overview-status {
+    font-size: var(--small-font-size);
+    color: var(--color-menu);
+    white-space: nowrap;
+}
+
+.overview-status.loading {
+    color: var(--color-subtitle);
+}
+
+.overview-status.error {
+    color: var(--color-danger);
+}
+
+.overview-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.overview-metric {
+    border: 1px solid var(--gray-tinted-3);
+    background-color: var(--gray-tinted-1);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.overview-metric span {
+    font-size: var(--small-font-size);
+    color: var(--color-menu);
+}
+
+.overview-metric strong {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.1;
+}
+
+.overview-metric p {
+    margin: 0;
+    font-size: var(--small-font-size);
+    color: var(--color-subtitle);
+}
+
+.overview-note {
+    margin: 0;
+    font-size: var(--small-font-size);
+    color: var(--color-menu);
+}

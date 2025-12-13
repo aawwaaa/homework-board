@@ -4,10 +4,10 @@ import type { FC } from "react";
 import { Badge } from "@renderer/component/Badge";
 
 import "./Allocation.css";
-
 import {
     type Range,
     WEEKDAYS,
+    formatInputDate,
     formatMinutes,
     getDefaultRange,
     parseDateKey,
@@ -21,17 +21,24 @@ type SubjectSlice = {
     taken: number;
 };
 
+type AssignmentSlice = {
+    assignment: Assignment;
+    subject: Subject;
+    taken: number;
+};
+
 type DailyGroup = {
     dateKey: string;
     date: Date;
     total: number;
+    eventCount: number;
     subjects: SubjectSlice[];
-    records: DayRecord[];
+    assignments: AssignmentSlice[];
 };
 
-export const AllocationPage: FC = () => {
+export const ActualAllocationPage: FC = () => {
     const [range, setRange] = useState<Range>(() => getDefaultRange());
-    const [records, setRecords] = useState<Record<string, DayRecord[]>>({});
+    const [events, setEvents] = useState<[Date, [number, Assignment][]][]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [rangeError, setRangeError] = useState<string | null>(null);
@@ -42,7 +49,7 @@ export const AllocationPage: FC = () => {
         const currentRequest = ++requestIdRef.current;
         if (!range.begin || !range.end) {
             setRangeError("请选择完整的日期范围");
-            setRecords({});
+            setEvents([]);
             setExpandedDays(new Set());
             setLoading(false);
             return;
@@ -51,7 +58,7 @@ export const AllocationPage: FC = () => {
         const end = toUTCDate(range.end);
         if (begin.getTime() > end.getTime()) {
             setRangeError("起始日期不能晚于结束日期");
-            setRecords({});
+            setEvents([]);
             setExpandedDays(new Set());
             setLoading(false);
             return;
@@ -60,14 +67,14 @@ export const AllocationPage: FC = () => {
         setLoading(true);
         setError(null);
         try {
-            const result = await window.data.day.get(begin, end);
+            const result = await window.data.progress.within(begin, end);
             if (currentRequest === requestIdRef.current) {
-                setRecords(result);
+                setEvents(result);
                 setExpandedDays((prev) => {
                     if (prev.size === 0) {
                         return prev;
                     }
-                    const valid = new Set(Object.keys(result));
+                    const valid = new Set(result.map(([date]) => formatInputDate(date)));
                     const next = new Set<string>();
                     prev.forEach((key) => {
                         if (valid.has(key)) {
@@ -80,7 +87,7 @@ export const AllocationPage: FC = () => {
         } catch (err) {
             if (currentRequest === requestIdRef.current) {
                 setError(err instanceof Error ? err.message : String(err));
-                setRecords({});
+                setEvents([]);
                 setExpandedDays(new Set());
             }
         } finally {
@@ -100,20 +107,21 @@ export const AllocationPage: FC = () => {
     const subjectSummary = useMemo(() => {
         const map = new Map<string, SubjectSlice>();
         let total = 0;
-        Object.values(records).forEach((dayRecords) => {
-            dayRecords.forEach((record) => {
-                const slice = map.get(record.subject.id);
+        events.forEach(([, entries]) => {
+            entries.forEach(([taken, assignment]) => {
+                const subject = assignment.subject;
+                const slice = map.get(subject.id);
                 if (slice) {
-                    slice.taken += record.taken;
+                    slice.taken += taken;
                 } else {
-                    map.set(record.subject.id, { subject: record.subject, taken: record.taken });
+                    map.set(subject.id, { subject, taken });
                 }
-                total += record.taken;
+                total += taken;
             });
         });
         const items = Array.from(map.values()).sort((a, b) => b.taken - a.taken);
         return { items, total };
-    }, [records]);
+    }, [events]);
 
     const summarySegments = useMemo(() => {
         return subjectSummary.items.map((item) => {
@@ -139,32 +147,70 @@ export const AllocationPage: FC = () => {
     }, [subjectSummary]);
 
     const dailyGroups = useMemo(() => {
-        const entries: DailyGroup[] = Object.entries(records).map(([dateKey, dayRecords]) => {
-            const date = parseDateKey(dateKey);
-            const total = dayRecords.reduce((sum, record) => sum + record.taken, 0);
-            const subjectsMap = new Map<string, SubjectSlice>();
-            dayRecords.forEach((record) => {
-                const existing = subjectsMap.get(record.subject.id);
-                if (existing) {
-                    existing.taken += record.taken;
+        const map = new Map<
+            string,
+            {
+                dateKey: string;
+                date: Date;
+                total: number;
+                eventCount: number;
+                subjectsMap: Map<string, SubjectSlice>;
+                assignmentsMap: Map<string, AssignmentSlice>;
+            }
+        >();
+
+        events.forEach(([created, entries]) => {
+            const dateKey = formatInputDate(created);
+            const group =
+                map.get(dateKey) ??
+                (() => {
+                    const date = parseDateKey(dateKey);
+                    const value = {
+                        dateKey,
+                        date,
+                        total: 0,
+                        eventCount: 0,
+                        subjectsMap: new Map<string, SubjectSlice>(),
+                        assignmentsMap: new Map<string, AssignmentSlice>(),
+                    };
+                    map.set(dateKey, value);
+                    return value;
+                })();
+
+            group.eventCount += 1;
+            entries.forEach(([taken, assignment]) => {
+                group.total += taken;
+                const subject = assignment.subject;
+                const subjectSlice = group.subjectsMap.get(subject.id);
+                if (subjectSlice) {
+                    subjectSlice.taken += taken;
                 } else {
-                    subjectsMap.set(record.subject.id, { subject: record.subject, taken: record.taken });
+                    group.subjectsMap.set(subject.id, { subject, taken });
+                }
+
+                const assignmentSlice = group.assignmentsMap.get(assignment.id);
+                if (assignmentSlice) {
+                    assignmentSlice.taken += taken;
+                } else {
+                    group.assignmentsMap.set(assignment.id, { assignment, subject, taken });
                 }
             });
-            return {
-                dateKey,
-                date,
-                total,
-                subjects: Array.from(subjectsMap.values()).sort((a, b) => b.taken - a.taken),
-                records: dayRecords
-                    .slice()
-                    .sort((a, b) => b.taken - a.taken || a.assignment.title.localeCompare(b.assignment.title, "zh-CN")),
-            } satisfies DailyGroup;
         });
+
+        const entries: DailyGroup[] = Array.from(map.values()).map((group) => ({
+            dateKey: group.dateKey,
+            date: group.date,
+            total: group.total,
+            eventCount: group.eventCount,
+            subjects: Array.from(group.subjectsMap.values()).sort((a, b) => b.taken - a.taken),
+            assignments: Array.from(group.assignmentsMap.values()).sort(
+                (a, b) => b.taken - a.taken || a.assignment.title.localeCompare(b.assignment.title, "zh-CN"),
+            ),
+        }));
         entries.sort((a, b) => a.date.getTime() - b.date.getTime());
         const maxTotal = entries.reduce((max, entry) => Math.max(max, entry.total), 0);
         return { entries, maxTotal };
-    }, [records]);
+    }, [events]);
 
     const toggleDay = (key: string) => {
         setExpandedDays((prev) => {
@@ -246,7 +292,7 @@ export const AllocationPage: FC = () => {
             <section className="allocation-card">
                 <header className="allocation-card-header">
                     <div>
-                        <h3>每日占比</h3>
+                        <h3>每日分配</h3>
                     </div>
                 </header>
                 {dailyGroups.entries.length === 0 ? (
@@ -271,6 +317,9 @@ export const AllocationPage: FC = () => {
                                                 &nbsp;{WEEKDAYS[day.date.getDay()]}
                                             </span>
                                             <span>{formatMinutes(day.total)}</span>
+                                            {/* <span className="allocation-day-subtitle"> */}
+                                                {/* <span>记录 {day.eventCount}</span> */}
+                                            {/* </span> */}
                                         </div>
                                         <div className="allocation-day-bar-wrapper" aria-hidden="true">
                                             <StackedBar
@@ -290,7 +339,7 @@ export const AllocationPage: FC = () => {
                                         <div className="allocation-day-details">
                                             <table>
                                                 <tbody>
-                                                    {day.records.map((record, index) => (
+                                                    {day.assignments.map((record, index) => (
                                                         <tr key={`${record.assignment.id}-${index}`}>
                                                             <td className="allocation-assignment-cell">
                                                                 <Badge data={record.subject} />

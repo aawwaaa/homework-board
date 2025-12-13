@@ -27,6 +27,7 @@ const dataAPITemplate = {
   },
   progress: {
     update: "",
+    within: "",
   },
   operation: {
     list: "",
