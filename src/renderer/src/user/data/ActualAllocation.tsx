@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { FC } from "react";
 
-import { Badge } from "@renderer/component/Badge";
+// import { Badge } from "@renderer/component/Badge";
 
 import "./Allocation.css";
 import {
@@ -15,6 +15,7 @@ import {
   toUTCDate,
 } from "./allocationCommon";
 import { StackedBar } from "./StackedBar";
+import { AssignmentTitle } from "@renderer/component/AssignmentTitle";
 
 type SubjectSlice = {
   subject: Subject;
@@ -373,8 +374,7 @@ export const ActualAllocationPage: FC = () => {
                           {day.assignments.map((record, index) => (
                             <tr key={`${record.assignment.id}-${index}`}>
                               <td className="allocation-assignment-cell">
-                                <Badge data={record.subject} />
-                                <span>{record.assignment.title}</span>
+                                <AssignmentTitle assignment={record.assignment} />
                               </td>
                               <td>{formatMinutes(record.taken)}</td>
                             </tr>

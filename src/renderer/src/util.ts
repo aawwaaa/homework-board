@@ -59,3 +59,7 @@ export function toRelativeTime(date: Date) {
   }
   return formatTime(date);
 }
+
+export function stringRepresent(assignment: AssignmentData) {
+  return "[" + assignment.subject.name + "]" + ["", ...assignment.tags.map(a => "[" + a.name + "]"), ""].join(" ") + assignment.title
+}

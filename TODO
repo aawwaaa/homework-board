@@ -2,11 +2,11 @@
 
 添加以下数据页，于 @src/renderer/user/data :
 
-提交时间轴（分布），以组件形式提供: AssignmentSubmissionView{filter?: (assignment: AssignmentData) => boolean, start?: Date, end?: Date, ...}，并在页面中使用:
+根据剩余作业数对student进行统计，生成柱状图（未完成作业数从少到多），点击后可查看详细信息和其未完成作业:
 
-  按照每6小时为横轴，跳过每天的（0~6小时，本地时间），每个作业的提交数为纵轴的堆叠柱状图：
-  左，右滑动到边界后自动扩展
-  点击柱状图可查看该作业标题和提交者名单
+上方横向滚动的柱状图，类似@src/renderer/user/data/SubmissionTimeline.tsx，按照未完成作业数由少到多显示。
+点击柱状图的部分后可显示当前段的所有学生，点击学生可展开他未完成的具体作业
+学生是否完成作业的标准是对这个作业是否创建了提交
 
 并按 @STYLING.md 辅以合适的css
 

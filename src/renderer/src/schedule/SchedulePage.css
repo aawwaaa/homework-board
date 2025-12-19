@@ -59,12 +59,13 @@
 .schedule-runner .list .element {
   position: relative;
   display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr);
+  grid-template-columns: 7rem minmax(0, 1fr);
   gap: 0.15rem 0.6rem;
   margin: 0 0.4rem;
   padding: 0.2rem 0.75rem;
   background-color: transparent;
   scroll-snap-align: start;
+  align-items: center;
   transition:
     transform 220ms ease,
     opacity 180ms ease,
@@ -78,11 +79,12 @@
 }
 
 .schedule-runner .list .time {
-  font-size: var(--base-font-size);
+  font-size: calc(var(--base-font-size) * 3.5);
   color: var(--gray-tinted-6);
 }
 
 .schedule-runner .list .title {
+  font-size: calc(var(--h2-font-size) * 3.5);
   font-weight: 600;
   color: var(--color-title);
 }
@@ -114,7 +116,7 @@
 
 @keyframes running-appear {
   0% {
-    transform: translateZ(0) scale(0.25);
+    transform: translateZ(0) scale(0.75);
     max-height: 100px;
   }
   100% {

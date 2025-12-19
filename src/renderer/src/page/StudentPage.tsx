@@ -105,6 +105,7 @@ export const StudentPage: React.FC<{ left: string }> = ({ left }) => {
             (submission) => submission.assignment.id === assignment.id,
           ),
       );
+      todo.sort((a, b) => a.deadline.getTime() - b.deadline.getTime())
       setAssignments(todo);
     });
   }, [left]);

@@ -15,7 +15,7 @@
 }
 
 .list-view-item + .list-view-item {
-  margin-top: 0.75rem;
+  margin-top: 0.05rem;
 }
 
 .list-view-item.actionable {

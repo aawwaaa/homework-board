@@ -1,6 +1,6 @@
 import { StudentList } from "@renderer/component/StudentList";
 import { Tab } from "@renderer/component/Tab";
-import { randomId } from "@renderer/util";
+import { randomId, stringRepresent } from "@renderer/util";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import "./AssignmentPage.css";
@@ -69,7 +69,7 @@ export const AssignmentPage: React.FC<{ left: string }> = ({ left }) => {
 
   useEffect(() => {
     if (assignment == null) return;
-    document.title = `${assignment.title}`;
+    document.title = stringRepresent(assignment);
   }, [assignment]);
 
   return (

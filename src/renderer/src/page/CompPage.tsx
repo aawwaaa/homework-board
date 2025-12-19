@@ -40,6 +40,10 @@ export const CompPage: FC<{ left: string }> = ({ left }) => {
   const setConfigCallback = async (cfg: unknown) => {
     ignoreUpdate.current = true;
     config!.config = cfg;
+    config!.x = (cfg as any).x;
+    config!.y = (cfg as any).y;
+    config!.width = (cfg as any).width;
+    config!.height = (cfg as any).height;
     await window.data.component.update(config!);
     ignoreUpdate.current = false;
   };
@@ -50,6 +54,14 @@ export const CompPage: FC<{ left: string }> = ({ left }) => {
           window.api.showConfigWindow(id);
         }
       : null;
+  
+  const exposedConfig = config? {
+    ...config.config!,
+    x: config.x,
+    y: config.y,
+    width: config.width,
+    height: config.height
+  }: null
 
   return config == null ? (
     <div>加载组件 {id} 中...</div>
@@ -59,7 +71,7 @@ export const CompPage: FC<{ left: string }> = ({ left }) => {
     </div>
   ) : mode === "config" ? (
     <div style={{ overflowY: "auto", height: "100vh" }}>
-      {comp.config(config.config!, setConfigCallback)}
+      {comp.config(exposedConfig, setConfigCallback)}
     </div>
   ) : (
     comp.body(config.config!, showConfigWindow)

@@ -1,8 +1,9 @@
 import { AssignmentTitle } from "@renderer/component/AssignmentTitle";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./AssignmentProcess.css";
 import { SwipeAdjustInput } from "@renderer/component/SwipeAdjustInput";
+import { stringRepresent } from "@renderer/util";
 
 const MINUTE = 60 * 1000;
 
@@ -43,7 +44,7 @@ const solvers: Record<
       let consumed = 0;
       for (const assignment of assignments) {
         const value = alignToUnit(
-          per * (targetFor(assignment) - assignment.spent),
+          per * Math.max(0, targetFor(assignment) - assignment.spent),
           unit,
         );
         result[assignment.id] = value;
@@ -61,10 +62,10 @@ const solvers: Record<
     const result: Record<string, number> = {};
     let remaining = available;
     for (const assignment of sorted) {
-      const value = Math.min(
+      const value = Math.max(0, Math.min(
         assignment.estimated - assignment.spent,
         remaining,
-      );
+      ));
       result[assignment.id] = alignToUnit(value, unit);
       remaining -= alignToUnit(value, unit);
       if (remaining <= 0) break;
@@ -82,7 +83,7 @@ export const AssignmentProcess: React.FC<{
   const [solver, setSolver] = useState<string>(Object.keys(solvers)[0]);
   const [unit, setUnit] = useState<number>(5);
   const [available, setAvailable] = useState<number>(50);
-  const sliderDraggings = useRef<Record<string, boolean>>({});
+  // const sliderDraggings = useRef<Record<string, boolean>>({});
 
   useEffect(() => {
     return window.data.onChanged(async () => {
@@ -92,21 +93,22 @@ export const AssignmentProcess: React.FC<{
 
   const modifyValue = (assignmentId: string, value: number) => {
     setValues((prev) => ({ ...prev, [assignmentId]: value }));
+    setAvailable(Object.values(values).reduce((a, b) => a + b, 0));
   };
-  const pointerHandler =
-    (assignment: AssignmentData) => (e: React.PointerEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      const per =
-        (e.clientX - e.currentTarget.getBoundingClientRect().left) /
-        e.currentTarget.offsetWidth;
-      const value =
-        alignToUnit(per * assignment.estimated, unit) - assignment.spent;
-      modifyValue(
-        assignment.id,
-        Math.min(Math.max(value, 0), assignment.estimated - assignment.spent),
-      );
-      setAvailable(Object.values(values).reduce((a, b) => a + b, 0));
-    };
+  // const pointerHandler =
+  //   (assignment: AssignmentData) => (e: React.PointerEvent<HTMLDivElement>) => {
+  //     e.preventDefault();
+  //     const per =
+  //       (e.clientX - e.currentTarget.getBoundingClientRect().left) /
+  //       e.currentTarget.offsetWidth;
+  //     const value =
+  //       alignToUnit(per * assignment.estimated, unit) - assignment.spent;
+  //     modifyValue(
+  //       assignment.id,
+  //       Math.min(Math.max(value, 0), assignment.estimated - assignment.spent),
+  //     );
+  //     setAvailable(Object.values(values).reduce((a, b) => a + b, 0));
+  //   };
 
   const solve = () => {
     const func = solvers[solver];
@@ -125,7 +127,7 @@ export const AssignmentProcess: React.FC<{
       if (!assignment) return;
       out.push({
         duration: value * MINUTE,
-        title: assignment.title,
+        title: stringRepresent(assignment),
         description:
           assignment.description.trim() === ""
             ? void 0
@@ -181,24 +183,35 @@ export const AssignmentProcess: React.FC<{
       </div>
       <div className="schedule-import-source-body list">
         {assignments.map((assignment) => {
-          const handler = pointerHandler(assignment);
+          // const handler = pointerHandler(assignment);
           return (
             <div key={assignment.id} className="assignment-process-item">
-              <AssignmentTitle assignment={assignment} />
+              <div className="assignment-process-title">
+                <AssignmentTitle assignment={assignment} />
+                <SwipeAdjustInput
+                  type="number" value={values[assignment.id] ?? 0}
+                  onChange={(e) => modifyValue(assignment.id, e.target.valueAsNumber)}
+                  swipePxPerStep={30}
+                  onSwipeAdjust={(steps) => modifyValue(assignment.id,
+                    Math.max(0, Math.min((values[assignment.id] ?? 0) + unit * steps, assignment.estimated - assignment.spent))
+                  )}
+                  placeholder="delta"
+                />
+              </div>
               <div
-                className="assignment-process-slider"
-                onPointerDown={(e) => {
-                  sliderDraggings.current[assignment.id] = true;
-                  handler(e);
-                }}
-                onPointerMove={(e) => {
-                  if (sliderDraggings.current[assignment.id]) {
-                    handler(e);
-                  }
-                }}
-                onPointerUp={() =>
-                  (sliderDraggings.current[assignment.id] = false)
-                }
+                className="assignment-process-indicator"
+                // onPointerDown={(e) => {
+                //   sliderDraggings.current[assignment.id] = true;
+                //   handler(e);
+                // }}
+                // onPointerMove={(e) => {
+                //   if (sliderDraggings.current[assignment.id]) {
+                //     handler(e);
+                //   }
+                // }}
+                // onPointerUp={() =>
+                //   (sliderDraggings.current[assignment.id] = false)
+                // }
                 // onPointerLeave={() => sliderDraggings.current[assignment.id] = false}
               >
                 <div
@@ -218,7 +231,7 @@ export const AssignmentProcess: React.FC<{
                       "%",
                   }}
                 />
-                <div
+                {/* <div
                   className="handle"
                   style={{
                     left:
@@ -227,7 +240,7 @@ export const AssignmentProcess: React.FC<{
                         100 +
                       "%",
                   }}
-                />
+                /> */}
                 <div className="text">
                   {assignment.spent} + {values[assignment.id] ?? 0} /{" "}
                   {assignment.estimated}

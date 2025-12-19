@@ -40,14 +40,16 @@ function updateHideAll() {
 let redraw: boolean = false;
 
 function createWindowForComponent(comp: ComponentConfig) {
+  let adjusting: boolean = false;
+
   const { id, x, y, width, height } = comp;
   const window = createWindow(
     {
       x,
-      y: process.platform == "win32" && editingMode ? y - 32 : y,
+      y: process.platform == "win32" && editingMode ? y - 30 : y,
       width,
       height, // windows "feature"
-      frame: editingMode,
+      frame: process.platform == "win32"? true: editingMode,
       show: false,
       resizable: editingMode,
       movable: editingMode,
@@ -70,27 +72,38 @@ function createWindowForComponent(comp: ComponentConfig) {
     updateVisible(window);
   });
 
+  const remove = data.onChanged(async () => {
+    if (adjusting) return;
+    const latest = await data.component.get(id);
+    window.setPosition(latest.x, latest.y)
+    window.setSize(latest.width, latest.height)
+  })
   window.on("resize", async () => {
     if (!editingMode) return;
     const latest = await data.component.get(id);
     const { width, height } = window.getContentBounds();
-    data.component.update({
+    adjusting = true
+    await data.component.update({
       ...latest,
       width,
-      height,
+      height: process.platform == "win32"? height + 30: height,
     });
+    adjusting = false
   });
   window.on("move", async () => {
     if (!editingMode) return;
     const latest = await data.component.get(id);
     const { x, y } = window.getContentBounds();
-    data.component.update({
+    adjusting = true
+    await data.component.update({
       ...latest,
       x,
-      y,
+      y: process.platform == "win32"? y - 30: y,
     });
+    adjusting = false
   });
   window.on("close", () => {
+    remove();
     if (redraw) return;
     if (!editingMode) return;
     data.component.remove(id);

@@ -483,7 +483,7 @@ export const TimelineView: FC<{
         const dx = touch.clientX - state.startX;
         const dy = touch.clientY - state.startY;
         const nextViewX = state.startViewX - dx;
-        const nextViewY = state.startViewY - dy;
+        const nextViewY = state.startViewY - dy / scale;
         setViewX(() => {
           viewXRef.current = nextViewX;
           return nextViewX;
@@ -619,7 +619,7 @@ export const TimelineView: FC<{
     return {
       transformOrigin: "left top",
       transform: `translateX(${-viewX + originOffset}px) scale(${scale})`,
-      "--timeline-view-x": `${viewportLeft}px`,
+      "--timeline-view-x": `${viewportLeft / scale}px`,
     };
   }, [originOffset, scale, viewX]);
 

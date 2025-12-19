@@ -1,0 +1,177 @@
+@import url("../../color.css");
+
+.student-pending-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.student-pending-card {
+  border: 1px solid var(--gray-tinted-3);
+  background-color: var(--color-surface);
+  padding: 1rem 1.25rem;
+}
+
+.student-pending-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.student-pending-card-header h4 {
+  margin: 0;
+}
+
+.student-pending-status {
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
+  white-space: nowrap;
+}
+
+.student-pending-status.loading {
+  color: var(--color-subtitle);
+}
+
+.student-pending-status.error {
+  color: var(--color-danger);
+}
+
+.student-pending-chart {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.student-pending-chart-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.student-pending-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: 10rem;
+  width: max-content;
+  min-width: 100%;
+}
+
+.student-pending-bar-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  width: 2.6rem;
+  height: 100%;
+  padding: 0.2rem 0.2rem 0.35rem;
+  border: 1px solid var(--gray-tinted-3);
+  background-color: var(--gray-tinted-1);
+  color: var(--color-title);
+}
+
+.student-pending-bar-button.active {
+  border-color: var(--color-secondary);
+  background-color: var(--gray-tinted-2);
+}
+
+.student-pending-bar {
+  width: 100%;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-secondary);
+}
+
+.student-pending-bar-button.active .student-pending-bar {
+  background-color: var(--color-secondary);
+}
+
+.student-pending-bar-count {
+  font-size: var(--small-font-size);
+  color: var(--color-subtitle);
+}
+
+.student-pending-bar-label {
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
+}
+
+.student-pending-chart-axis {
+  font-size: var(--small-font-size);
+  color: var(--color-subtitle);
+}
+
+.student-pending-student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 0.6rem;
+}
+
+.student-pending-student {
+  border: 1px solid var(--gray-tinted-3);
+  background-color: var(--gray-tinted-1);
+}
+
+.student-pending-student-toggle {
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.student-pending-student-toggle.expanded {
+  background-color: var(--gray-tinted-2);
+}
+
+.student-pending-student-name {
+  font-weight: 600;
+}
+
+.student-pending-student-meta {
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
+}
+
+.student-pending-student-count {
+  font-size: var(--small-font-size);
+  color: var(--color-subtitle);
+}
+
+.student-pending-assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.5rem 0.6rem 0.6rem;
+  border-top: 1px solid var(--gray-tinted-3);
+  background-color: var(--color-surface);
+}
+
+.student-pending-assignment {
+  border: 1px solid var(--gray-tinted-3);
+  padding: 0.4rem 0.5rem;
+  background-color: var(--gray-tinted-1);
+}
+
+.student-pending-assignment .assignment-title h5 {
+  margin: 0;
+}
+
+.student-pending-assignment-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
+}
+
+.student-pending-empty {
+  font-size: var(--small-font-size);
+  color: var(--color-subtitle);
+  padding: 0.4rem 0;
+}

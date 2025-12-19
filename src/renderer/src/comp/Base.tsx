@@ -12,15 +12,26 @@ import {
 } from "react";
 
 import "./Base.css";
+import WindowAdjust from "@renderer/component/WindowAdjust";
 
 export type ComponentBaseConfig = {
   scale: number;
   fontSize: string;
+
+  x: number;
+  y: number;
+  width: number;
+  height: number;
 };
 
 export const componentBaseDefaults: ComponentBaseConfig = {
   scale: 1,
   fontSize: "1rem",
+
+  x: 100,
+  y: 100,
+  width: 100,
+  height: 100
 };
 
 type ConfigStateSetter<T> = (config: T) => void;
@@ -184,6 +195,9 @@ export const CompBaseConfig: FC<{
   return (
     <div className="comp-config-group">
       <h3>基础</h3>
+      <WindowAdjust value={stateConfig} set={({x, y, width, height}) => {
+        setStateConfig({ ...stateConfig, x, y, width, height })
+      }} />
       {helper.swipeInput("scale", "缩放", 0.2, "", { id: scaleInputId })}
       {helper.input("fontSize", "字体大小", { id: fontSizeInputId })}
     </div>
