@@ -329,7 +329,7 @@ export const TimelineView: FC<{
         return;
       }
       const left = positionToTime(x);
-      const right = positionToTime(x + viewW);
+      const right = positionToTime(x + viewW / scale);
       void loadRange(left, right);
     },
     [viewW, positionToTime, loadRange],
@@ -482,7 +482,7 @@ export const TimelineView: FC<{
         }
         const dx = touch.clientX - state.startX;
         const dy = touch.clientY - state.startY;
-        const nextViewX = state.startViewX - dx;
+        const nextViewX = state.startViewX - dx / scale;
         const nextViewY = state.startViewY - dy / scale;
         setViewX(() => {
           viewXRef.current = nextViewX;
@@ -495,7 +495,7 @@ export const TimelineView: FC<{
         ensureRangeLoaded(nextViewX);
       }
     },
-    [touchable, ensureRangeLoaded, startTouchPan, startPinch],
+    [touchable, ensureRangeLoaded, startTouchPan, startPinch, scale],
   );
 
   const onTouchEnd = useCallback(
@@ -547,8 +547,8 @@ export const TimelineView: FC<{
       e.preventDefault();
       const dx = e.clientX - dragState.current.startX;
       const dy = e.clientY - dragState.current.startY;
-      const nextViewX = dragState.current.startViewX - dx;
-      const nextViewY = dragState.current.startViewY - dy;
+      const nextViewX = dragState.current.startViewX - dx / scale;
+      const nextViewY = dragState.current.startViewY - dy / scale;
       setViewX(() => {
         viewXRef.current = nextViewX;
         return nextViewX;
@@ -559,7 +559,7 @@ export const TimelineView: FC<{
       });
       ensureRangeLoaded(nextViewX);
     },
-    [touchable, ensureRangeLoaded],
+    [touchable, ensureRangeLoaded, scale],
   );
   const stopDrag = useCallback(() => {
     dragState.current = null;
@@ -618,8 +618,8 @@ export const TimelineView: FC<{
     const viewportLeft = viewX - originOffset;
     return {
       transformOrigin: "left top",
-      transform: `translateX(${-viewX + originOffset}px) scale(${scale})`,
-      "--timeline-view-x": `${viewportLeft / scale}px`,
+      transform: `scale(${scale}) translateX(${-viewX + originOffset}px)`,
+      "--timeline-view-x": `${viewportLeft}px`,
     };
   }, [originOffset, scale, viewX]);
 
@@ -647,7 +647,7 @@ export const TimelineView: FC<{
           );
         })}
         <div className="now" style={{ left: timeToPosition(new Date()) }}></div>
-        <div style={{ transform: `translateY(${-viewY}px)` }}>
+        <div style={{ transform: `translateY(${-viewY / scale}px)` }}>
           {trackElements}
         </div>
       </div>

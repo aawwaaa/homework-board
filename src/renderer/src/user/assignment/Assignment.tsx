@@ -65,7 +65,7 @@ export const AssignmentPage: React.FC<{ props: UserPageProps }> = ({
       <div className="assignment-page__timeline">
         <TimelineView
           key={subject?.id ?? "all"}
-          origin={new Date()}
+          origin={new Date(Date.now() - 12 * 60 * 60 * 1000)}
           filter={(assignment) =>
             subject == null || assignment.subject.id === subject!.id
           }

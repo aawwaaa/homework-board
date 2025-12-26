@@ -198,7 +198,7 @@ export const CompBaseConfig: FC<{
       <WindowAdjust value={stateConfig} set={({x, y, width, height}) => {
         setStateConfig({ ...stateConfig, x, y, width, height })
       }} />
-      {helper.swipeInput("scale", "缩放", 0.2, "", { id: scaleInputId })}
+      {helper.swipeInput("scale", "缩放", 0.05, "", { id: scaleInputId, swipePxPerStep: 10 })}
       {helper.input("fontSize", "字体大小", { id: fontSizeInputId })}
     </div>
   );
