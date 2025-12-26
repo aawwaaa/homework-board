@@ -38,17 +38,17 @@ function updateHideAll() {
 }
 
 let redraw: boolean = false;
+let adjusting: number = Date.now();
 
 function createWindowForComponent(comp: ComponentConfig) {
-  let adjusting: boolean = false;
 
   const { id, x, y, width, height } = comp;
   const window = createWindow(
     {
       x,
-      y: process.platform == "win32" && editingMode ? y - 30 : y,
+      y: !editingMode? y - 30: y,
       width,
-      height, // windows "feature"
+      height: !editingMode? height + 30: height,
       frame: process.platform == "win32"? true: editingMode,
       show: false,
       resizable: editingMode,
@@ -59,12 +59,12 @@ function createWindowForComponent(comp: ComponentConfig) {
 
       transparent: !editingMode,
       skipTaskbar: !editingMode,
-      useContentSize: true,
       autoHideMenuBar: true,
       focusable: editingMode,
     },
     "#/comp/" + id + (editingMode ? "/edit" : ""),
   );
+  adjusting = Date.now() + 1000;
 
   window.setIgnoreMouseEvents(!editingMode);
 
@@ -73,34 +73,35 @@ function createWindowForComponent(comp: ComponentConfig) {
   });
 
   const remove = data.onChanged(async () => {
-    if (adjusting) return;
+    if (adjusting > Date.now()) return;
+    adjusting = Date.now() + 5;
     const latest = await data.component.get(id);
-    window.setPosition(latest.x, latest.y)
-    window.setSize(latest.width, latest.height)
+    window.setPosition(latest.x, !editingMode? latest.y - 30: latest.y)
+    window.setSize(latest.width, !editingMode? latest.height + 30: latest.height)
   })
   window.on("resize", async () => {
     if (!editingMode) return;
+    if (adjusting > Date.now()) return;
     const latest = await data.component.get(id);
-    const { width, height } = window.getContentBounds();
-    adjusting = true
+    const { width, height } = window.getBounds();
+    adjusting = Date.now() + 5;
     await data.component.update({
       ...latest,
       width,
-      height: process.platform == "win32"? height + 30: height,
+      height,
     });
-    adjusting = false
   });
   window.on("move", async () => {
     if (!editingMode) return;
+    if (adjusting > Date.now()) return;
     const latest = await data.component.get(id);
-    const { x, y } = window.getContentBounds();
-    adjusting = true
+    const { x, y } = window.getBounds();
+    adjusting = Date.now() + 5;
     await data.component.update({
       ...latest,
       x,
-      y: process.platform == "win32"? y - 30: y,
+      y: y // Math.max(0, y - 30), // windows
     });
-    adjusting = false
   });
   window.on("close", () => {
     remove();
