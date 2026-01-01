@@ -81,6 +81,12 @@ export const WindowAdjust: React.FC<WindowAdjustProps> = ({ value, set }) => {
 
   const commitValue = useCallback(
     (next: WindowProps) => {
+      next = {
+        x: Math.round(next.x),
+        y: Math.round(next.y),
+        width: Math.round(next.width),
+        height: Math.round(next.height),
+      }
       actionSourceRef.current = "user";
       set(next);
     },

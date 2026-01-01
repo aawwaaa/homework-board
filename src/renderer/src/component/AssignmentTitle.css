@@ -1,7 +1,7 @@
 .assignment-title {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: baseline;
   gap: 3px;
 }
 

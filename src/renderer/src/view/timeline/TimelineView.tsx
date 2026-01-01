@@ -647,7 +647,7 @@ export const TimelineView: FC<{
           );
         })}
         <div className="now" style={{ left: timeToPosition(new Date()) }}></div>
-        <div style={{ transform: `translateY(${-viewY / scale}px)` }}>
+        <div style={{ transform: `translateY(${-viewY}px)` }}>
           {trackElements}
         </div>
       </div>

@@ -46,9 +46,9 @@ function createWindowForComponent(comp: ComponentConfig) {
   const window = createWindow(
     {
       x,
-      y: !editingMode? y - 30: y,
+      y: !editingMode? process.platform == "win32"? y: y - 30: y,
       width,
-      height: !editingMode? height + 30: height,
+      height: !editingMode? process.platform == "win32"? height: height + 30: height,
       frame: process.platform == "win32"? true: editingMode,
       show: false,
       resizable: editingMode,
@@ -76,8 +76,8 @@ function createWindowForComponent(comp: ComponentConfig) {
     if (adjusting > Date.now()) return;
     adjusting = Date.now() + 5;
     const latest = await data.component.get(id);
-    window.setPosition(latest.x, !editingMode? latest.y - 30: latest.y)
-    window.setSize(latest.width, !editingMode? latest.height + 30: latest.height)
+    window.setPosition(latest.x, !editingMode? process.platform == "win32"? latest.y: latest.y - 30: latest.y)
+    window.setSize(latest.width, !editingMode? process.platform == "win32"? latest.height: latest.height + 30: latest.height)
   })
   window.on("resize", async () => {
     if (!editingMode) return;
