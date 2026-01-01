@@ -14,11 +14,13 @@ import { Markdown } from "@renderer/component/Markdown";
 
 export type ComponentNoticeConfig = ComponentBaseConfig & {
   text: string;
+  backgroundColor?: string;
 };
 
 const defaultValue: ComponentNoticeConfig = {
   ...componentBaseDefaults,
   text: "Some text\n\n# Heading\n\n**Bold** and *italic*\n\n[[[#ff0000\nRed text block\n]]]",
+  backgroundColor: "",
 };
 
 export const CompNoticeConfig: FC<{
@@ -46,6 +48,9 @@ export const CompNoticeConfig: FC<{
             style: { display: "block", width: "100%", height: "300px" },
           },
         })}
+        {helper.input("backgroundColor", "背景色", {
+          inputProps: { placeholder: "留空为默认" },
+        })}
       </div>
     </>
   );
@@ -56,10 +61,14 @@ const CompNotice: FC<{
   openConfigWindow: (() => void) | null;
 }> = ({ config: conf, openConfigWindow }) => {
   const config = { ...defaultValue, ...conf };
+  const style = {
+    ...componentStyle(config),
+    ...(config.backgroundColor ? { backgroundColor: config.backgroundColor } : {}),
+  };
 
   return (
     <>
-      <div className="comp" style={componentStyle(config)}>
+      <div className="comp" style={style}>
         <Markdown text={config.text} />
       </div>
       {openConfigWindow && (
