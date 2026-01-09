@@ -4,7 +4,7 @@ import data, { dataPath } from "./data";
 import { createWindow } from "./util";
 import { randomUUID } from "crypto";
 import api from "./api";
-import { access, mkdir, readFile, stat, unlink, writeFile } from "fs/promises";
+import { access, mkdir, readFile, unlink, writeFile } from "fs/promises";
 import path from "path";
 
 const componentTypes = {
