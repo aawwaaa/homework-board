@@ -4,7 +4,8 @@ import path from "path";
 
 const randomId = () => Math.random().toString(36).slice(2);
 
-const dbPath = path.join(app.getPath("userData"), "data.db");
+export const dataPath = app.getPath("userData");
+const dbPath = path.join(dataPath, "data.db");
 const db = new Database(dbPath);
 
 type SQLParams = unknown[];

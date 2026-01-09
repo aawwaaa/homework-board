@@ -14,7 +14,7 @@ import { Markdown } from "@renderer/component/Markdown";
 
 export type ComponentNoticeConfig = ComponentBaseConfig & {
   text: string;
-  backgroundColor?: string;
+  backgroundColor: string;
 };
 
 const defaultValue: ComponentNoticeConfig = {

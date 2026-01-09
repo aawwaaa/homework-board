@@ -193,7 +193,19 @@ type API = {
   setConfig: (config: Config) => Promise<void>;
 
   cutoffAllUselessInfoInOperationLogs: () => void;
+
+  comp: <T>(uuid: string) => CompApi<T>; // reimpl in preload
 };
+
+type CompApi<T = any> = {
+  invoke: (name: string, ...args: any[]) => Promise<any>;
+  handle: (name: string, func: (...args: any[]) => any | Promise<any>) => void;
+
+  onChanged: (func: () => void) => () => void;
+  init: (data: T) => Promise<void>;
+  data: (func?: (data: T) => void | T | Promise<void | T>) => Promise<T>; // reimpl in preload
+    // just modify the data in the callback
+}
 
 type Config = {
   autoStartup: boolean;

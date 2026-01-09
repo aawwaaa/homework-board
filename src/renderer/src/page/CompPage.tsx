@@ -6,6 +6,7 @@ import { compBase } from "@renderer/comp/Base";
 import { compTimeline } from "@renderer/comp/Timeline";
 import { compList } from "@renderer/comp/List";
 import { compNotice } from "@renderer/comp/Notice";
+import { compMemorize } from "@renderer/comp/Memorize";
 
 export type Component<T = object> = {
   type: string;
@@ -19,6 +20,7 @@ export const components: Component<any>[] = [
   compTimeline,
   compList,
   compNotice,
+  compMemorize,
 ];
 
 export const CompPage: FC<{ left: string }> = ({ left }) => {
@@ -62,6 +64,13 @@ export const CompPage: FC<{ left: string }> = ({ left }) => {
     width: config.width,
     height: config.height
   }: null
+
+  useEffect(() => {
+    if (mode === "edit")
+      document.body.style.background = "#888"
+    else
+      document.body.style.background = "transparent"
+  }, [mode]);
 
   return config == null ? (
     <div>加载组件 {id} 中...</div>

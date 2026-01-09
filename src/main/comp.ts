@@ -1,17 +1,21 @@
-import { BrowserWindow, MenuItemConstructorOptions } from "electron";
+import { BrowserWindow, ipcMain, MenuItemConstructorOptions } from "electron";
 import { updateTray } from "./tray";
-import data from "./data";
+import data, { dataPath } from "./data";
 import { createWindow } from "./util";
 import { randomUUID } from "crypto";
 import api from "./api";
+import { access, mkdir, readFile, stat, unlink, writeFile } from "fs/promises";
+import path from "path";
 
 const componentTypes = {
   timeline: "时间线",
   list: "列表",
   notice: "通知",
+  memorize: "记忆",
 };
 
 const componentWindows: Record<string, BrowserWindow> = {};
+const componentApis: Record<string, CompApi<any>> = {};
 
 let editingMode = false;
 let hideAll = false;
@@ -41,7 +45,6 @@ let redraw: boolean = false;
 let adjusting: number = Date.now();
 
 function createWindowForComponent(comp: ComponentConfig) {
-
   const { id, x, y, width, height } = comp;
   const window = createWindow(
     {
@@ -107,10 +110,33 @@ function createWindowForComponent(comp: ComponentConfig) {
     remove();
     if (redraw) return;
     if (!editingMode) return;
-    data.component.remove(id);
+    removeComponent(id)
   });
 
   componentWindows[id] = window;
+  componentApis[id] = createCompApi(id, window);
+}
+
+const componentData = path.join(dataPath, "components");
+
+async function createComponent(config: ComponentConfig) {
+  await data.component.add(config);
+  try {
+    await access(componentData)
+  } catch (_) {
+    await mkdir(componentData)
+  }
+  await writeFile(path.join(componentData, config.id + ".json"), "{}");
+  createWindowForComponent(config);
+}
+
+async function removeComponent(id: string) {
+  delete componentWindows[id];
+  delete componentApis[id];
+  try {
+    await unlink(path.join(componentData, id + ".json"))
+  } catch (_) {}
+  await data.component.remove(id);
 }
 
 async function redrawAllWindows() {
@@ -120,7 +146,10 @@ async function redrawAllWindows() {
       window.close();
     } catch (e) {}
   });
-  Object.keys(componentWindows).forEach((key) => delete componentWindows[key]);
+  Object.keys(componentWindows).forEach((key) => {
+    delete componentWindows[key]
+    delete componentApis[key]
+  });
 
   const components = await data.component.list();
 
@@ -128,6 +157,76 @@ async function redrawAllWindows() {
     createWindowForComponent(comp);
   }
   redraw = false;
+}
+
+function createCompApi(uuid: string, window: BrowserWindow): CompApi<any> {
+  let dataCache = null as any;
+  const dataPath = path.join(componentData, uuid + ".json");
+  const handlers = [] as Array<() => void>;
+  async function withData() {
+    if (dataCache) return true;
+    try {
+      dataCache = JSON.parse(await readFile(dataPath, "utf-8"));
+      return true;
+    } catch (_) {
+      dataCache = {};
+      return false;
+    }
+  }
+  async function writeData() {
+    if (!dataCache) return;
+    await writeFile(dataPath, JSON.stringify(dataCache));
+    handlers.forEach((handler) => handler());
+  }
+  handlers.push(() => {
+    const windows = BrowserWindow.getAllWindows();
+    for (const window of windows) {
+      window.webContents.send("component.data.changed." + uuid);
+    }
+  })
+  return {
+    invoke: (name: string, ...args: any[]): Promise<any> => {
+      const id = randomUUID();
+      window.webContents.send("component.invoke", id, name, ...args);
+      return new Promise((resolve, reject) => {
+        ipcMain.once("component.invoke.reply." + id, (_, value, isError) => {
+          if (isError) {
+            reject(value);
+          } else {
+            resolve(value);
+          }
+        });
+      });
+    },
+    handle: function (_name: string, _func: (...args: any[]) => any): void {
+      throw new Error("Use in isolate!");
+    },
+    onChanged: function (func: () => void): () => void {
+      handlers.push(func);
+      return () => {
+        handlers.splice(handlers.indexOf(func), 1);
+      };
+    },
+    init: async function (data: any): Promise<void> {
+      if (await withData()) return;
+      dataCache = data;
+      await writeData();
+    },
+    data: async function (func?: (data: any) => void | any | Promise<void | any>): Promise<any> {
+      await withData()
+      if (func) {
+        const ret = func(dataCache);
+        if (ret instanceof Promise) dataCache = (await ret) ?? dataCache;
+        else if (typeof ret === "object") dataCache = ret;
+        await writeData();
+      }
+      return dataCache;
+    }
+  }
+}
+
+export function compApi<T>(uuid: string): CompApi<T> {
+  return componentApis[uuid];
 }
 
 export function compGetTray(): Array<MenuItemConstructorOptions> {
@@ -167,7 +266,7 @@ export function compGetTray(): Array<MenuItemConstructorOptions> {
       label: "添加组件",
       submenu: Object.entries(componentTypes).map(([type, name]) => ({
         label: name,
-        click: async () => {
+        click: () => {
           const id = randomUUID();
           const config = {
             id: id,
@@ -178,8 +277,7 @@ export function compGetTray(): Array<MenuItemConstructorOptions> {
             height: 200,
             config: {},
           };
-          await data.component.add(config);
-          createWindowForComponent(config);
+          createComponent(config);
         },
       })),
     },

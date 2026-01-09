@@ -1,8 +1,9 @@
-import { app, shell } from "electron";
+import { app, ipcMain, shell } from "electron";
 import { createWindowButtomRight } from "./util";
 import { getConfig, setConfig } from "./config";
 import { showSignWindow } from "./tray";
 import { cutoffAllUselessInfoInOperationLogs } from "./data";
+import { compApi } from "./comp";
 
 const isSafeExternalUrl = (raw: string) => {
   try {
@@ -85,6 +86,22 @@ const api = {
   },
 
   cutoffAllUselessInfoInOperationLogs: cutoffAllUselessInfoInOperationLogs,
+
+  comp: compApi,
 } as API;
+
+ipcMain.handle("component.invoke", (_, id, name, ...args) => {
+  const api = compApi(id);
+  return api[name](...args);
+});
+ipcMain.handle("component.data", (event, id, request) => {
+  const api = compApi(id);
+  return api.data(request? (data) => new Promise(resolve => {
+    event.sender.send("component.data.data." + request, data);
+    ipcMain.once("component.data.reply." + request, (_, value) => {
+      resolve(value);
+    });
+  }): undefined)
+});
 
 export default api;

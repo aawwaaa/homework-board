@@ -1,0 +1,176 @@
+@import url("../color.css");
+
+.comp-memorize {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: transparent;
+}
+
+.comp-memorize .entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  line-height: 1.3;
+}
+
+.comp-memorize .normal {
+  color: var(--memorize-normal-color, #fff);
+}
+
+.comp-memorize .highlight {
+  color: var(--memorize-highlight-color, #af3);
+}
+
+.comp-memorize .underline-only {
+  color: transparent;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.memorize-control {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.memorize-error {
+  border: 1px solid var(--color-danger);
+  background-color: var(--color-surface-danger);
+  color: var(--color-danger);
+  padding: 0.35rem 0.45rem;
+  font-size: var(--small-font-size);
+}
+
+.memorize-resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.memorize-empty {
+  border: 1px dashed var(--gray-tinted-4);
+  padding: 0.6rem;
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--gray-tinted-6);
+}
+
+.memorize-resource-card {
+  border: 1px solid var(--gray-tinted-3);
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.memorize-resource-header,
+.memorize-resource-subheader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.5rem;
+}
+
+.memorize-resource-header {
+  border-bottom: 1px solid var(--gray-tinted-3);
+}
+
+.memorize-resource-subheader {
+  border-bottom: 1px solid var(--gray-tinted-3);
+  background-color: var(--gray-tinted-1);
+  font-size: var(--small-font-size);
+  color: var(--color-menu);
+}
+
+.memorize-resource-toggle {
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  text-align: left;
+  padding: 0;
+  color: var(--color-title);
+}
+
+.memorize-resource-toggle:hover:not(:disabled) {
+  color: var(--color-secondary);
+}
+
+.memorize-resource-actions {
+  display: inline-flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.memorize-resource-weight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.memorize-resource-weight .swipe-adjust-input {
+  width: 5rem;
+  min-width: 0;
+}
+
+.memorize-resource-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.5rem;
+}
+
+.memorize-resource-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--small-font-size);
+}
+
+.memorize-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.memorize-dot--shown {
+  background-color: var(--color-confirm);
+}
+
+.memorize-dot--hidden {
+  background-color: var(--color-danger);
+}
+
+.memorize-update-panel,
+.memorize-add-panel {
+  border-top: 1px solid var(--gray-tinted-3);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background-color: var(--gray-tinted-1);
+}
+
+.memorize-update-panel textarea,
+.memorize-add-panel textarea,
+.memorize-add-panel input {
+  width: 100%;
+  margin: 0;
+}
+
+.memorize-update-panel textarea,
+.memorize-add-panel textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.memorize-update-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.memorize-add-trigger {
+  align-self: flex-start;
+}
