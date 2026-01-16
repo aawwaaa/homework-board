@@ -17,7 +17,7 @@ export type ComponentNoticeConfig = ComponentBaseConfig & {
   backgroundColor: string;
 };
 
-const defaultValue: ComponentNoticeConfig = {
+export const defaultNoticeValue: ComponentNoticeConfig = {
   ...componentBaseDefaults,
   text: "Some text\n\n# Heading\n\n**Bold** and *italic*\n\n[[[#ff0000\nRed text block\n]]]",
   backgroundColor: "",
@@ -29,7 +29,7 @@ export const CompNoticeConfig: FC<{
 }> = ({ config, setConfig }) => {
   const { stateConfig, setStateConfig } =
     useComponentConfigState<ComponentNoticeConfig>(
-      defaultValue,
+      defaultNoticeValue,
       config,
       setConfig as (config: ComponentNoticeConfig) => void,
     );
@@ -60,7 +60,7 @@ const CompNotice: FC<{
   config: ComponentNoticeConfig;
   openConfigWindow: (() => void) | null;
 }> = ({ config: conf, openConfigWindow }) => {
-  const config = { ...defaultValue, ...conf };
+  const config = { ...defaultNoticeValue, ...conf };
   const style = {
     ...componentStyle(config),
     ...(config.backgroundColor ? { backgroundColor: config.backgroundColor } : {}),

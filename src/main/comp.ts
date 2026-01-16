@@ -11,6 +11,7 @@ const componentTypes = {
   timeline: "时间线",
   list: "列表",
   notice: "通知",
+  "scheduled-notice": "定时通知",
   memorize: "记忆",
 };
 

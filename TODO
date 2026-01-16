@@ -1,106 +1,20 @@
-添加comp: Memorize 于 @comp
+添加comp: ScheduledNotice extends Notice 于 @comp
 
 配置:
-  interval: number 单位分钟 = 10
-  display: number = 3
-  normalColor: string = "#fff"
-  highlightColor: string = "#af3"
-
-状态:
-  data: Record<string, {
-    entries: string[]
-    shown: boolean[]
-    weight: number 
-  }>
-  lasts: [string, number][] // data[$1].entries[$2]
-  lastUpdated: number
-
-方法：
-  next(): void
-    按照对应权重，随机抽取一个name = keyof data
-    若可能，避免lasts.any(([n, _]) => n == name)为true
-    r = data[name]
-    available = 过滤index in 1..r.entries.length:
-      r.shown[index] == false
-    若available.length == 0:
-      for index in 1..r.entries.length:
-        r.shown[index] = false
-      available = 1..r.entries.length
-    
-    随机抽取index in available
-    r.shown[index] = true
-    lasts.push([name, index])
-    if lasts.length > display:
-      lasts.shift()
-    lastUpdated = Date.now()
+  begin: string // "hh:mm"
+  end: string // "hh:mm"
+  debugShow: bool
 
 配置界面:
-  interval(helper滑动) 切换间隔 分钟
-  display(helper滑动) 显示条目数目
-  normalColor(helper文字) 正常颜色
-  highlightColor(helper文字) 高亮颜色
-
-  控制:
-    [下一条]
-
-  资源:
-    (name    点击可展开  ) [更新] [重置] [删除]
-    (  已展示: xxx / yyy) [权重: 1(滑动输入)]
-      展开后:
-        (shown? green-dot: red-dot) (entry)
-        ...
-    
-      点击更新后:
-        [textarea]
-        [更新] [取消]
-      拖拽文本文件到更新按钮:
-        加载文件并更新
-    
-    [添加]
-      点击:
-        [name]
-        [textarea]
-        [添加] [取消]
-      拖拽文件到添加按钮:
-        加载文件并添加
-      默认权重为1
-
-文件加载:
-  以"\n"为分隔符解析文件内容，替换entries
-  对应填充shown: false
-  忽略空行和"#"开头的行
+  begin: input[time]
+  end: input[time]
+  debugShow: checkbox
 
 显示:
-  透明背景
-
-  <div className="comp-memorize">
-    {lasts.map(([name, index], index) => {
-        const shouldHide = index != lasts.length - 1
-        const value = resources[name].entries[index]
-        const parsed = value.split("_")
-        return <div className="entry" key={index}>
-            {parsed.map((data, index) => <span key={index} className={index % 2 == 1? shouldHide? "underline-only": "highlight": "normal"}>
-                {data}
-            </span>)}
-        </div>
-    })}
-  </div>
-
-  样式:
-    按照 @STYLING.md 的说明
-    comp-memorize:
-      font-weight: bold
-    underline-only:
-      文字透明，只显示下划线，颜色primary
-    highlight:
-      文字颜色为 highlightColor
-    normal:
-      文字颜色为 normalColor
-
-行为:
-  每5秒检查 lastUpdated + interval 若小于当前时间，调用 next
+  当前当地时间在 begin, end 范围内 或 debugShow，显示：
+    正常内容，但所有文字居中
+  否则：
+    完全不显示（包括背景）
 
 注意事项:
-  组件状态相关操作使用 @index.d.ts 中的CompApi
-  组件配置参见 @Notice.tsx 的实现
-  列表样式参见 @Operation.tsx 的实现，你需要使用双表头
+  参见 @Notice.tsx 的实现

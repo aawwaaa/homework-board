@@ -6,6 +6,7 @@ import { compBase } from "@renderer/comp/Base";
 import { compTimeline } from "@renderer/comp/Timeline";
 import { compList } from "@renderer/comp/List";
 import { compNotice } from "@renderer/comp/Notice";
+import { compScheduledNotice } from "@renderer/comp/ScheduledNotice";
 import { compMemorize } from "@renderer/comp/Memorize";
 
 export type Component<T = object> = {
@@ -20,6 +21,7 @@ export const components: Component<any>[] = [
   compTimeline,
   compList,
   compNotice,
+  compScheduledNotice,
   compMemorize,
 ];
 
